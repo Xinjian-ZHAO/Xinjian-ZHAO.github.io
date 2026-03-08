@@ -23,10 +23,9 @@ layout: compress
           Menu
         </button>
         <nav class="primary-nav" id="primary-nav" aria-label="Main Navigation">
-          <a href="#about">About</a>
           <a href="#papers">Selected Papers</a>
           <a href="#research-map">Themes & Trajectory</a>
-          <a href="#insights">Insights</a>
+          <a href="#mentorship">Mentorship</a>
           <a href="#contact">Contact</a>
         </nav>
       </div>
@@ -43,6 +42,11 @@ layout: compress
             {% for item in research.profile.intro %}
             <p class="hero-intro">{{ item }}</p>
             {% endfor %}
+            <div class="hero-bio">
+              {% for paragraph in research.about.bio %}
+              <p>{{ paragraph }}</p>
+              {% endfor %}
+            </div>
             <div class="hero-links">
               {% for link in research.hero_links %}
               {% assign link_url = link.url %}
@@ -53,22 +57,9 @@ layout: compress
               {% endfor %}
             </div>
           </div>
-        </div>
-      </section>
-
-      <section class="section" id="about">
-        <div class="container section-content">
-          <div class="section-header reveal">
-            <p class="eyebrow">About</p>
-            <h2>Background and research focus</h2>
-          </div>
-          <div class="about-grid reveal">
-            <div>
-              {% for paragraph in research.about.bio %}
-              <p>{{ paragraph }}</p>
-              {% endfor %}
-            </div>
-          </div>
+          <aside class="hero-photo reveal">
+            <img src="{{ research.profile.photo | relative_url }}" alt="{{ research.profile.name }} profile photo">
+          </aside>
         </div>
       </section>
 
@@ -76,7 +67,7 @@ layout: compress
         <div class="container section-content">
           <div class="section-header reveal">
             <p class="eyebrow">Selected Papers</p>
-            <h2>Paper blocks focused on insight and trajectory relation</h2>
+            <h2>Representative publications</h2>
           </div>
 
           <div class="papers-stack">
@@ -128,10 +119,6 @@ layout: compress
                     <h4>Why It Matters</h4>
                     <p>{{ paper.why_it_matters }}</p>
                   </article>
-                  <article>
-                    <h4>Relation to My Broader Research Trajectory</h4>
-                    <p>{{ paper.trajectory_relation }}</p>
-                  </article>
                 </div>
 
                 <p class="paper-methods"><strong>Methods:</strong> {{ paper.methods }}</p>
@@ -150,61 +137,59 @@ layout: compress
           </div>
 
           <div class="map-stack" id="research-map">
-            <div class="section-header reveal">
+            <div class="section-header reveal compact-header">
               <p class="eyebrow">Themes and Trajectory</p>
-              <h2>Research themes</h2>
             </div>
-            <div class="themes-grid">
-              {% for theme in research.research_themes %}
-              <article class="theme-card reveal">
-                <h3>{{ theme.title }}</h3>
-                <p><strong>Problem</strong> {{ theme.question }}</p>
-                <p><strong>Method</strong> {{ theme.method }}</p>
-                <p><strong>Application</strong> {{ theme.application }}</p>
-              </article>
-              {% endfor %}
-            </div>
-
-            <article class="trunk-card reveal">
-              <h3>{{ research.trajectory.trunk.title }}</h3>
-              <p>{{ research.trajectory.trunk.description }}</p>
+            <article class="map-compact reveal">
+              <p class="map-trunk">{{ research.trajectory.trunk.description }}</p>
+              <div class="map-columns">
+                <div>
+                  <h3>Themes</h3>
+                  <ul class="theme-list">
+                    {% for theme in research.research_themes %}
+                    <li><strong>{{ theme.title }}</strong><span>{{ theme.application }}</span></li>
+                    {% endfor %}
+                  </ul>
+                </div>
+                <div>
+                  <h3>Branches</h3>
+                  <div class="branch-list">
+                    {% for branch in research.trajectory.branches %}
+                    <article>
+                      <p class="branch-title">{{ branch.title }} <span>{{ branch.period }}</span></p>
+                      <p class="branch-focus">{{ branch.focus }}</p>
+                      <p class="branch-links">
+                        {% for node in branch.nodes %}
+                        <a href="#paper-{{ node.paper_id }}">{{ node.label }}</a>{% unless forloop.last %} · {% endunless %}
+                        {% endfor %}
+                      </p>
+                    </article>
+                    {% endfor %}
+                  </div>
+                </div>
+              </div>
             </article>
-
-            <div class="branch-grid">
-              {% for branch in research.trajectory.branches %}
-              <article class="branch-card reveal">
-                <header>
-                  <h3>{{ branch.title }}</h3>
-                  <p class="branch-period">{{ branch.period }}</p>
-                  <p>{{ branch.focus }}</p>
-                </header>
-                <ol>
-                  {% for node in branch.nodes %}
-                  <li>
-                    <a href="#paper-{{ node.paper_id }}">{{ node.label }}</a>
-                    <p>{{ node.one_line }}</p>
-                  </li>
-                  {% endfor %}
-                </ol>
-              </article>
-              {% endfor %}
-            </div>
           </div>
         </div>
       </section>
 
-      <section class="section" id="insights">
+      <section class="section" id="mentorship">
         <div class="container section-content">
-          <div class="section-header reveal">
-            <p class="eyebrow">Cross-paper Insights</p>
-            <h2>Selected insights</h2>
+          <div class="section-header reveal compact-header">
+            <p class="eyebrow">Mentorship</p>
           </div>
-
-          <div class="insights-grid">
-            {% for item in research.cross_paper_insights %}
-            <article class="insight-card reveal">
-              <h3>{{ item.title }}</h3>
-              <p>{{ item.detail }}</p>
+          <p class="mentorship-note reveal">{{ research.mentorship.note }}</p>
+          <div class="mentorship-list">
+            {% for student in research.mentorship.students %}
+            <article class="mentorship-item reveal">
+              <p><a href="{{ student.url }}" target="_blank" rel="noopener noreferrer">{{ student.name }}</a> <span>{{ student.period }}</span></p>
+              <p>{{ student.profile }}</p>
+              {% if student.highlights %}
+              <p>{{ student.highlights }}</p>
+              {% endif %}
+              {% if student.next %}
+              <p>{{ student.next }}</p>
+              {% endif %}
             </article>
             {% endfor %}
           </div>
@@ -213,9 +198,8 @@ layout: compress
 
       <section class="section alt" id="contact">
         <div class="container section-content">
-          <div class="section-header reveal">
+          <div class="section-header reveal compact-header">
             <p class="eyebrow">Contact</p>
-            <h2>Links</h2>
           </div>
           <p class="contact-note reveal">{{ research.contact.note }}</p>
           <div class="contact-links reveal">
@@ -229,6 +213,7 @@ layout: compress
           </div>
         </div>
       </section>
+
     </main>
 
     <footer class="site-footer">

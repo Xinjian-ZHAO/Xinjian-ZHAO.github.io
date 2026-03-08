@@ -3,6 +3,7 @@ profile:
   current_role: "PhD Candidate in Computer Science"
   affiliation: "The Chinese University of Hong Kong, Shenzhen"
   advisor: "Advised by Prof. Tianshu Yu"
+  photo: "/images/profile.png"
   one_liner: "I study graph machine learning and AI methods that improve structural reasoning in scientific and real-world systems."
   intro:
     - "My work focuses on how models represent graph structure, adapt under data shift, and transfer across modalities."
@@ -288,3 +289,17 @@ contact:
       url: "https://github.com/Xinjian-ZHAO"
     - label: "ORCID"
       url: "https://orcid.org/0009-0003-1553-8209"
+
+mentorship:
+  note: "Co-supervision with Prof. Tianshu Yu."
+  students:
+    - name: "Zhongkai Xue"
+      url: "https://zhongkai-xue.com/"
+      period: "2024.12-Present"
+      profile: "B.S. in Financial Engineering, CUHK-Shenzhen"
+      highlights: "NeurIPS 2025; Research Intern at ByteDance"
+      next: "CS PhD student at UCAS"
+    - name: "Zhixuan Yu"
+      url: "https://y-xvan.github.io/"
+      period: "2025.11-Present"
+      profile: "B.S. in Electronic and Computer Engineering, CUHK-Shenzhen"
