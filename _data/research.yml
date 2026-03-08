@@ -1,0 +1,292 @@
+profile:
+  name: "Xinjian Zhao (赵鑫鉴)"
+  current_role: "PhD Candidate in Computer Science"
+  affiliation: "The Chinese University of Hong Kong, Shenzhen"
+  advisor: "Advised by Prof. Tianshu Yu"
+  one_liner: "I study graph machine learning and AI methods that improve structural reasoning in scientific and real-world systems."
+  intro:
+    - "My work focuses on how models represent graph structure, adapt under data shift, and transfer across modalities."
+    - "Across benchmarks, learning algorithms, and AI4Science applications, I aim to turn empirical performance gains into reusable research principles."
+  location: "Shenzhen, China"
+
+hero_links:
+  - label: "CV"
+    url: "/cv/"
+  - label: "Google Scholar"
+    url: "https://scholar.google.com/citations?user=iKuIMsgAAAAJ&hl=en"
+  - label: "Email"
+    url: "#contact"
+  - label: "GitHub"
+    url: "https://github.com/Xinjian-ZHAO"
+  - label: "Research Papers"
+    url: "#papers"
+
+about:
+  bio:
+    - "I am a third-year PhD student in Computer Science at CUHK-Shenzhen. During my PhD, I also spent time as a visiting student at the Institute of Automation, Chinese Academy of Sciences, hosted by Prof. Shu Wu."
+    - "Before my PhD, I completed an M.S. in Data Science at City University of Hong Kong (with Dr. Ruocheng Guo) and a B.S. in Computer Science at Shandong University (with Prof. Xuemeng Song)."
+    - "I am interested in the interface between representation learning, graph structure understanding, and high-impact scientific/industrial applications."
+  why_important: "Reliable structural reasoning is a bottleneck in many domains. Better graph-centric methods can improve generalization, interpretability, and robustness in settings where prediction quality directly affects scientific discovery or engineering decisions."
+  approach: "I combine benchmark design, algorithmic modeling, and cross-domain applications to test not only whether a method works, but also when and why it works."
+
+research_themes:
+  - title: "Vision-Native Structural Understanding"
+    question: "Can vision models recover graph topology and higher-order structure without explicit message passing?"
+    method: "Cross-modal probing, structure-sensitive evaluation, and model behavior analysis."
+    application: "Unified reasoning over visualized scientific/engineering structures."
+  - title: "Efficient and Robust Graph Representation Learning"
+    question: "How can graph embeddings remain useful under perturbation, distribution shift, and limited supervision?"
+    method: "Contrastive learning, augmentation design, and topology-aware regularization."
+    application: "Scalable learning for sparse, noisy, and dynamic graph data."
+  - title: "Benchmarking for Graph Reasoning Agents"
+    question: "What capabilities do LLM-centered systems truly have on graph-theoretic tasks?"
+    method: "Large-scale benchmark construction, taxonomy design, and diagnostic task suites."
+    application: "Trustworthy evaluation for graph-capable foundation models."
+  - title: "AI4Science and Real-World Decision Systems"
+    question: "How can structured priors improve sample efficiency and scientific validity?"
+    method: "Negative sample mining, structural constraints, and domain-aware model adaptation."
+    application: "Protein modeling, recommendation systems, and industrial optimization."
+
+papers:
+  - id: "graphomni"
+    title: "GraphOmni: A Comprehensive and Extendable Benchmark Framework for Large Language Models on Graph-theoretic Tasks"
+    authors: "Hao Xu*, Xiangru Jian*, Xinjian Zhao*, Wei Pang*, Chao Zhang, Suyucheng Wang, Qixin Zhang, Zhengyuan Dong, Joao Monteiro, Bang Liu, Qiuzhuang Sun, Tianshu Yu"
+    venue: "ICLR 2026"
+    year: 2026
+    accent: "#0b7285"
+    teaser_label: "Benchmark Taxonomy"
+    teaser_caption: "Graph-theoretic capabilities of LLM systems"
+    links:
+      - label: "Paper"
+        url: "https://arxiv.org/abs/2504.12764"
+    summary:
+      - "We build a benchmark framework that separates graph-theoretic capabilities into diagnostically meaningful task families."
+      - "Instead of reporting one aggregate score, GraphOmni exposes where LLM-centered systems succeed, fail, and overfit."
+      - "The framework is designed to be extendable, enabling future evaluations as graph reasoning agents evolve."
+    key_insight: "Capability decomposition is essential: graph reasoning performance is highly non-uniform across sub-skills."
+    why_it_matters: "It provides a more reliable basis for comparing model families and choosing where algorithmic effort should go."
+    trajectory_relation: "This work establishes the evaluation spine for my later studies on structure understanding and model bias."
+    methods: "Benchmark design, diagnostic evaluation, task taxonomy"
+    tags: ["LLM", "Graph Reasoning", "Benchmark"]
+
+  - id: "vision-graphs-survey"
+    title: "When Vision Meets Graphs: A Survey on Graph Reasoning and Learning"
+    authors: "Xinjian Zhao, Wei Pang, Zhixuan Yu, Xiangru Jian, Xiaozhuang Song, Yaoyao Xu, Zhongkai Xue, Dingshuo Chen, Shu Wu, Philip Torr, Tianshu Yu"
+    venue: "Preprint 2026"
+    year: 2026
+    accent: "#3b5bdb"
+    teaser_label: "Synthesis Layer"
+    teaser_caption: "Unifying trends across vision and graph learning"
+    links:
+      - label: "Paper"
+        url: "https://www.techrxiv.org/doi/full/10.36227/techrxiv.177004261.15861585/v1"
+    summary:
+      - "This survey systematizes how vision models and graph learning methods increasingly overlap in representation and reasoning."
+      - "We organize methods by structural assumptions, training signals, and transferable inductive biases."
+      - "The survey highlights open problems where cross-modal structure learning is currently fragile or poorly benchmarked."
+    key_insight: "The strongest progress appears when visual and relational inductive biases are treated as complementary, not competing."
+    why_it_matters: "It clarifies a forward research agenda and identifies where new benchmarks and models are most needed."
+    trajectory_relation: "This is a synthesis node that integrates observations from multiple branches of my prior work."
+    methods: "Systematic review, taxonomy, cross-paper synthesis"
+    tags: ["Survey", "Vision", "Graph ML"]
+
+  - id: "vision-power"
+    title: "The Underappreciated Power of Vision Models for Graph Structural Understanding"
+    authors: "Xinjian Zhao*, Wei Pang*, Zhongkai Xue*, Xiangru Jian*, Lei Zhang, Yaoyao Xu, Xiaozhuang Song, Shu Wu, Tianshu Yu"
+    venue: "NeurIPS 2025"
+    year: 2025
+    accent: "#495057"
+    teaser_label: "Structure via Pixels"
+    teaser_caption: "How far vision models can reason about graph structure"
+    links:
+      - label: "Paper"
+        url: "https://arxiv.org/pdf/2510.24788"
+    summary:
+      - "We show that vision models can recover meaningful graph structure signals from rendered representations more effectively than commonly assumed."
+      - "Our analysis reveals which structural properties are captured robustly and which remain brittle."
+      - "The results challenge a strict separation between vision-based and graph-native reasoning pipelines."
+    key_insight: "With the right representation and protocol, vision backbones encode substantial relational structure without explicit graph operators."
+    why_it_matters: "It opens a practical route to leverage mature vision architectures for graph reasoning tasks."
+    trajectory_relation: "This paper extends the GraphOmni diagnosis into model-side evidence about where structural reasoning emerges."
+    methods: "Cross-modal probing, structural property tests, empirical diagnostics"
+    tags: ["Vision Models", "Structural Reasoning", "NeurIPS"]
+
+  - id: "distributional-layouts"
+    title: "Graph Learning with Distributional Edge Layouts"
+    authors: "Xinjian Zhao, Chaolong Ying, Yaoyao Xu, Tianshu Yu"
+    venue: "KDD 2025"
+    year: 2025
+    accent: "#087f5b"
+    teaser_label: "Distributional Geometry"
+    teaser_caption: "Edge layout distributions as structural priors"
+    links:
+      - label: "Paper"
+        url: "https://arxiv.org/abs/2402.16402"
+    summary:
+      - "We model edge layouts as distributions rather than fixed deterministic topology snapshots."
+      - "This representation captures uncertainty and local variability in relational structure."
+      - "Experiments show improved robustness under noisy or ambiguous graph construction."
+    key_insight: "Treating topology as a distribution allows learning algorithms to preserve useful structure under uncertainty."
+    why_it_matters: "Many real data pipelines induce imperfect graphs; distributional layouts make methods less brittle in those settings."
+    trajectory_relation: "This is a core branch in my trajectory on robust graph representation under imperfect structure."
+    methods: "Probabilistic structure modeling, robust graph learning"
+    tags: ["Graph Representation", "Robustness", "KDD"]
+
+  - id: "spectral-augmentation"
+    title: "Rethinking Spectral Augmentation for Contrast-based Graph Self-Supervised Learning"
+    authors: "Xiangru Jian*, Xinjian Zhao*, Wei Pang*, Chaolong Ying, Yimu Wang, Yaoyao Xu, Tianshu Yu"
+    venue: "TMLR 2025"
+    year: 2025
+    accent: "#5f3dc4"
+    teaser_label: "Spectral Views"
+    teaser_caption: "Augmentation choices in graph contrastive learning"
+    links:
+      - label: "Paper"
+        url: "https://openreview.net/pdf?id=HjpD5kpfa3"
+    summary:
+      - "We revisit spectral augmentation strategies and analyze when they help or hurt contrastive graph SSL."
+      - "The paper disentangles augmentation-induced invariances from unwanted information loss."
+      - "We provide practical guidance for choosing augmentations aligned with downstream structure."
+    key_insight: "Good augmentations preserve semantically relevant spectrum while removing nuisance perturbations."
+    why_it_matters: "It improves SSL stability and reduces trial-and-error in representation learning pipelines."
+    trajectory_relation: "This contributes mechanistic understanding in my branch on efficient, principled representation learning."
+    methods: "Self-supervised learning, spectral analysis, augmentation design"
+    tags: ["Graph SSL", "Spectral Methods", "TMLR"]
+
+  - id: "protein-negative-mining"
+    title: "Boosting Protein Language Models with Negative Sample Mining"
+    authors: "Yaoyao Xu*, Xinjian Zhao*, Xiaozhuang Song, Benyou Wang, Tianshu Yu"
+    venue: "ECML-PKDD 2024"
+    year: 2024
+    accent: "#a61e4d"
+    teaser_label: "AI4Science Transfer"
+    teaser_caption: "Hard negative design for protein modeling"
+    links:
+      - label: "Paper"
+        url: "https://arxiv.org/pdf/2402.16346"
+    summary:
+      - "We design negative sample mining strategies tailored to protein sequence and structure representations."
+      - "The method improves discrimination ability while retaining biologically meaningful signals."
+      - "Results indicate that structured negatives are particularly valuable in low-resource scientific settings."
+    key_insight: "Hard negatives should reflect scientific structure, not only embedding distance."
+    why_it_matters: "It demonstrates how graph-inspired learning principles can transfer to high-impact scientific problems."
+    trajectory_relation: "This is a cross-domain branch showing how my graph learning principles scale into AI4Science."
+    methods: "Negative sampling, protein language modeling, domain adaptation"
+    tags: ["AI4Science", "Protein LM", "ECML-PKDD"]
+
+  - id: "persistent-homology-pooling"
+    title: "Boosting Graph Pooling with Persistent Homology"
+    authors: "Chaolong Ying, Xinjian Zhao, Tianshu Yu"
+    venue: "NeurIPS 2024"
+    year: 2024
+    accent: "#d9480f"
+    teaser_label: "Topological Priors"
+    teaser_caption: "Persistent homology for graph pooling"
+    links:
+      - label: "Paper"
+        url: "https://arxiv.org/pdf/2402.16346"
+    summary:
+      - "We incorporate persistent homology signals into graph pooling to retain global structure during coarsening."
+      - "This reduces information collapse caused by purely local pooling heuristics."
+      - "Empirically, topology-aware pooling improves performance on tasks requiring multi-scale reasoning."
+    key_insight: "Topological summaries provide stable global cues that complement local graph features."
+    why_it_matters: "It advances pooling from heuristic compression toward structure-preserving abstraction."
+    trajectory_relation: "This work anchors my trajectory on injecting geometric/topological priors into representation pipelines."
+    methods: "Persistent homology, graph pooling, topological learning"
+    tags: ["Topology", "Graph Pooling", "NeurIPS"]
+
+  - id: "adversarial-curriculum"
+    title: "Adversarial Curriculum Graph Contrastive Learning with Pair-wise Augmentation"
+    authors: "Xinjian Zhao, Liang Zhang, Yang Liu, Ruocheng Guo, Xiangyu Zhao"
+    venue: "Preprint 2024"
+    year: 2024
+    accent: "#1864ab"
+    teaser_label: "Curriculum Robustness"
+    teaser_caption: "Adversarial scheduling for graph contrastive learning"
+    links:
+      - label: "Paper"
+        url: "https://arxiv.org/abs/2402.10468"
+    summary:
+      - "We propose a curriculum strategy that gradually increases augmentation difficulty in adversarial contrastive training."
+      - "Pair-wise augmentation encourages stable representation alignment across perturbation regimes."
+      - "The approach improves robustness and generalization under challenging structural noise."
+    key_insight: "Curriculum design can control representation stability as effectively as objective changes."
+    why_it_matters: "It offers a practical recipe for making graph contrastive methods less fragile."
+    trajectory_relation: "This paper marks an early stage of my long-term branch on robustness-aware representation learning."
+    methods: "Graph contrastive learning, adversarial training, curriculum scheduling"
+    tags: ["Contrastive Learning", "Robustness", "Preprint"]
+
+trajectory:
+  trunk:
+    title: "Core Research Trunk: Structure-Aware Intelligence"
+    description: "Starting question: how can learning systems represent and reason over structure reliably across data modalities, uncertainty levels, and scientific constraints?"
+  branches:
+    - title: "Branch A: Measuring Graph Reasoning Ability"
+      period: "2025-2026"
+      focus: "Capability diagnostics for foundation-model-based graph reasoning."
+      nodes:
+        - paper_id: "graphomni"
+          label: "GraphOmni (ICLR 2026)"
+          one_line: "Decomposes graph reasoning into inspectable sub-skills."
+        - paper_id: "vision-power"
+          label: "Vision Models for Graph Structure (NeurIPS 2025)"
+          one_line: "Tests where structural reasoning can emerge in non-graph-native backbones."
+        - paper_id: "vision-graphs-survey"
+          label: "When Vision Meets Graphs (Survey 2026)"
+          one_line: "Synthesizes capability gaps and future agenda."
+    - title: "Branch B: Robust Graph Representation Learning"
+      period: "2024-2025"
+      focus: "Learning representations that remain useful under noise, shift, and abstraction."
+      nodes:
+        - paper_id: "adversarial-curriculum"
+          label: "Adversarial Curriculum GCL (Preprint 2024)"
+          one_line: "Introduces training curricula for robust contrastive learning."
+        - paper_id: "spectral-augmentation"
+          label: "Spectral Augmentation Revisited (TMLR 2025)"
+          one_line: "Clarifies augmentation principles for stable SSL."
+        - paper_id: "distributional-layouts"
+          label: "Distributional Edge Layouts (KDD 2025)"
+          one_line: "Models topology as distributions for uncertainty-aware learning."
+    - title: "Branch C: Structure Priors in Scientific Domains"
+      period: "2024-2026"
+      focus: "Transferring graph-centric principles to scientific and real-world applications."
+      nodes:
+        - paper_id: "persistent-homology-pooling"
+          label: "Persistent Homology Pooling (NeurIPS 2024)"
+          one_line: "Injects topological signals to preserve global structure."
+        - paper_id: "protein-negative-mining"
+          label: "Negative Mining for Protein LMs (ECML-PKDD 2024)"
+          one_line: "Uses structure-aware negatives to improve scientific representation quality."
+        - paper_id: "vision-graphs-survey"
+          label: "When Vision Meets Graphs (Survey 2026)"
+          one_line: "Connects domain findings into a shared conceptual framework."
+
+cross_paper_insights:
+  - title: "Reliable progress needs capability decomposition."
+    detail: "Across GraphOmni and model analyses, aggregate scores hide critical weaknesses. Fine-grained diagnostics are necessary for trustworthy model comparison."
+  - title: "Structural priors are most valuable under uncertainty."
+    detail: "From distributional layouts to topology-aware pooling, methods that explicitly encode structure tend to be more robust when graphs are noisy or incomplete."
+  - title: "Representation stability is a design target, not a byproduct."
+    detail: "Curriculum learning and augmentation design jointly control whether learned embeddings survive perturbations and transfer across tasks."
+  - title: "Graph learning principles transfer beyond canonical graph benchmarks."
+    detail: "AI4Science applications show that structure-aware strategies can improve data efficiency and scientific validity in new domains."
+
+additional_works:
+  - title: "Embedding in Recommender Systems: A Survey"
+    venue: "Preprint 2026"
+    url: "https://arxiv.org/pdf/2310.18608.pdf"
+  - title: "AOT*: Efficient Synthesis Planning via LLM-Empowered AND-OR Tree Search"
+    venue: "Preprint 2025"
+    url: "https://arxiv.org/abs/2509.20988"
+
+contact:
+  note: "For collaboration and postdoc inquiries, the fastest way to reach me is via my institutional email listed in CV."
+  links:
+    - label: "Download CV"
+      url: "/cv/"
+    - label: "Google Scholar"
+      url: "https://scholar.google.com/citations?user=iKuIMsgAAAAJ&hl=en"
+    - label: "GitHub"
+      url: "https://github.com/Xinjian-ZHAO"
+    - label: "ORCID"
+      url: "https://orcid.org/0009-0003-1553-8209"

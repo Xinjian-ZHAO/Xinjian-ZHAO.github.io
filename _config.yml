@@ -7,10 +7,10 @@
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Homepage"
+title                    : "Xinjian Zhao | Research Homepage"
 title_separator          : "-"
 name                     : &name "Xinjian Zhao"
-description              : &description "personal description"
+description              : &description "Research-focused academic homepage of Xinjian Zhao, centered on graph machine learning, structure-aware AI, and AI4Science."
 url                      : "https://Xinjian-ZHAO.github.io/" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "Xinjian-ZHAO/Xinjian-ZHAO.github.io"
@@ -82,7 +82,7 @@ analytics:
 author:
   name             : "Xinjian Zhao"
   avatar           : "profile.png"
-  bio              : "CUHKSZ"
+  bio              : "PhD candidate in graph machine learning and AI4Science"
   location         : "ShenZhen"
   employer         :
   pubmed           : ""
@@ -96,7 +96,7 @@ author:
   flickr           :
   facebook         :
   foursquare       :
-  github           : "academicpages"
+  github           : "Xinjian-ZHAO"
   google_plus      :
   keybase          :
   instagram        :
