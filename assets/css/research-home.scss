@@ -323,7 +323,7 @@ a {
 }
 
 .paper-content h3 {
-  font-size: 1.02rem;
+  font-size: 1.08rem;
   margin-bottom: 4px;
   line-height: 1.45;
 }
@@ -331,12 +331,12 @@ a {
 .paper-authors,
 .paper-venue {
   color: var(--ink);
-  font-size: 1.02rem;
+  font-size: 1.08rem;
   line-height: 1.45;
 }
 
 .paper-authors {
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .paper-venue {
@@ -620,12 +620,12 @@ a {
 }
 
 .mentorship-note {
-  font-size: 0.92rem;
+  font-size: 1.05rem;
 }
 
 .mentorship-meta {
   margin-top: -18px;
-  font-size: 0.78rem;
+  font-size: 0.92rem;
   color: var(--accent);
   font-weight: 700;
 }
@@ -647,7 +647,7 @@ a {
 }
 
 .mentorship-item p {
-  font-size: 0.86rem;
+  font-size: 1rem;
 }
 
 .mentorship-item p:first-child a {
@@ -657,7 +657,7 @@ a {
 
 .mentorship-item p:first-child span {
   margin-left: 6px;
-  font-size: 0.78rem;
+  font-size: 0.94rem;
 }
 
 .contact-note {

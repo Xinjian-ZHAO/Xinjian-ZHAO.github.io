@@ -220,7 +220,7 @@ trajectory:
     title: "Core Research Trunk: Structure-Aware Intelligence"
     description: "Starting question: how can learning systems represent and reason over structure reliably across data modalities, uncertainty levels, and scientific constraints?"
   branches:
-    - title: "迈向图基础模型"
+    - title: "Towards Graph Foundation Models"
       period: "2025-2026"
       focus: "Capability diagnostics and model-side evidence for graph foundation models."
       nodes:
@@ -233,7 +233,7 @@ trajectory:
         - paper_id: "vision-graphs-survey"
           label: "When Vision Meets Graphs (Survey 2026)"
           one_line: "Synthesizes capability gaps and future agenda."
-    - title: "图增强智能"
+    - title: "Graph-Augmented Intelligence"
       period: "2024-2025"
       focus: "Graph-augmented representation learning under noise, shift, and abstraction."
       nodes:
@@ -246,7 +246,7 @@ trajectory:
         - paper_id: "distributional-layouts"
           label: "Distributional Edge Layouts (KDD 2025)"
           one_line: "Models topology as distributions for uncertainty-aware learning."
-    - title: "结构先验 in Scientific and Real-World Applications"
+    - title: "Structure Priors in Scientific and Real-World Applications"
       period: "2024-2026"
       focus: "Transferring structure-aware priors to scientific and industrial applications."
       nodes:
