@@ -105,7 +105,7 @@ layout: compress
                 </header>
 
                 <div class="paper-summary">
-                  {% for sentence in paper.summary %}
+                  {% for sentence in paper.summary limit: 2 %}
                   <p>{{ sentence }}</p>
                   {% endfor %}
                 </div>
@@ -114,10 +114,6 @@ layout: compress
                   <article>
                     <h4>Key Insight</h4>
                     <p>{{ paper.key_insight }}</p>
-                  </article>
-                  <article>
-                    <h4>Why It Matters</h4>
-                    <p>{{ paper.why_it_matters }}</p>
                   </article>
                 </div>
 
@@ -153,9 +149,9 @@ layout: compress
                 </div>
                 <div>
                   <h3>Branches</h3>
-                  <div class="branch-list">
+                  <div class="branch-tree">
                     {% for branch in research.trajectory.branches %}
-                    <article>
+                    <article class="branch-node">
                       <p class="branch-title">{{ branch.title }} <span>{{ branch.period }}</span></p>
                       <p class="branch-focus">{{ branch.focus }}</p>
                       <p class="branch-links">
@@ -179,6 +175,7 @@ layout: compress
             <p class="eyebrow">Mentorship</p>
           </div>
           <p class="mentorship-note reveal">{{ research.mentorship.note }}</p>
+          <p class="mentorship-meta reveal">{{ research.mentorship.students | size }} students mentored</p>
           <div class="mentorship-list">
             {% for student in research.mentorship.students %}
             <article class="mentorship-item reveal">

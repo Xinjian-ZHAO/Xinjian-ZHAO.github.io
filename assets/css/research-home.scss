@@ -1,7 +1,7 @@
 ---
 ---
 
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700&display=swap");
 
 :root {
   --bg: #f5f7fb;
@@ -30,10 +30,10 @@ html {
 
 body {
   margin: 0;
-  font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
+  font-family: "Manrope", "Noto Sans SC", "Segoe UI", sans-serif;
   color: var(--ink);
   background: var(--bg);
-  line-height: 1.62;
+  line-height: 1.58;
 }
 
 h1,
@@ -41,10 +41,10 @@ h2,
 h3,
 h4 {
   margin: 0;
-  font-family: "Source Serif 4", Georgia, serif;
+  font-family: "Manrope", "Noto Sans SC", "Segoe UI", sans-serif;
   font-weight: 600;
   line-height: 1.2;
-  letter-spacing: 0.01em;
+  letter-spacing: 0;
 }
 
 p {
@@ -61,7 +61,7 @@ a {
 }
 
 .section {
-  padding: 88px 0;
+  padding: 72px 0;
 }
 
 .section.alt {
@@ -109,10 +109,9 @@ a {
 }
 
 .brand {
-  font-family: "Source Serif 4", Georgia, serif;
-  font-size: 1.08rem;
+  font-size: 1.02rem;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 700;
   white-space: nowrap;
 }
 
@@ -146,13 +145,13 @@ a {
 
 .hero {
   padding-top: 110px;
-  padding-bottom: 58px;
+  padding-bottom: 44px;
 }
 
 .hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.72fr) minmax(0, 0.45fr);
-  gap: 18px;
+  grid-template-columns: minmax(0, 1.84fr) minmax(0, 0.32fr);
+  gap: 12px;
   align-items: start;
 }
 
@@ -162,7 +161,7 @@ a {
 }
 
 .hero-content h1 {
-  font-size: clamp(2rem, 4.1vw, 3.45rem);
+  font-size: clamp(1.95rem, 3.8vw, 3.05rem);
 }
 
 .hero-affiliation {
@@ -221,9 +220,10 @@ a {
   border: 1px solid var(--line);
   border-radius: var(--radius-md);
   background: var(--surface);
-  padding: 8px;
+  padding: 6px;
   justify-self: end;
-  width: min(185px, 100%);
+  margin-top: 4px;
+  width: min(145px, 100%);
   box-shadow: 0 8px 24px rgba(15, 26, 36, 0.08);
 }
 
@@ -231,6 +231,7 @@ a {
   width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
+  object-position: center top;
   border-radius: 10px;
   display: block;
 }
@@ -285,7 +286,7 @@ a {
 }
 
 .teaser-fallback p {
-  font-family: "Source Serif 4", Georgia, serif;
+  font-family: "Manrope", "Noto Sans SC", "Segoe UI", sans-serif;
   font-size: 1.06rem;
   font-weight: 700;
   max-width: 16ch;
@@ -359,7 +360,7 @@ a {
 
 .insight-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1fr);
   gap: 8px;
 }
 
@@ -441,7 +442,7 @@ a {
 .map-columns {
   margin-top: 10px;
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
   gap: 12px;
 }
 
@@ -471,19 +472,40 @@ a {
   color: var(--ink);
 }
 
-.branch-list {
+.branch-tree {
+  position: relative;
   display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 8px;
+  padding-top: 11px;
 }
 
-.branch-list article {
-  border-top: 1px dashed var(--line);
-  padding-top: 8px;
+.branch-tree::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 8px;
+  right: 8px;
+  height: 1px;
+  background: var(--line);
 }
 
-.branch-list article:first-child {
-  border-top: 0;
-  padding-top: 0;
+.branch-node {
+  position: relative;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fdfefe;
+  padding: 8px;
+}
+
+.branch-node::before {
+  content: "";
+  position: absolute;
+  top: -11px;
+  left: 16px;
+  width: 1px;
+  height: 11px;
+  background: var(--line);
 }
 
 .branch-title {
@@ -499,7 +521,7 @@ a {
 
 .branch-focus {
   font-size: 0.82rem;
-  margin-top: 2px;
+  margin-top: 3px;
 }
 
 .branch-links {
@@ -519,9 +541,17 @@ a {
   font-size: 0.92rem;
 }
 
+.mentorship-meta {
+  margin-top: -18px;
+  font-size: 0.78rem;
+  color: var(--accent);
+  font-weight: 700;
+}
+
 .mentorship-list {
   display: grid;
   gap: 8px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .mentorship-item {
@@ -531,6 +561,7 @@ a {
   padding: 10px 12px;
   display: grid;
   gap: 4px;
+  border-left: 3px solid var(--accent);
 }
 
 .mentorship-item p {
@@ -579,19 +610,19 @@ a {
 }
 
 .reveal {
-  opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.55s ease, transform 0.55s ease;
-}
-
-.reveal.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.no-js .reveal {
   opacity: 1;
   transform: none;
+}
+
+.js .reveal {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+.js .reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 @media (max-width: 1120px) {
@@ -607,7 +638,7 @@ a {
 
   .hero-photo {
     justify-self: start;
-    width: 150px;
+    width: 132px;
   }
 
   .paper-card {
@@ -615,7 +646,9 @@ a {
   }
 
   .insight-grid,
-  .map-columns {
+  .map-columns,
+  .branch-tree,
+  .mentorship-list {
     grid-template-columns: minmax(0, 1fr);
   }
 }
@@ -647,7 +680,7 @@ a {
   }
 
   .section {
-    padding: 74px 0;
+    padding: 62px 0;
   }
 
   .hero {
@@ -659,7 +692,7 @@ a {
   }
 
   .hero-photo {
-    width: 128px;
+    width: 112px;
   }
 
   .hero-links a,
