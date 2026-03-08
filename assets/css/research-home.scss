@@ -164,7 +164,7 @@ a {
 
 .hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 2.15fr) minmax(0, 0.22fr);
+  grid-template-columns: minmax(0, 1fr) auto;
   gap: 8px;
   align-items: start;
 }
@@ -187,19 +187,14 @@ a {
   margin: 0 8px;
 }
 
-.hero-oneliner {
-  font-size: 1.08rem;
-  max-width: 56ch;
-}
-
 .hero-intro {
   color: var(--ink-muted);
-  max-width: 88ch;
+  max-width: 100ch;
 }
 
 .hero-bio-single {
   color: var(--ink);
-  max-width: 90ch;
+  max-width: 100ch;
 }
 
 .hero-links {
@@ -232,7 +227,7 @@ a {
   padding: 6px;
   justify-self: end;
   margin-top: 4px;
-  width: min(128px, 100%);
+  width: min(152px, 100%);
   box-shadow: 0 8px 24px rgba(15, 26, 36, 0.08);
 }
 
@@ -721,7 +716,7 @@ a {
 
   .hero-photo {
     justify-self: start;
-    width: 120px;
+    width: 132px;
   }
 
   .paper-card {
@@ -811,7 +806,7 @@ a {
   }
 
   .hero-photo {
-    width: 104px;
+    width: 116px;
   }
 
   .hero-links a,
