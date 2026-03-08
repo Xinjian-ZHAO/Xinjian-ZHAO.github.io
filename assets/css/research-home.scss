@@ -4,14 +4,14 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap");
 
 :root {
-  --bg: #f3f1ec;
-  --surface: #fbfaf7;
-  --surface-2: #f0ede6;
-  --ink: #1f2a2e;
-  --ink-muted: #4f5a5f;
-  --line: #d9d4ca;
-  --accent: #0b7285;
-  --accent-soft: rgba(11, 114, 133, 0.14);
+  --bg: #f5f7fb;
+  --surface: #ffffff;
+  --surface-2: #eef3f8;
+  --ink: #0f1a24;
+  --ink-muted: #1e2b38;
+  --line: #d6dfe9;
+  --accent: #1f5ea8;
+  --accent-soft: rgba(31, 94, 168, 0.14);
   --radius-lg: 18px;
   --radius-md: 12px;
   --shadow: 0 16px 36px rgba(18, 29, 33, 0.08);
@@ -32,10 +32,7 @@ body {
   margin: 0;
   font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
   color: var(--ink);
-  background:
-    radial-gradient(circle at 8% -10%, rgba(11, 114, 133, 0.1), transparent 30%),
-    radial-gradient(circle at 90% 18%, rgba(166, 30, 77, 0.07), transparent 28%),
-    var(--bg);
+  background: var(--bg);
   line-height: 1.62;
 }
 
@@ -68,7 +65,7 @@ a {
 }
 
 .section.alt {
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(248, 245, 239, 0.9));
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(236, 243, 249, 0.65));
 }
 
 .section-content {
@@ -99,8 +96,8 @@ a {
   top: 0;
   z-index: 40;
   backdrop-filter: blur(10px);
-  background: rgba(243, 241, 236, 0.84);
-  border-bottom: 1px solid rgba(217, 212, 202, 0.7);
+  background: rgba(245, 247, 251, 0.9);
+  border-bottom: 1px solid rgba(214, 223, 233, 0.8);
 }
 
 .nav-inner {
@@ -128,7 +125,7 @@ a {
 .primary-nav a {
   text-decoration: none;
   font-size: 0.92rem;
-  color: var(--ink-muted);
+  color: var(--ink);
   transition: color 0.2s ease;
 }
 
@@ -153,10 +150,7 @@ a {
 }
 
 .hero-grid {
-  display: grid;
-  grid-template-columns: 1.4fr 0.85fr;
-  gap: 34px;
-  align-items: start;
+  display: block;
 }
 
 .hero-content {
@@ -210,85 +204,25 @@ a {
   transform: translateY(-1px);
 }
 
-.hero-panel {
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--line);
-  background: linear-gradient(130deg, #fdfbf6, #efece3);
-  padding: 24px;
-  box-shadow: var(--shadow);
-  display: grid;
-  gap: 20px;
-}
-
-.hero-panel h2 {
-  font-size: 1.24rem;
-}
-
-.snapshot-metrics {
-  display: grid;
-  gap: 12px;
-}
-
-.snapshot-metrics div {
-  border: 1px solid var(--line);
-  border-radius: var(--radius-md);
-  padding: 12px;
-  background: rgba(255, 255, 255, 0.6);
-}
-
-.snapshot-metrics span {
-  font-size: 1.52rem;
-  font-weight: 700;
-  line-height: 1;
-}
-
-.snapshot-metrics p {
-  margin-top: 6px;
-  color: var(--ink-muted);
-  font-size: 0.88rem;
-}
-
-.snapshot-note {
-  color: var(--ink-muted);
-  font-size: 0.9rem;
-}
-
 .about-grid {
-  display: grid;
-  grid-template-columns: 1.35fr 1fr;
-  gap: 24px;
+  max-width: 86ch;
+  display: block;
 }
 
 .about-grid p {
   margin-bottom: 1rem;
 }
 
-.about-notes {
-  display: grid;
-  gap: 14px;
-}
-
-.about-notes article {
-  border: 1px solid var(--line);
-  border-radius: var(--radius-md);
-  padding: 18px;
-  background: var(--surface);
-}
-
-.about-notes h3 {
-  font-size: 1.08rem;
-  margin-bottom: 8px;
-}
-
-.about-notes p {
-  margin: 0;
-  color: var(--ink-muted);
-}
-
 .themes-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
+}
+
+.map-stack {
+  margin-top: 14px;
+  display: grid;
+  gap: 20px;
 }
 
 .theme-card {
@@ -498,7 +432,7 @@ a {
 
 .trunk-card {
   border: 1px solid var(--line);
-  background: linear-gradient(140deg, #fbfaf6, #f0ede5);
+  background: linear-gradient(140deg, #ffffff, #edf3f9);
   border-radius: var(--radius-lg);
   padding: 22px;
   box-shadow: 0 10px 26px rgba(22, 37, 42, 0.06);
@@ -525,17 +459,6 @@ a {
   border-radius: var(--radius-md);
   background: var(--surface);
   padding: 16px;
-  position: relative;
-}
-
-.branch-card::before {
-  content: "";
-  position: absolute;
-  left: 20px;
-  top: -12px;
-  width: 1px;
-  height: 12px;
-  background: var(--line);
 }
 
 .branch-card h3 {
@@ -658,8 +581,6 @@ a {
 }
 
 @media (max-width: 980px) {
-  .hero-grid,
-  .about-grid,
   .paper-card {
     grid-template-columns: minmax(0, 1fr);
   }
@@ -691,7 +612,7 @@ a {
     width: 100%;
     padding: 12px 15px;
     border-bottom: 1px solid var(--line);
-    background: rgba(243, 241, 236, 0.97);
+    background: rgba(245, 247, 251, 0.98);
     flex-wrap: wrap;
     gap: 10px;
   }

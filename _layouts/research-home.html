@@ -24,9 +24,8 @@ layout: compress
         </button>
         <nav class="primary-nav" id="primary-nav" aria-label="Main Navigation">
           <a href="#about">About</a>
-          <a href="#themes">Research Interests</a>
           <a href="#papers">Selected Papers</a>
-          <a href="#trajectory">Trajectory</a>
+          <a href="#research-map">Themes & Trajectory</a>
           <a href="#insights">Insights</a>
           <a href="#contact">Contact</a>
         </nav>
@@ -54,25 +53,6 @@ layout: compress
               {% endfor %}
             </div>
           </div>
-
-          <aside class="hero-panel reveal" aria-label="Research Snapshot">
-            <h2>Research Snapshot</h2>
-            <div class="snapshot-metrics">
-              <div>
-                <span>{{ research.papers | size }}</span>
-                <p>Selected papers with insight blocks</p>
-              </div>
-              <div>
-                <span>{{ research.research_themes | size }}</span>
-                <p>Structured research themes</p>
-              </div>
-              <div>
-                <span>{{ research.trajectory.branches | size }}</span>
-                <p>Trajectory branches from one core trunk</p>
-              </div>
-            </div>
-            <p class="snapshot-note">This page is designed for fast PI-level review: identity, core questions, representative papers, and research trajectory in one reading flow.</p>
-          </aside>
         </div>
       </section>
 
@@ -80,7 +60,7 @@ layout: compress
         <div class="container section-content">
           <div class="section-header reveal">
             <p class="eyebrow">About</p>
-            <h2>Research identity and working style</h2>
+            <h2>Background and research focus</h2>
           </div>
           <div class="about-grid reveal">
             <div>
@@ -88,35 +68,6 @@ layout: compress
               <p>{{ paragraph }}</p>
               {% endfor %}
             </div>
-            <div class="about-notes">
-              <article>
-                <h3>Questions I Care About</h3>
-                <p>{{ research.about.why_important }}</p>
-              </article>
-              <article>
-                <h3>How I Work</h3>
-                <p>{{ research.about.approach }}</p>
-              </article>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section alt" id="themes">
-        <div class="container section-content">
-          <div class="section-header reveal">
-            <p class="eyebrow">Research Interests</p>
-            <h2>Theme clusters organized by problem-method-application</h2>
-          </div>
-          <div class="themes-grid">
-            {% for theme in research.research_themes %}
-            <article class="theme-card reveal">
-              <h3>{{ theme.title }}</h3>
-              <p><strong>Problem</strong> {{ theme.question }}</p>
-              <p><strong>Method</strong> {{ theme.method }}</p>
-              <p><strong>Application</strong> {{ theme.application }}</p>
-            </article>
-            {% endfor %}
           </div>
         </div>
       </section>
@@ -152,7 +103,8 @@ layout: compress
               <div class="paper-content">
                 <header>
                   <h3>{{ paper.title }}</h3>
-                  <p class="paper-authors">{{ paper.authors }}</p>
+                  {% assign formatted_authors = paper.authors | replace: 'Xinjian Zhao', '<strong>Xinjian Zhao</strong>' %}
+                  <p class="paper-authors">{{ formatted_authors }}</p>
                   <p class="paper-venue">{{ paper.venue }}</p>
                   <div class="paper-links">
                     {% for item in paper.links %}
@@ -196,39 +148,47 @@ layout: compress
               {% endfor %}
             </ul>
           </div>
-        </div>
-      </section>
 
-      <section class="section alt" id="trajectory">
-        <div class="container section-content">
-          <div class="section-header reveal">
-            <p class="eyebrow">Research Trajectory</p>
-            <h2>From one trunk question to branching lines of work</h2>
-          </div>
+          <div class="map-stack" id="research-map">
+            <div class="section-header reveal">
+              <p class="eyebrow">Themes and Trajectory</p>
+              <h2>Research themes</h2>
+            </div>
+            <div class="themes-grid">
+              {% for theme in research.research_themes %}
+              <article class="theme-card reveal">
+                <h3>{{ theme.title }}</h3>
+                <p><strong>Problem</strong> {{ theme.question }}</p>
+                <p><strong>Method</strong> {{ theme.method }}</p>
+                <p><strong>Application</strong> {{ theme.application }}</p>
+              </article>
+              {% endfor %}
+            </div>
 
-          <article class="trunk-card reveal">
-            <h3>{{ research.trajectory.trunk.title }}</h3>
-            <p>{{ research.trajectory.trunk.description }}</p>
-          </article>
-
-          <div class="branch-grid">
-            {% for branch in research.trajectory.branches %}
-            <article class="branch-card reveal">
-              <header>
-                <h3>{{ branch.title }}</h3>
-                <p class="branch-period">{{ branch.period }}</p>
-                <p>{{ branch.focus }}</p>
-              </header>
-              <ol>
-                {% for node in branch.nodes %}
-                <li>
-                  <a href="#paper-{{ node.paper_id }}">{{ node.label }}</a>
-                  <p>{{ node.one_line }}</p>
-                </li>
-                {% endfor %}
-              </ol>
+            <article class="trunk-card reveal">
+              <h3>{{ research.trajectory.trunk.title }}</h3>
+              <p>{{ research.trajectory.trunk.description }}</p>
             </article>
-            {% endfor %}
+
+            <div class="branch-grid">
+              {% for branch in research.trajectory.branches %}
+              <article class="branch-card reveal">
+                <header>
+                  <h3>{{ branch.title }}</h3>
+                  <p class="branch-period">{{ branch.period }}</p>
+                  <p>{{ branch.focus }}</p>
+                </header>
+                <ol>
+                  {% for node in branch.nodes %}
+                  <li>
+                    <a href="#paper-{{ node.paper_id }}">{{ node.label }}</a>
+                    <p>{{ node.one_line }}</p>
+                  </li>
+                  {% endfor %}
+                </ol>
+              </article>
+              {% endfor %}
+            </div>
           </div>
         </div>
       </section>
@@ -237,7 +197,7 @@ layout: compress
         <div class="container section-content">
           <div class="section-header reveal">
             <p class="eyebrow">Cross-paper Insights</p>
-            <h2>What these papers jointly suggest</h2>
+            <h2>Selected insights</h2>
           </div>
 
           <div class="insights-grid">
@@ -255,7 +215,7 @@ layout: compress
         <div class="container section-content">
           <div class="section-header reveal">
             <p class="eyebrow">Contact</p>
-            <h2>For postdoc inquiries and collaboration</h2>
+            <h2>Links</h2>
           </div>
           <p class="contact-note reveal">{{ research.contact.note }}</p>
           <div class="contact-links reveal">
