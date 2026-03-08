@@ -37,8 +37,7 @@ layout: compress
           <div class="hero-content reveal">
             <h1>{{ research.profile.name }}</h1>
             <p class="hero-affiliation">{{ research.profile.affiliation }}</p>
-            <p class="hero-intro">{{ research.about.bio[0] }}</p>
-            <p class="hero-bio-single">{{ research.about.bio[1] }} {{ research.about.bio[2] }}</p>
+            <p class="hero-intro hero-intro-main">{{ research.about.bio[0] }} {{ research.about.bio[1] }} {{ research.about.bio[2] }}</p>
             <div class="hero-links">
               {% for link in research.hero_links %}
               {% assign link_url = link.url %}
@@ -59,7 +58,7 @@ layout: compress
         <div class="container section-content">
           <div class="section-header reveal">
             <p class="eyebrow section-title">Selected Papers</p>
-            <p class="section-note">* denotes equal contribution.</p>
+            <p class="section-note"><strong>* denotes equal contribution.</strong></p>
           </div>
 
           <div class="papers-stack">
