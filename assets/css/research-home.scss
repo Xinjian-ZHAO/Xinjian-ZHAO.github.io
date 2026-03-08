@@ -157,8 +157,8 @@ a {
 
 .hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.84fr) minmax(0, 0.32fr);
-  gap: 12px;
+  grid-template-columns: minmax(0, 2.15fr) minmax(0, 0.22fr);
+  gap: 8px;
   align-items: start;
 }
 
@@ -225,7 +225,7 @@ a {
   padding: 6px;
   justify-self: end;
   margin-top: 4px;
-  width: min(145px, 100%);
+  width: min(128px, 100%);
   box-shadow: 0 8px 24px rgba(15, 26, 36, 0.08);
 }
 
@@ -409,7 +409,7 @@ a {
 }
 
 .additional-works h3 {
-  font-size: 1rem;
+  font-size: 1.08rem;
   margin-bottom: 8px;
 }
 
@@ -419,24 +419,26 @@ a {
 }
 
 .additional-works li {
-  margin-bottom: 7px;
+  margin-bottom: 10px;
   color: var(--ink);
 }
 
 .additional-works a {
   font-weight: 500;
+  font-size: 1.08rem;
+  line-height: 1.45;
 }
 
 .additional-works span {
   margin-left: 6px;
   color: var(--ink);
-  font-size: 0.9rem;
+  font-size: 1.04rem;
 }
 
 .additional-authors {
   margin-top: 4px;
-  font-size: 0.88rem;
-  line-height: 1.4;
+  font-size: 1.02rem;
+  line-height: 1.5;
   color: var(--ink-muted);
 }
 
@@ -606,19 +608,19 @@ a {
 }
 
 .mentorship-note {
-  font-size: 1.05rem;
+  font-size: 1.08rem;
 }
 
 .mentorship-meta {
-  margin-top: -18px;
-  font-size: 0.92rem;
+  margin-top: -14px;
+  font-size: 1.02rem;
   color: var(--accent);
   font-weight: 700;
 }
 
 .mentorship-list {
   display: grid;
-  gap: 8px;
+  gap: 10px;
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
@@ -626,14 +628,15 @@ a {
   border: 1px solid var(--line);
   border-radius: 10px;
   background: var(--surface);
-  padding: 10px 12px;
+  padding: 12px;
   display: grid;
-  gap: 4px;
+  gap: 5px;
   border-left: 3px solid var(--accent);
 }
 
 .mentorship-item p {
-  font-size: 1rem;
+  font-size: 1.08rem;
+  line-height: 1.45;
 }
 
 .mentorship-item p:first-child a {
@@ -643,7 +646,7 @@ a {
 
 .mentorship-item p:first-child span {
   margin-left: 6px;
-  font-size: 0.94rem;
+  font-size: 1.04rem;
 }
 
 .contact-note {
@@ -706,7 +709,7 @@ a {
 
   .hero-photo {
     justify-self: start;
-    width: 132px;
+    width: 120px;
   }
 
   .paper-card {
@@ -796,7 +799,7 @@ a {
   }
 
   .hero-photo {
-    width: 112px;
+    width: 104px;
   }
 
   .hero-links a,
