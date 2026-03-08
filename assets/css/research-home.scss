@@ -88,8 +88,13 @@ a {
   color: var(--accent);
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  font-size: 0.74rem;
-  font-weight: 600;
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+.section-title {
+  color: #123f74;
+  font-size: 0.92rem;
 }
 
 .site-nav {
@@ -325,6 +330,7 @@ a {
 .paper-venue {
   color: var(--ink);
   font-size: 0.85rem;
+  line-height: 1.42;
 }
 
 .paper-links {
@@ -432,67 +438,93 @@ a {
 
 .map-compact {
   border: 1px solid var(--line);
-  border-radius: 12px;
-  background: var(--surface);
-  padding: 12px;
+  border-radius: 14px;
+  background:
+    radial-gradient(circle at 90% 8%, rgba(31, 94, 168, 0.12), transparent 24%),
+    linear-gradient(180deg, #ffffff, #f7fbff);
+  padding: 14px;
+  box-shadow: 0 10px 26px rgba(19, 50, 87, 0.08);
 }
 
 .map-trunk {
-  font-size: 0.96rem;
+  font-size: 0.98rem;
   color: var(--ink);
+  font-weight: 500;
 }
 
 .trajectory-title {
   margin-top: 10px;
-  font-size: 0.96rem;
-  font-weight: 700;
+  font-size: 1rem;
+  font-weight: 800;
+  color: #123f74;
 }
 
 .branch-tree {
   position: relative;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 8px;
-  padding-top: 11px;
+  gap: 10px;
+  padding-top: 14px;
 }
 
 .branch-tree::before {
   content: "";
   position: absolute;
-  top: 0;
+  top: 2px;
   left: 8px;
   right: 8px;
-  height: 1px;
-  background: var(--line);
+  height: 2px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, rgba(31, 94, 168, 0.25), rgba(31, 94, 168, 0.55), rgba(31, 94, 168, 0.25));
 }
 
 .branch-node {
   position: relative;
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  background: #fdfefe;
-  padding: 8px;
+  border: 1px solid #cfdced;
+  border-radius: 12px;
+  background: #ffffff;
+  padding: 10px;
+  box-shadow: 0 8px 20px rgba(16, 42, 74, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.branch-node:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(16, 42, 74, 0.1);
 }
 
 .branch-node::before {
   content: "";
   position: absolute;
-  top: -11px;
-  left: 16px;
+  top: -12px;
+  left: 18px;
   width: 1px;
-  height: 11px;
+  height: 12px;
   background: var(--line);
+}
+
+.branch-node::after {
+  content: "";
+  position: absolute;
+  top: -15px;
+  left: 14px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #1f5ea8;
+  box-shadow: 0 0 0 3px rgba(31, 94, 168, 0.16);
 }
 
 .branch-title {
   font-size: 0.94rem;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .branch-title span {
   font-weight: 500;
-  font-size: 0.86rem;
+  font-size: 0.84rem;
   margin-left: 4px;
+  color: #245e99;
 }
 
 .branch-focus {

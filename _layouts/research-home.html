@@ -37,10 +37,10 @@ layout: compress
           <div class="hero-content reveal">
             <p class="eyebrow">{{ research.profile.current_role }}</p>
             <h1>{{ research.profile.name }}</h1>
-            <p class="hero-affiliation">{{ research.profile.affiliation }} <span class="dot">•</span> {{ research.profile.advisor }}</p>
+            <p class="hero-affiliation">{{ research.profile.affiliation }}</p>
             <p class="hero-oneliner">{{ research.profile.one_liner }}</p>
             <p class="hero-intro">{{ research.profile.intro | join: " " }}</p>
-            <p class="hero-bio-single">{{ research.about.bio | join: " " }}</p>
+            <p class="hero-bio-single">{{ research.about.bio | join: " " }} {{ research.profile.advisor }}.</p>
             <div class="hero-links">
               {% for link in research.hero_links %}
               {% assign link_url = link.url %}
@@ -60,8 +60,7 @@ layout: compress
       <section class="section" id="papers">
         <div class="container section-content">
           <div class="section-header reveal">
-            <p class="eyebrow">Selected Papers</p>
-            <h2>Representative publications</h2>
+            <p class="eyebrow section-title">Selected Papers</p>
           </div>
 
           <div class="papers-stack">
@@ -90,7 +89,7 @@ layout: compress
                   <h3>{{ paper.title }}</h3>
                   {% assign formatted_authors = paper.authors | replace: 'Xinjian Zhao', '<strong>Xinjian Zhao</strong>' %}
                   <p class="paper-authors">{{ formatted_authors }}</p>
-                  <p class="paper-venue">{{ paper.venue }}</p>
+                  <p class="paper-venue"><strong>{{ paper.venue }}</strong></p>
                   <div class="paper-links">
                     {% for item in paper.links %}
                     <a href="{{ item.url }}" target="_blank" rel="noopener noreferrer">{{ item.label }}</a>
@@ -134,7 +133,7 @@ layout: compress
 
           <div class="map-stack" id="research-map">
             <div class="section-header reveal compact-header">
-              <p class="eyebrow">Trajectory</p>
+              <p class="eyebrow section-title">Trajectory</p>
             </div>
             <article class="map-compact reveal">
               <p class="map-trunk">{{ research.trajectory.trunk.description }}</p>

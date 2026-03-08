@@ -50,7 +50,7 @@ papers:
   - id: "graphomni"
     title: "GraphOmni: A Comprehensive and Extendable Benchmark Framework for Large Language Models on Graph-theoretic Tasks"
     authors: "Hao Xu*, Xiangru Jian*, Xinjian Zhao*, Wei Pang*, Chao Zhang, Suyucheng Wang, Qixin Zhang, Zhengyuan Dong, Joao Monteiro, Bang Liu, Qiuzhuang Sun, Tianshu Yu"
-    venue: "ICLR 2026"
+    venue: "International Conference on Learning Representations (ICLR), 2026"
     year: 2026
     accent: "#0b7285"
     teaser_label: "Benchmark Taxonomy"
@@ -92,7 +92,7 @@ papers:
   - id: "vision-power"
     title: "The Underappreciated Power of Vision Models for Graph Structural Understanding"
     authors: "Xinjian Zhao*, Wei Pang*, Zhongkai Xue*, Xiangru Jian*, Lei Zhang, Yaoyao Xu, Xiaozhuang Song, Shu Wu, Tianshu Yu"
-    venue: "NeurIPS 2025"
+    venue: "Conference on Neural Information Processing Systems (NeurIPS), 2025"
     year: 2025
     accent: "#495057"
     teaser_label: "Structure via Pixels"
@@ -113,7 +113,7 @@ papers:
   - id: "distributional-layouts"
     title: "Graph Learning with Distributional Edge Layouts"
     authors: "Xinjian Zhao, Chaolong Ying, Yaoyao Xu, Tianshu Yu"
-    venue: "KDD 2025"
+    venue: "ACM SIGKDD Conference on Knowledge Discovery and Data Mining (KDD), 2025"
     year: 2025
     accent: "#087f5b"
     teaser_label: "Distributional Geometry"
@@ -134,7 +134,7 @@ papers:
   - id: "spectral-augmentation"
     title: "Rethinking Spectral Augmentation for Contrast-based Graph Self-Supervised Learning"
     authors: "Xiangru Jian*, Xinjian Zhao*, Wei Pang*, Chaolong Ying, Yimu Wang, Yaoyao Xu, Tianshu Yu"
-    venue: "TMLR 2025"
+    venue: "Transactions on Machine Learning Research (TMLR), 2025"
     year: 2025
     accent: "#5f3dc4"
     teaser_label: "Spectral Views"
@@ -155,7 +155,7 @@ papers:
   - id: "protein-negative-mining"
     title: "Boosting Protein Language Models with Negative Sample Mining"
     authors: "Yaoyao Xu*, Xinjian Zhao*, Xiaozhuang Song, Benyou Wang, Tianshu Yu"
-    venue: "ECML-PKDD 2024"
+    venue: "European Conference on Machine Learning and Principles and Practice of Knowledge Discovery in Databases (ECML-PKDD), 2024"
     year: 2024
     accent: "#a61e4d"
     teaser_label: "AI4Science Transfer"
@@ -176,7 +176,7 @@ papers:
   - id: "persistent-homology-pooling"
     title: "Boosting Graph Pooling with Persistent Homology"
     authors: "Chaolong Ying, Xinjian Zhao, Tianshu Yu"
-    venue: "NeurIPS 2024"
+    venue: "Conference on Neural Information Processing Systems (NeurIPS), 2024"
     year: 2024
     accent: "#d9480f"
     teaser_label: "Topological Priors"
