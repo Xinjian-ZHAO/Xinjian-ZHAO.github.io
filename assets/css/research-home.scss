@@ -16,6 +16,8 @@
   --radius-md: 12px;
   --shadow: 0 16px 36px rgba(18, 29, 33, 0.08);
   --container: min(1120px, calc(100% - 48px));
+  --paper-main-size: 1.08rem;
+  --paper-meta-size: 1.02rem;
 }
 
 *,
@@ -96,6 +98,11 @@ a {
   color: #123f74;
   font-size: 1.08rem;
   font-weight: 800;
+}
+
+.section-note {
+  font-size: 0.96rem;
+  color: var(--ink-muted);
 }
 
 .site-nav {
@@ -323,7 +330,7 @@ a {
 }
 
 .paper-content h3 {
-  font-size: 1.08rem;
+  font-size: var(--paper-main-size);
   margin-bottom: 4px;
   line-height: 1.45;
 }
@@ -331,7 +338,7 @@ a {
 .paper-authors,
 .paper-venue {
   color: var(--ink);
-  font-size: 1.08rem;
+  font-size: var(--paper-main-size);
   line-height: 1.45;
 }
 
@@ -425,19 +432,19 @@ a {
 
 .additional-works a {
   font-weight: 500;
-  font-size: 1.08rem;
+  font-size: var(--paper-main-size);
   line-height: 1.45;
 }
 
 .additional-works span {
   margin-left: 6px;
   color: var(--ink);
-  font-size: 1.04rem;
+  font-size: var(--paper-meta-size);
 }
 
 .additional-authors {
   margin-top: 4px;
-  font-size: 1.02rem;
+  font-size: var(--paper-meta-size);
   line-height: 1.5;
   color: var(--ink-muted);
 }
@@ -608,12 +615,12 @@ a {
 }
 
 .mentorship-note {
-  font-size: 1.08rem;
+  font-size: var(--paper-main-size);
 }
 
 .mentorship-meta {
   margin-top: -14px;
-  font-size: 1.02rem;
+  font-size: var(--paper-meta-size);
   color: var(--accent);
   font-weight: 700;
 }
@@ -635,7 +642,7 @@ a {
 }
 
 .mentorship-item p {
-  font-size: 1.08rem;
+  font-size: var(--paper-main-size);
   line-height: 1.45;
 }
 
@@ -646,7 +653,7 @@ a {
 
 .mentorship-item p:first-child span {
   margin-left: 6px;
-  font-size: 1.04rem;
+  font-size: var(--paper-meta-size);
 }
 
 .contact-note {
