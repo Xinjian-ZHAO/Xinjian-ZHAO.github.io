@@ -94,7 +94,8 @@ a {
 
 .section-title {
   color: #123f74;
-  font-size: 0.92rem;
+  font-size: 1.08rem;
+  font-weight: 800;
 }
 
 .site-nav {
@@ -446,36 +447,51 @@ a {
   box-shadow: 0 10px 26px rgba(19, 50, 87, 0.08);
 }
 
+.trajectory-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.35fr);
+  gap: 16px;
+  align-items: start;
+}
+
+.trunk-node {
+  border: 1px solid #cddbeb;
+  border-radius: 12px;
+  background: linear-gradient(160deg, #ffffff, #eef5fd);
+  padding: 12px;
+  border-left: 4px solid #2a69b0;
+}
+
+.trunk-label {
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: #123f74;
+  margin-bottom: 6px;
+}
+
 .map-trunk {
   font-size: 0.98rem;
   color: var(--ink);
-  font-weight: 500;
-}
-
-.trajectory-title {
-  margin-top: 10px;
-  font-size: 1rem;
-  font-weight: 800;
-  color: #123f74;
+  font-weight: 600;
 }
 
 .branch-tree {
   position: relative;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 10px;
-  padding-top: 14px;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 12px;
+  padding-left: 14px;
 }
 
 .branch-tree::before {
   content: "";
   position: absolute;
-  top: 2px;
-  left: 8px;
-  right: 8px;
-  height: 2px;
+  top: 8px;
+  left: 5px;
+  bottom: 8px;
+  width: 2px;
   border-radius: 4px;
-  background: linear-gradient(90deg, rgba(31, 94, 168, 0.25), rgba(31, 94, 168, 0.55), rgba(31, 94, 168, 0.25));
+  background: linear-gradient(180deg, rgba(31, 94, 168, 0.25), rgba(31, 94, 168, 0.65), rgba(31, 94, 168, 0.25));
 }
 
 .branch-node {
@@ -483,7 +499,7 @@ a {
   border: 1px solid #cfdced;
   border-radius: 12px;
   background: #ffffff;
-  padding: 10px;
+  padding: 10px 12px;
   box-shadow: 0 8px 20px rgba(16, 42, 74, 0.06);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -496,49 +512,53 @@ a {
 .branch-node::before {
   content: "";
   position: absolute;
-  top: -12px;
-  left: 18px;
-  width: 1px;
-  height: 12px;
-  background: var(--line);
+  top: 23px;
+  left: -14px;
+  width: 14px;
+  height: 2px;
+  background: rgba(31, 94, 168, 0.55);
 }
 
 .branch-node::after {
   content: "";
   position: absolute;
-  top: -15px;
-  left: 14px;
-  width: 9px;
-  height: 9px;
+  top: 19px;
+  left: -19px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background: #1f5ea8;
-  box-shadow: 0 0 0 3px rgba(31, 94, 168, 0.16);
+  box-shadow: 0 0 0 2px rgba(31, 94, 168, 0.12);
 }
 
 .branch-title {
-  font-size: 0.94rem;
+  font-size: 1rem;
   font-weight: 700;
+  line-height: 1.45;
 }
 
 .branch-title span {
-  font-weight: 500;
-  font-size: 0.84rem;
+  font-weight: 700;
+  font-size: 1rem;
   margin-left: 4px;
-  color: #245e99;
+  color: #174a84;
 }
 
 .branch-focus {
-  font-size: 0.9rem;
-  margin-top: 3px;
+  font-size: 1rem;
+  margin-top: 4px;
+  line-height: 1.45;
 }
 
 .branch-links {
-  margin-top: 4px;
-  font-size: 0.88rem;
+  margin-top: 5px;
+  font-size: 1rem;
+  line-height: 1.45;
 }
 
 .branch-links a {
   text-decoration: none;
+  font-weight: 700;
 }
 
 .branch-links a:hover {
@@ -651,6 +671,14 @@ a {
 
   .paper-card {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  .trajectory-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .branch-tree {
+    padding-left: 12px;
   }
 
   .insight-grid,
