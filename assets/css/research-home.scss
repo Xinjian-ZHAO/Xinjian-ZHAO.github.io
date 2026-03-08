@@ -323,15 +323,24 @@ a {
 }
 
 .paper-content h3 {
-  font-size: clamp(1.02rem, 1.7vw, 1.28rem);
+  font-size: 1.02rem;
   margin-bottom: 4px;
+  line-height: 1.45;
 }
 
 .paper-authors,
 .paper-venue {
   color: var(--ink);
-  font-size: 0.85rem;
-  line-height: 1.42;
+  font-size: 1.02rem;
+  line-height: 1.45;
+}
+
+.paper-authors {
+  font-weight: 500;
+}
+
+.paper-venue {
+  font-weight: 700;
 }
 
 .paper-links {
@@ -449,8 +458,8 @@ a {
 
 .trajectory-layout {
   display: grid;
-  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.35fr);
-  gap: 16px;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 14px;
   align-items: start;
 }
 
@@ -460,6 +469,8 @@ a {
   background: linear-gradient(160deg, #ffffff, #eef5fd);
   padding: 12px;
   border-left: 4px solid #2a69b0;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .trunk-label {
@@ -478,30 +489,47 @@ a {
 .branch-tree {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 12px;
-  padding-left: 14px;
+  padding-top: 16px;
 }
 
 .branch-tree::before {
   content: "";
   position: absolute;
-  top: 8px;
-  left: 5px;
-  bottom: 8px;
-  width: 2px;
+  top: 5px;
+  left: 9%;
+  right: 9%;
+  height: 2px;
   border-radius: 4px;
-  background: linear-gradient(180deg, rgba(31, 94, 168, 0.25), rgba(31, 94, 168, 0.65), rgba(31, 94, 168, 0.25));
+  background: linear-gradient(90deg, rgba(31, 94, 168, 0.25), rgba(31, 94, 168, 0.65), rgba(31, 94, 168, 0.25));
 }
 
 .branch-node {
+  --branch-accent: #2a69b0;
   position: relative;
   border: 1px solid #cfdced;
   border-radius: 12px;
-  background: #ffffff;
+  background: #f6f9ff;
   padding: 10px 12px;
+  border-top: 3px solid var(--branch-accent);
   box-shadow: 0 8px 20px rgba(16, 42, 74, 0.06);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.branch-node:nth-child(1) {
+  --branch-accent: #2a69b0;
+  background: #f5f9ff;
+}
+
+.branch-node:nth-child(2) {
+  --branch-accent: #2b8a5a;
+  background: #f3fbf6;
+}
+
+.branch-node:nth-child(3) {
+  --branch-accent: #c4681a;
+  background: #fff8f1;
 }
 
 .branch-node:hover {
@@ -512,22 +540,25 @@ a {
 .branch-node::before {
   content: "";
   position: absolute;
-  top: 23px;
-  left: -14px;
-  width: 14px;
-  height: 2px;
-  background: rgba(31, 94, 168, 0.55);
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 14px;
+  background: var(--branch-accent);
+  opacity: 0.55;
 }
 
 .branch-node::after {
   content: "";
   position: absolute;
-  top: 19px;
-  left: -19px;
+  top: -19px;
+  left: 50%;
+  transform: translateX(-50%);
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #1f5ea8;
+  background: var(--branch-accent);
   box-shadow: 0 0 0 2px rgba(31, 94, 168, 0.12);
 }
 
@@ -537,32 +568,55 @@ a {
   line-height: 1.45;
 }
 
+.branch-node:nth-child(1) .branch-title::before {
+  content: "A  ";
+  color: #2a69b0;
+  font-weight: 800;
+}
+
+.branch-node:nth-child(2) .branch-title::before {
+  content: "B  ";
+  color: #2b8a5a;
+  font-weight: 800;
+}
+
+.branch-node:nth-child(3) .branch-title::before {
+  content: "C  ";
+  color: #c4681a;
+  font-weight: 800;
+}
+
 .branch-title span {
   font-weight: 700;
   font-size: 1rem;
   margin-left: 4px;
-  color: #174a84;
+  color: var(--branch-accent);
 }
 
 .branch-focus {
   font-size: 1rem;
   margin-top: 4px;
   line-height: 1.45;
+  color: #203447;
+  font-weight: 500;
 }
 
 .branch-links {
   margin-top: 5px;
-  font-size: 1rem;
+  font-size: 0.98rem;
   line-height: 1.45;
+  color: var(--branch-accent);
 }
 
 .branch-links a {
   text-decoration: none;
-  font-weight: 700;
+  font-weight: 600;
+  color: var(--branch-accent);
 }
 
 .branch-links a:hover {
   text-decoration: underline;
+  opacity: 0.86;
 }
 
 .mentorship-note {
@@ -678,7 +732,32 @@ a {
   }
 
   .branch-tree {
-    padding-left: 12px;
+    grid-template-columns: minmax(0, 1fr);
+    padding-top: 8px;
+  }
+
+  .branch-tree::before {
+    top: 6px;
+    left: 4px;
+    right: auto;
+    bottom: 6px;
+    width: 2px;
+    height: auto;
+    background: linear-gradient(180deg, rgba(31, 94, 168, 0.25), rgba(31, 94, 168, 0.65), rgba(31, 94, 168, 0.25));
+  }
+
+  .branch-node::before {
+    top: 22px;
+    left: -12px;
+    transform: none;
+    width: 12px;
+    height: 2px;
+  }
+
+  .branch-node::after {
+    top: 18px;
+    left: -16px;
+    transform: none;
   }
 
   .insight-grid,

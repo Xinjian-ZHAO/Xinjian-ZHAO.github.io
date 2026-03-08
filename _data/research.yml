@@ -220,9 +220,9 @@ trajectory:
     title: "Core Research Trunk: Structure-Aware Intelligence"
     description: "Starting question: how can learning systems represent and reason over structure reliably across data modalities, uncertainty levels, and scientific constraints?"
   branches:
-    - title: "Branch A: Measuring Graph Reasoning Ability"
+    - title: "迈向图基础模型"
       period: "2025-2026"
-      focus: "Capability diagnostics for foundation-model-based graph reasoning."
+      focus: "Capability diagnostics and model-side evidence for graph foundation models."
       nodes:
         - paper_id: "graphomni"
           label: "GraphOmni (ICLR 2026)"
@@ -233,9 +233,9 @@ trajectory:
         - paper_id: "vision-graphs-survey"
           label: "When Vision Meets Graphs (Survey 2026)"
           one_line: "Synthesizes capability gaps and future agenda."
-    - title: "Branch B: Robust Graph Representation Learning"
+    - title: "图增强智能"
       period: "2024-2025"
-      focus: "Learning representations that remain useful under noise, shift, and abstraction."
+      focus: "Graph-augmented representation learning under noise, shift, and abstraction."
       nodes:
         - paper_id: "adversarial-curriculum"
           label: "Adversarial Curriculum GCL (Preprint 2024)"
@@ -246,9 +246,9 @@ trajectory:
         - paper_id: "distributional-layouts"
           label: "Distributional Edge Layouts (KDD 2025)"
           one_line: "Models topology as distributions for uncertainty-aware learning."
-    - title: "Branch C: Structure Priors in Scientific Domains"
+    - title: "结构先验 in Scientific and Real-World Applications"
       period: "2024-2026"
-      focus: "Transferring graph-centric principles to scientific and real-world applications."
+      focus: "Transferring structure-aware priors to scientific and industrial applications."
       nodes:
         - paper_id: "persistent-homology-pooling"
           label: "Persistent Homology Pooling (NeurIPS 2024)"
