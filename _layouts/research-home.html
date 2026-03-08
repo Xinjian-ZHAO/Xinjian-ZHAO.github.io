@@ -89,7 +89,7 @@ layout: compress
                   <h3>{{ paper.title }}</h3>
                   {% assign formatted_authors = paper.authors | replace: 'Xinjian Zhao', '<strong>Xinjian Zhao</strong>' %}
                   <p class="paper-authors">{{ formatted_authors }}</p>
-                  <p class="paper-venue"><strong>{{ paper.venue }}</strong></p>
+                  <p class="paper-venue">{{ paper.venue_full }}{% if paper.venue_abbr %} (<strong><em>{{ paper.venue_abbr }}</em></strong>){% endif %}, {{ paper.year }}</p>
                   <div class="paper-links">
                     {% for item in paper.links %}
                     <a href="{{ item.url }}" target="_blank" rel="noopener noreferrer">{{ item.label }}</a>
@@ -120,7 +120,7 @@ layout: compress
             <h3>Additional Related Works</h3>
             <ul>
               {% for work in research.additional_works %}
-              <li>
+              <li id="{{ work.id }}">
                 <a href="{{ work.url }}" target="_blank" rel="noopener noreferrer">{{ work.title }}</a>
                 <span>{{ work.venue }}</span>
                 {% if work.authors %}
@@ -144,14 +144,18 @@ layout: compress
                 <div class="branch-tree">
                   {% for branch in research.trajectory.branches %}
                   <article class="branch-node">
-                    <p class="branch-title">{{ branch.title }} <span>{{ branch.period }}</span></p>
-                    <p class="branch-focus">{{ branch.focus }}</p>
-                    <p class="branch-links">
-                      {% for node in branch.nodes %}
-                      <a href="#paper-{{ node.paper_id }}">{{ node.label }}</a>{% unless forloop.last %} · {% endunless %}
-                      {% endfor %}
-                    </p>
-                  </article>
+                  <p class="branch-title">{{ branch.title }} <span>{{ branch.period }}</span></p>
+                  <p class="branch-focus">{{ branch.focus }}</p>
+                  <p class="branch-links">
+                    {% for node in branch.nodes %}
+                    {% if node.anchor %}
+                    <a href="#{{ node.anchor }}">{{ node.label }}</a>{% unless forloop.last %} · {% endunless %}
+                    {% else %}
+                    <a href="#paper-{{ node.paper_id }}">{{ node.label }}</a>{% unless forloop.last %} · {% endunless %}
+                    {% endif %}
+                    {% endfor %}
+                  </p>
+                </article>
                   {% endfor %}
                 </div>
               </div>
