@@ -168,7 +168,7 @@ layout: compress
       <section class="section" id="mentorship">
         <div class="container section-content">
           <div class="section-header reveal compact-header">
-            <p class="eyebrow">Mentorship</p>
+            <p class="eyebrow section-title">Mentorship</p>
           </div>
           <p class="mentorship-note reveal">{{ research.mentorship.note }}</p>
           <p class="mentorship-meta reveal">{{ research.mentorship.students | size }} students mentored</p>
@@ -178,10 +178,10 @@ layout: compress
               <p><a href="{{ student.url }}" target="_blank" rel="noopener noreferrer">{{ student.name }}</a> <span>{{ student.period }}</span></p>
               <p>{{ student.profile }}</p>
               {% if student.highlights %}
-              <p>{{ student.highlights }}</p>
+              <p><strong>Achievement:</strong> {{ student.highlights }}</p>
               {% endif %}
               {% if student.next %}
-              <p>{{ student.next }}</p>
+              <p><strong>Next Position:</strong> {{ student.next }}</p>
               {% endif %}
             </article>
             {% endfor %}

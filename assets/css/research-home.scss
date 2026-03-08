@@ -656,6 +656,11 @@ a {
   font-size: var(--paper-meta-size);
 }
 
+.mentorship-item p strong {
+  font-weight: 700;
+  color: #123f74;
+}
+
 .contact-note {
   max-width: 72ch;
   color: var(--ink-muted);
