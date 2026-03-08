@@ -35,12 +35,11 @@ layout: compress
       <section class="hero section" id="hero">
         <div class="container hero-grid">
           <div class="hero-content reveal">
-            <p class="eyebrow">{{ research.profile.current_role }}</p>
             <h1>{{ research.profile.name }}</h1>
             <p class="hero-affiliation">{{ research.profile.affiliation }}</p>
             <p class="hero-oneliner">{{ research.profile.one_liner }}</p>
-            <p class="hero-intro">{{ research.profile.intro | join: " " }}</p>
-            <p class="hero-bio-single">{{ research.profile.advisor }}. {{ research.about.bio | join: " " }}</p>
+            <p class="hero-intro">{{ research.about.bio[0] }}</p>
+            <p class="hero-bio-single">{{ research.about.bio[1] }} {{ research.about.bio[2] }}</p>
             <div class="hero-links">
               {% for link in research.hero_links %}
               {% assign link_url = link.url %}
@@ -89,7 +88,7 @@ layout: compress
                   <h3>{{ paper.title }}</h3>
                   {% assign formatted_authors = paper.authors | replace: 'Xinjian Zhao', '<strong>Xinjian Zhao</strong>' %}
                   <p class="paper-authors">{{ formatted_authors }}</p>
-                  <p class="paper-venue">{{ paper.venue_full }}{% if paper.venue_abbr %} (<strong><em>{{ paper.venue_abbr }}</em></strong>){% endif %}, {{ paper.year }}</p>
+                  <p class="paper-venue">{{ paper.venue_full }}{% if paper.venue_abbr %} <strong><em>({{ paper.venue_abbr }})</em></strong>{% endif %}, {{ paper.year }}</p>
                   <div class="paper-links">
                     {% for item in paper.links %}
                     <a href="{{ item.url }}" target="_blank" rel="noopener noreferrer">{{ item.label }}</a>
@@ -117,14 +116,15 @@ layout: compress
           </div>
 
           <div class="additional-works reveal">
-            <h3>Additional Related Works</h3>
+            <h3>Other Works</h3>
             <ul>
               {% for work in research.additional_works %}
               <li id="{{ work.id }}">
                 <a href="{{ work.url }}" target="_blank" rel="noopener noreferrer">{{ work.title }}</a>
                 <span>{{ work.venue }}</span>
                 {% if work.authors %}
-                <p class="additional-authors">{{ work.authors }}</p>
+                {% assign formatted_work_authors = work.authors | replace: 'Xinjian Zhao', '<strong>Xinjian Zhao</strong>' %}
+                <p class="additional-authors">{{ formatted_work_authors }}</p>
                 {% endif %}
               </li>
               {% endfor %}
