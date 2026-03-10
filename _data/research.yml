@@ -47,26 +47,6 @@ research_themes:
     application: "Protein modeling, recommendation systems, and industrial optimization."
 
 papers:
-  - id: "graphomni"
-    title: "GraphOmni: A Comprehensive and Extendable Benchmark Framework for Large Language Models on Graph-theoretic Tasks"
-    authors: "Hao Xu*, Xiangru Jian*, Xinjian Zhao*, Wei Pang*, Chao Zhang, Suyucheng Wang, Qixin Zhang, Zhengyuan Dong, Joao Monteiro, Bang Liu, Qiuzhuang Sun, Tianshu Yu"
-    venue_full: "International Conference on Learning Representations"
-    venue_abbr: "ICLR"
-    year: 2026
-    accent: "#0b7285"
-    teaser_label: "Benchmark Taxonomy"
-    teaser_caption: "Graph-theoretic capabilities of LLM systems"
-    links:
-      - label: "Paper"
-        url: "https://arxiv.org/abs/2504.12764"
-    summary:
-      - "We introduce GraphOmni, a modular benchmark that factorizes graph-theoretic reasoning by graph type, serialization format, and prompting strategy."
-      - "Large-scale evaluation reveals strong interactions among these factors and substantial capability gaps that are hidden by single-score comparisons."
-    key_insight: "Graph reasoning is conditional on representation and prompting choices, so evaluation must be factorized rather than leaderboard-style."
-    why_it_matters: "It provides a more reliable basis for comparing model families and choosing where algorithmic effort should go."
-    trajectory_relation: "This work establishes the evaluation spine for my later studies on structure understanding and model bias."
-    tags: ["LLM", "Graph Reasoning", "Benchmark"]
-
   - id: "vision-graphs-survey"
     title: "When Vision Meets Graphs: A Survey on Graph Reasoning and Learning"
     authors: "Xinjian Zhao, Wei Pang, Zhixuan Yu, Xiangru Jian, Xiaozhuang Song, Yaoyao Xu, Zhongkai Xue, Dingshuo Chen, Shu Wu, Philip Torr, Tianshu Yu"
@@ -99,12 +79,32 @@ papers:
       - label: "Paper"
         url: "https://arxiv.org/pdf/2510.24788"
     summary:
-      - "We conduct a controlled comparison between pure vision backbones and GNNs for graph structural understanding, and introduce GraphAbstract to isolate topology reasoning."
+      - "For the first time, we conduct a controlled comparison between pure vision backbones and GNNs for graph structural understanding, and introduce GraphAbstract to isolate topology reasoning."
       - "Pure vision models achieve comparable overall performance and outperform GNNs on holistic structure tasks with stronger cross-scale generalization."
     key_insight: "For global topology abstraction, a global-first visual inductive bias can be stronger than local message passing."
     why_it_matters: "It opens a practical route to leverage mature vision architectures for graph reasoning tasks."
     trajectory_relation: "This paper extends the GraphOmni diagnosis into model-side evidence about where structural reasoning emerges."
     tags: ["Vision Models", "Structural Reasoning", "NeurIPS"]
+
+  - id: "graphomni"
+    title: "GraphOmni: A Comprehensive and Extendable Benchmark Framework for Large Language Models on Graph-theoretic Tasks"
+    authors: "Hao Xu*, Xiangru Jian*, Xinjian Zhao*, Wei Pang*, Chao Zhang, Suyucheng Wang, Qixin Zhang, Zhengyuan Dong, Joao Monteiro, Bang Liu, Qiuzhuang Sun, Tianshu Yu"
+    venue_full: "International Conference on Learning Representations"
+    venue_abbr: "ICLR"
+    year: 2026
+    accent: "#0b7285"
+    teaser_label: "Benchmark Taxonomy"
+    teaser_caption: "Graph-theoretic capabilities of LLM systems"
+    links:
+      - label: "Paper"
+        url: "https://arxiv.org/abs/2504.12764"
+    summary:
+      - "We introduce GraphOmni, a modular benchmark that factorizes graph-theoretic reasoning by graph type, serialization format, and prompting strategy."
+      - "Large-scale evaluation reveals strong interactions among these factors and substantial capability gaps that are hidden by single-score comparisons."
+    key_insight: "Graph reasoning is conditional on representation and prompting choices, so evaluation must be factorized rather than leaderboard-style."
+    why_it_matters: "It provides a more reliable basis for comparing model families and choosing where algorithmic effort should go."
+    trajectory_relation: "This work establishes the evaluation spine for my later studies on structure understanding and model bias."
+    tags: ["LLM", "Graph Reasoning", "Benchmark"]
 
   - id: "distributional-layouts"
     title: "Graph Learning with Distributional Edge Layouts"
@@ -208,7 +208,7 @@ papers:
 trajectory:
   trunk:
     title: "Core Research Trunk: Structure-Aware Intelligence"
-    description: "Starting question: how can learning systems represent and reason over structure reliably across data modalities, uncertainty levels, and scientific constraints?"
+    description: "Core question: how can models learn and understand graph structure, and how can graph structure in turn improve general-purpose models and intelligence?"
   branches:
     - title: "Towards Graph Foundation Models"
       period: "2025-2026"
@@ -228,7 +228,7 @@ trajectory:
           one_line: "Tests where structural reasoning can emerge in non-graph-native backbones."
     - title: "Graph-Augmented Intelligence"
       period: "2024-2025"
-      focus: "Graph-augmented representation learning under noise, shift, and abstraction."
+      focus: "Using graph structure to diagnose and improve general intelligence."
       nodes:
         - paper_id: "graphomni"
           label: "GraphOmni (ICLR 2026)"
@@ -238,7 +238,7 @@ trajectory:
           one_line: "Synthesizes capability gaps and future agenda."
     - title: "Structure Priors in Scientific and Real-World Applications"
       period: "2024-2026"
-      focus: "Transferring structure-aware priors to scientific and real-world applications."
+      focus: "Injecting structure priors into scientific and real-world applications, including AI4Science and recommender systems."
       nodes:
         - paper_id: "persistent-homology-pooling"
           label: "Persistent Homology Pooling (NeurIPS 2024)"

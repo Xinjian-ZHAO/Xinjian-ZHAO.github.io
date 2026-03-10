@@ -96,9 +96,8 @@ layout: compress
                 </header>
 
                 <div class="paper-summary">
-                  {% for sentence in paper.summary limit: 2 %}
-                  <p>{{ sentence }}</p>
-                  {% endfor %}
+                  {% assign summary_text = paper.summary | join: " " %}
+                  <p>{{ summary_text }}</p>
                 </div>
 
                 <div class="insight-grid">
