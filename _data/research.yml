@@ -60,13 +60,11 @@ papers:
       - label: "Paper"
         url: "https://arxiv.org/abs/2504.12764"
     summary:
-      - "We build a benchmark framework that separates graph-theoretic capabilities into diagnostically meaningful task families."
-      - "Instead of reporting one aggregate score, GraphOmni exposes where LLM-centered systems succeed, fail, and overfit."
-      - "The framework is designed to be extendable, enabling future evaluations as graph reasoning agents evolve."
-    key_insight: "Capability decomposition is essential: graph reasoning performance is highly non-uniform across sub-skills."
+      - "We introduce GraphOmni, a modular benchmark that factorizes graph-theoretic reasoning by graph type, serialization format, and prompting strategy."
+      - "Large-scale evaluation reveals strong interactions among these factors and substantial capability gaps that are hidden by single-score comparisons."
+    key_insight: "Graph reasoning is conditional on representation and prompting choices, so evaluation must be factorized rather than leaderboard-style."
     why_it_matters: "It provides a more reliable basis for comparing model families and choosing where algorithmic effort should go."
     trajectory_relation: "This work establishes the evaluation spine for my later studies on structure understanding and model bias."
-    methods: "Benchmark design, diagnostic evaluation, task taxonomy"
     tags: ["LLM", "Graph Reasoning", "Benchmark"]
 
   - id: "vision-graphs-survey"
@@ -81,13 +79,11 @@ papers:
       - label: "Paper"
         url: "https://www.techrxiv.org/doi/full/10.36227/techrxiv.177004261.15861585/v1"
     summary:
-      - "This survey systematizes how vision models and graph learning methods increasingly overlap in representation and reasoning."
-      - "We organize methods by structural assumptions, training signals, and transferable inductive biases."
-      - "The survey highlights open problems where cross-modal structure learning is currently fragile or poorly benchmarked."
-    key_insight: "The strongest progress appears when visual and relational inductive biases are treated as complementary, not competing."
+      - "This survey provides a first systematic consolidation of the emerging 'When Vision Meets Graphs' area, where graph depictions are treated as first-class inputs."
+      - "Using the RPI lens and a three-thread taxonomy, it organizes fragmented literature and outlines concrete future directions toward graph foundation models."
+    key_insight: "Treating visualized graphs as computational objects, not just illustrations, opens a coherent new research agenda."
     why_it_matters: "It clarifies a forward research agenda and identifies where new benchmarks and models are most needed."
     trajectory_relation: "This is a synthesis node that integrates observations from multiple branches of my prior work."
-    methods: "Systematic review, taxonomy, cross-paper synthesis"
     tags: ["Survey", "Vision", "Graph ML"]
 
   - id: "vision-power"
@@ -103,13 +99,11 @@ papers:
       - label: "Paper"
         url: "https://arxiv.org/pdf/2510.24788"
     summary:
-      - "We show that vision models can recover meaningful graph structure signals from rendered representations more effectively than commonly assumed."
-      - "Our analysis reveals which structural properties are captured robustly and which remain brittle."
-      - "The results challenge a strict separation between vision-based and graph-native reasoning pipelines."
-    key_insight: "With the right representation and protocol, vision backbones encode substantial relational structure without explicit graph operators."
+      - "We conduct a controlled comparison between pure vision backbones and GNNs for graph structural understanding, and introduce GraphAbstract to isolate topology reasoning."
+      - "Pure vision models achieve comparable overall performance and outperform GNNs on holistic structure tasks with stronger cross-scale generalization."
+    key_insight: "For global topology abstraction, a global-first visual inductive bias can be stronger than local message passing."
     why_it_matters: "It opens a practical route to leverage mature vision architectures for graph reasoning tasks."
     trajectory_relation: "This paper extends the GraphOmni diagnosis into model-side evidence about where structural reasoning emerges."
-    methods: "Cross-modal probing, structural property tests, empirical diagnostics"
     tags: ["Vision Models", "Structural Reasoning", "NeurIPS"]
 
   - id: "distributional-layouts"
@@ -125,13 +119,11 @@ papers:
       - label: "Paper"
         url: "https://arxiv.org/abs/2402.16402"
     summary:
-      - "We model edge layouts as distributions rather than fixed deterministic topology snapshots."
-      - "This representation captures uncertainty and local variability in relational structure."
-      - "Experiments show improved robustness under noisy or ambiguous graph construction."
-    key_insight: "Treating topology as a distribution allows learning algorithms to preserve useful structure under uncertainty."
+      - "We propose Distributional Edge Layouts (DEL), modeling graph topology as a distribution by globally sampling edge layouts with Langevin dynamics under Boltzmann energy."
+      - "As a model-agnostic preprocessing module, DEL consistently improves diverse GNN backbones and reaches strong state-of-the-art performance on multiple datasets."
+    key_insight: "Modeling topology as a distribution, rather than a fixed graph, is a practical path to robustness and extra expressivity."
     why_it_matters: "Many real data pipelines induce imperfect graphs; distributional layouts make methods less brittle in those settings."
     trajectory_relation: "This is a core branch in my trajectory on robust graph representation under imperfect structure."
-    methods: "Probabilistic structure modeling, robust graph learning"
     tags: ["Graph Representation", "Robustness", "KDD"]
 
   - id: "spectral-augmentation"
@@ -147,13 +139,11 @@ papers:
       - label: "Paper"
         url: "https://openreview.net/pdf?id=HjpD5kpfa3"
     summary:
-      - "We revisit spectral augmentation strategies and analyze when they help or hurt contrastive graph SSL."
-      - "The paper disentangles augmentation-induced invariances from unwanted information loss."
-      - "We provide practical guidance for choosing augmentations aligned with downstream structure."
-    key_insight: "Good augmentations preserve semantically relevant spectrum while removing nuisance perturbations."
+      - "We re-examine spectral augmentation in contrastive graph self-supervised learning via broad empirical studies and theoretical analysis of InfoNCE bounds."
+      - "Simple edge perturbations (edge dropping for node-level, edge adding for graph-level) often match or outperform spectral methods with much lower computational cost."
+    key_insight: "In graph SSL, choosing invariances well matters more than increasingly complex spectral engineering."
     why_it_matters: "It improves SSL stability and reduces trial-and-error in representation learning pipelines."
     trajectory_relation: "This contributes mechanistic understanding in my branch on efficient, principled representation learning."
-    methods: "Self-supervised learning, spectral analysis, augmentation design"
     tags: ["Graph SSL", "Spectral Methods", "TMLR"]
 
   - id: "protein-negative-mining"
@@ -167,15 +157,13 @@ papers:
     teaser_caption: "Hard negative design for protein modeling"
     links:
       - label: "Paper"
-        url: "https://arxiv.org/pdf/2402.16346"
+        url: "https://arxiv.org/abs/2405.17902"
     summary:
-      - "We design negative sample mining strategies tailored to protein sequence and structure representations."
-      - "The method improves discrimination ability while retaining biologically meaningful signals."
-      - "Results indicate that structured negatives are particularly valuable in low-resource scientific settings."
-    key_insight: "Hard negatives should reflect scientific structure, not only embedding distance."
+      - "We introduce negative sample mining for protein language models by constructing hard negatives from protein pairs across distinct categories."
+      - "The approach improves downstream performance and shows better alignment with biological mechanisms such as protein-protein interaction."
+    key_insight: "Domain-aware hard negatives can steer protein LMs away from shortcut co-evolution cues and toward biologically meaningful structure."
     why_it_matters: "It demonstrates how graph-inspired learning principles can transfer to high-impact scientific problems."
     trajectory_relation: "This is a cross-domain branch showing how my graph learning principles scale into AI4Science."
-    methods: "Negative sampling, protein language modeling, domain adaptation"
     tags: ["AI4Science", "Protein LM", "ECML-PKDD"]
 
   - id: "persistent-homology-pooling"
@@ -191,13 +179,11 @@ papers:
       - label: "Paper"
         url: "https://arxiv.org/pdf/2402.16346"
     summary:
-      - "We incorporate persistent homology signals into graph pooling to retain global structure during coarsening."
-      - "This reduces information collapse caused by purely local pooling heuristics."
-      - "Empirically, topology-aware pooling improves performance on tasks requiring multi-scale reasoning."
-    key_insight: "Topological summaries provide stable global cues that complement local graph features."
+      - "We propose a graph pooling mechanism that injects persistent homology directly into coarsening, motivated by the alignment between PH filtration and cutoff-style pooling."
+      - "The method is plug-and-play across pooling families and yields consistent, substantial gains on standard benchmarks."
+    key_insight: "Topological priors are most effective when embedded in pooling itself, rather than appended as auxiliary features."
     why_it_matters: "It advances pooling from heuristic compression toward structure-preserving abstraction."
     trajectory_relation: "This work anchors my trajectory on injecting geometric/topological priors into representation pipelines."
-    methods: "Persistent homology, graph pooling, topological learning"
     tags: ["Topology", "Graph Pooling", "NeurIPS"]
 
   - id: "adversarial-curriculum"
@@ -212,13 +198,11 @@ papers:
       - label: "Paper"
         url: "https://arxiv.org/abs/2402.10468"
     summary:
-      - "We propose a curriculum strategy that gradually increases augmentation difficulty in adversarial contrastive training."
-      - "Pair-wise augmentation encourages stable representation alignment across perturbation regimes."
-      - "The approach improves robustness and generalization under challenging structural noise."
-    key_insight: "Curriculum design can control representation stability as effectively as objective changes."
+      - "We propose ACGCL, combining pair-wise augmentation with controllable similarity and subgraph contrastive learning for graph-level representation learning."
+      - "An adversarial curriculum progressively increases sample difficulty and focuses optimization on harder examples, outperforming strong baselines on six benchmarks."
+    key_insight: "Graph contrastive learning becomes more reliable when similarity and sample difficulty are explicitly controlled during training."
     why_it_matters: "It offers a practical recipe for making graph contrastive methods less fragile."
     trajectory_relation: "This paper marks an early stage of my long-term branch on robustness-aware representation learning."
-    methods: "Graph contrastive learning, adversarial training, curriculum scheduling"
     tags: ["Contrastive Learning", "Robustness", "Preprint"]
 
 trajectory:
