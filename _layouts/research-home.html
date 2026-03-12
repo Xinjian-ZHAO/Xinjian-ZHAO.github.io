@@ -25,7 +25,6 @@ layout: compress
         <nav class="primary-nav" id="primary-nav" aria-label="Main Navigation">
           <a href="#papers">Selected Papers</a>
           <a href="#research-map">Trajectory</a>
-          <a href="#visitors">Visitors</a>
           <a href="#mentorship">Mentorship</a>
           <a href="#contact">Contact</a>
         </nav>
@@ -59,7 +58,6 @@ layout: compress
         <div class="container section-content">
           <div class="section-header reveal">
             <p class="eyebrow section-title">Selected Papers</p>
-            <p class="section-count">{{ research.papers | size }} featured blocks</p>
             <p class="section-note"><strong>* denotes equal contribution.</strong></p>
           </div>
 
@@ -85,7 +83,7 @@ layout: compress
               </div>
 
               <div class="paper-content">
-                <header>
+                <header class="paper-header">
                   <p class="paper-index">{{ forloop.index }} / {{ forloop.length }}</p>
                   <h3>{{ paper.title }}</h3>
                   {% assign formatted_authors = paper.authors | replace: 'Xinjian Zhao', '<strong>Xinjian Zhao</strong>' %}
@@ -163,49 +161,6 @@ layout: compress
         </div>
       </section>
 
-      <section class="section alt" id="visitors">
-        <div class="container section-content">
-          <div class="section-header reveal compact-header">
-            <p class="eyebrow section-title">{{ research.visitors.title }}</p>
-            <p class="contact-note">{{ research.visitors.intro }}</p>
-          </div>
-
-          <div class="visitor-grid">
-            <div class="visitor-stats reveal">
-              {% for item in research.visitors.stats %}
-              <article class="visitor-stat-card">
-                <p class="visitor-stat-label">{{ item.label }}</p>
-                <p class="visitor-stat-value">{{ item.value }}</p>
-                <p class="visitor-stat-detail">{{ item.detail }}</p>
-              </article>
-              {% endfor %}
-            </div>
-
-            <article class="visitor-map-card reveal">
-              <div class="visitor-map-header">
-                <p class="visitor-map-title">{{ research.visitors.map.title }}</p>
-                <p class="visitor-map-provider">{{ research.visitors.map.provider }}</p>
-              </div>
-
-              {% if research.visitors.map.embed_url and research.visitors.map.embed_url != "" %}
-              <div class="visitor-map-frame">
-                <iframe
-                  src="{{ research.visitors.map.embed_url }}"
-                  title="{{ research.visitors.map.title }}"
-                  loading="lazy"
-                  referrerpolicy="strict-origin-when-cross-origin"></iframe>
-              </div>
-              {% else %}
-              <div class="visitor-map-placeholder">
-                <p>{{ research.visitors.setup_note }}</p>
-                <a href="{{ research.visitors.map.fallback_url }}" target="_blank" rel="noopener noreferrer">{{ research.visitors.map.fallback_label }}</a>
-              </div>
-              {% endif %}
-            </article>
-          </div>
-        </div>
-      </section>
-
       <section class="section" id="mentorship">
         <div class="container section-content">
           <div class="section-header reveal compact-header">
@@ -259,7 +214,6 @@ layout: compress
     <script>
       document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, "") + " js";
     </script>
-    {% include analytics.html %}
     <script src="{{ '/assets/js/research-home.js' | relative_url }}"></script>
   </body>
 </html>

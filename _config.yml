@@ -73,12 +73,9 @@ social:
 
 # Analytics
 analytics:
-  provider               :  "custom" # false (default), "google", "google-universal", "custom"
+  provider               :  "google-universal" # false (default), "google", "google-universal", "custom"
   google:
     tracking_id          :
-  goatcounter:
-    code                 : "" # e.g. "your-site" for https://your-site.goatcounter.com
-    script               : "//gc.zgo.at/count.js"
 
 
 # Site Author
