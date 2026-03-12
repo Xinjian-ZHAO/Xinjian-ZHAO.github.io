@@ -284,6 +284,24 @@ contact:
     - label: "ORCID"
       url: "https://orcid.org/0009-0003-1553-8209"
 
+visitors:
+  title: "Visitors"
+  intro: "This homepage can show a lightweight visit counter together with a live geographic footprint of recent visitors."
+  setup_note: "Fill in the GoatCounter site code in _config.yml and replace the embed URL below with your own PulseMaps or ClustrMaps widget link."
+  stats:
+    - label: "Analytics"
+      value: "GoatCounter"
+      detail: "Privacy-friendly pageview tracking for the whole site."
+    - label: "Map"
+      value: "PulseMaps / ClustrMaps"
+      detail: "Embeddable visitor map for a static personal website."
+  map:
+    title: "Live visitor map"
+    provider: "PulseMaps"
+    embed_url: ""
+    fallback_url: "https://www.pulsemaps.com/"
+    fallback_label: "Create a visitor map embed"
+
 mentorship:
   note: "Co-supervision with Prof. Tianshu Yu."
   students:
