@@ -445,14 +445,18 @@ a {
 
 .additional-works a {
   font-weight: 500;
-  font-size: var(--paper-main-size);
+  font-size: 1.14rem;
   line-height: 1.45;
 }
 
 .additional-works span {
   margin-left: 6px;
   color: var(--ink);
-  font-size: var(--paper-meta-size);
+  font-size: 1.08rem;
+}
+
+.additional-works span strong {
+  font-weight: 700;
 }
 
 .additional-authors {

@@ -118,7 +118,12 @@ layout: compress
               {% for work in research.additional_works %}
               <li id="{{ work.id }}">
                 <a href="{{ work.url }}" target="_blank" rel="noopener noreferrer">{{ work.title }}</a>
-                <span>{{ work.venue }}</span>
+                <span>
+                  {{ work.venue }}
+                  {% if work.venue_abbr %}
+                  <strong><em>({{ work.venue_abbr }})</em></strong>
+                  {% endif %}
+                </span>
                 {% if work.authors %}
                 {% assign formatted_work_authors = work.authors | replace: 'Xinjian Zhao', '<strong>Xinjian Zhao</strong>' %}
                 <p class="additional-authors">{{ formatted_work_authors }}</p>
