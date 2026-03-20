@@ -268,7 +268,7 @@ additional_works:
     authors: "Xiaohui Zhao, Xinjian Zhao, Jiahui Zhang, Guoyu Liu, Houzhi Wang, Shu Wu"
   - id: "work-embedding-survey"
     title: "Embedding in Recommender Systems: A Survey"
-    venue: "Preprint 2026"
+    venue: "ACM Transactions on Information Systems (TOIS) 2026"
     url: "https://arxiv.org/pdf/2310.18608.pdf"
     authors: "Maolin Wang*, Xinjian Zhao*, Wanyu Wang*, Sheng Zhang, Jiansheng Li, Bowen Yu, Binhao Wang, Shucheng Zhou, Dawei Yin, Qing Li, Ruocheng Guo, Xiangyu Zhao"
   - id: "work-aot-star"
