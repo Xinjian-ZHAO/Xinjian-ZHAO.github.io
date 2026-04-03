@@ -109,6 +109,8 @@ a {
 .equal-marker {
   color: #d9480f;
   font-weight: 800;
+  font-size: 0.95em;
+  line-height: 1;
 }
 
 .site-nav {
@@ -188,22 +190,6 @@ a {
 .hero-affiliation {
   color: var(--ink-muted);
   font-size: 1rem;
-}
-
-.hero-affiliation a {
-  color: inherit;
-  font-weight: 600;
-  text-decoration: none;
-  border-bottom: 1px solid rgba(31, 94, 168, 0.28);
-}
-
-.hero-affiliation a:hover {
-  color: var(--accent);
-  border-bottom-color: var(--accent);
-}
-
-.hero-divider {
-  margin: 0 8px;
 }
 
 .dot {
