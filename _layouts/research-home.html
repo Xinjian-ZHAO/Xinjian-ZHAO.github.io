@@ -36,7 +36,16 @@ layout: compress
         <div class="container hero-grid">
           <div class="hero-content reveal">
             <h1>{{ research.profile.name }}</h1>
-            <p class="hero-affiliation">{{ research.profile.affiliation }}</p>
+            <p class="hero-affiliation">
+              {{ research.profile.affiliation }}
+              {% if research.profile.advisor_url and research.profile.advisor_name %}
+              <span class="hero-divider">·</span>
+              <span>Advised by <a href="{{ research.profile.advisor_url }}" target="_blank" rel="noopener noreferrer">{{ research.profile.advisor_name }}</a></span>
+              {% elsif research.profile.advisor %}
+              <span class="hero-divider">·</span>
+              <span>{{ research.profile.advisor }}</span>
+              {% endif %}
+            </p>
             <p class="hero-intro hero-intro-main">{{ research.about.bio[0] }} {{ research.about.bio[1] }} {{ research.about.bio[2] }}</p>
             <div class="hero-links">
               {% for link in research.hero_links %}
@@ -58,7 +67,7 @@ layout: compress
         <div class="container section-content">
           <div class="section-header reveal">
             <p class="eyebrow section-title">Selected Papers</p>
-            <p class="section-note"><strong>* denotes equal contribution.</strong></p>
+            <p class="section-note"><span class="equal-marker" aria-hidden="true">*</span> denotes equal contribution.</p>
           </div>
 
           <div class="papers-stack">
@@ -86,7 +95,7 @@ layout: compress
                 <header class="paper-header">
                   <p class="paper-index">{{ forloop.index }} / {{ forloop.length }}</p>
                   <h3>{{ paper.title }}</h3>
-                  {% assign formatted_authors = paper.authors | replace: 'Xinjian Zhao', '<strong>Xinjian Zhao</strong>' %}
+                  {% assign formatted_authors = paper.authors | replace: '*', '<span class="equal-marker" aria-label="equal contribution">*</span>' | replace: 'Xinjian Zhao', '<strong>Xinjian Zhao</strong>' %}
                   <p class="paper-authors">{{ formatted_authors }}</p>
                   <p class="paper-venue">{{ paper.venue_full }}{% if paper.venue_abbr %} <strong><em>({{ paper.venue_abbr }})</em></strong>{% endif %}, {{ paper.year }}</p>
                   <div class="paper-links">
