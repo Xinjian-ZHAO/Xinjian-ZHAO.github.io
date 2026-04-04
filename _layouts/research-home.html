@@ -58,7 +58,7 @@ layout: compress
         <div class="container section-content">
           <div class="section-header reveal">
             <p class="eyebrow section-title">Selected Papers</p>
-            <p class="section-note"><span class="equal-marker" aria-hidden="true">†</span> denotes equal contribution.</p>
+            <p class="section-note"><span class="equal-marker" aria-hidden="true">*</span> denotes equal contribution.</p>
           </div>
 
           <div class="papers-stack">
@@ -86,7 +86,7 @@ layout: compress
                 <header class="paper-header">
                   <p class="paper-index">{{ forloop.index }} / {{ forloop.length }}</p>
                   <h3>{{ paper.title }}</h3>
-                  {% assign formatted_authors = paper.authors | replace: '*', '<sup class="equal-marker" aria-label="equal contribution">†</sup>' | replace: 'Xinjian Zhao', '<strong>Xinjian Zhao</strong>' %}
+                  {% assign formatted_authors = paper.authors | replace: '*', '<span class="equal-marker" aria-label="equal contribution">*</span>' | replace: 'Xinjian Zhao', '<strong>Xinjian Zhao</strong>' %}
                   <p class="paper-authors">{{ formatted_authors }}</p>
                   <p class="paper-venue">{{ paper.venue_full }}{% if paper.venue_abbr %} <strong><em>({{ paper.venue_abbr }})</em></strong>{% endif %}, {{ paper.year }}</p>
                   <div class="paper-links">
