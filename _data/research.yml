@@ -265,18 +265,22 @@ cross_paper_insights:
 additional_works:
   - id: "work-ht-gnn"
     title: "HT-GNN: Hyper-Temporal Graph Neural Network for Customer Lifetime Value Prediction in Baidu Ads"
-    venue: "Preprint 2026"
+    venue: "Technical Report"
+    year: 2026
     url: "https://arxiv.org/abs/2601.13013"
     authors: "Xiaohui Zhao, Xinjian Zhao, Jiahui Zhang, Guoyu Liu, Houzhi Wang, Shu Wu"
   - id: "work-embedding-survey"
     title: "Embedding in Recommender Systems: A Survey"
-    venue: "ACM Transactions on Information Systems 2026"
+    venue: "ACM Transactions on Information Systems"
     venue_abbr: "TOIS"
+    year: 2026
     url: "https://arxiv.org/pdf/2310.18608.pdf"
     authors: "Maolin Wang*, Xinjian Zhao*, Wanyu Wang*, Sheng Zhang, Jiansheng Li, Bowen Yu, Binhao Wang, Shucheng Zhou, Dawei Yin, Qing Li, Ruocheng Guo, Xiangyu Zhao"
   - id: "work-aot-star"
     title: "AOT*: Efficient Synthesis Planning via LLM-Empowered AND-OR Tree Search"
-    venue: "Preprint 2025"
+    venue: "Findings of the Association for Computational Linguistics"
+    venue_abbr: "ACL Findings"
+    year: 2026
     url: "https://arxiv.org/abs/2509.20988"
     authors: "Xiaozhuang Song, Xuanhao Pan, Xinjian Zhao, Hangting Ye, Shufei Zhang, Jian Tang, Tianshu Yu"
 

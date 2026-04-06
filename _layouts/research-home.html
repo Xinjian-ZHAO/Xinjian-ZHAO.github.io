@@ -117,15 +117,21 @@ layout: compress
             <ul>
               {% for work in research.additional_works %}
               <li id="{{ work.id }}">
-                <a href="{{ work.url }}" target="_blank" rel="noopener noreferrer">{{ work.title }}</a>
-                <span>
-                  {{ work.venue }}
-                  {% if work.venue_abbr %}
-                  <strong><em>({{ work.venue_abbr }})</em></strong>
-                  {% endif %}
-                </span>
+                <div class="additional-work-main">
+                  <a href="{{ work.url }}" target="_blank" rel="noopener noreferrer">{{ work.title }}</a>
+                  <span class="additional-venue">
+                    {{ work.venue }}
+                    {% if work.venue_abbr %}
+                    <strong><em>({{ work.venue_abbr }})</em></strong>
+                    {% endif %}
+                    {% if work.year %}
+                    {{ work.year }}
+                    {% endif %}
+                  </span>
+                </div>
+                <span class="additional-arrow" aria-hidden="true">&nearr;</span>
                 {% if work.authors %}
-                {% assign formatted_work_authors = work.authors | replace: 'Xinjian Zhao', '<strong>Xinjian Zhao</strong>' %}
+                {% assign formatted_work_authors = work.authors | replace: '*', '<span class="equal-marker" aria-label="equal contribution">*</span>' | replace: 'Xinjian Zhao', '<strong>Xinjian Zhao</strong>' %}
                 <p class="additional-authors">{{ formatted_work_authors }}</p>
                 {% endif %}
               </li>
