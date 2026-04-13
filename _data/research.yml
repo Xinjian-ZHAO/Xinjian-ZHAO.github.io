@@ -49,6 +49,27 @@ research_themes:
     application: "Protein modeling, recommendation systems, and industrial optimization."
 
 papers:
+  - id: "forge-manufacturing"
+    title: "FORGE: Fine-grained Multimodal Evaluation for Manufacturing Scenarios"
+    authors: "Xiangru Jian, Hao Xu, Wei Pang, Xinjian Zhao, Chengyu Tao, Qixin Zhang, Xikun Zhang, Chao Zhang, Guanzhi Deng, Alex Xue, Juan Du, Tianshu Yu, Garth Tarr, Linqi Song, Qiuzhuang Sun, Dacheng Tao"
+    venue_full: "Preprint"
+    year: 2026
+    accent: "#8f5b2e"
+    teaser_label: "Manufacturing MLLMs"
+    teaser_caption: "Fine-grained multimodal evaluation in industrial scenarios"
+    links:
+      - label: "Paper"
+        url: "https://arxiv.org/abs/2604.07413"
+      - label: "Website"
+        url: "https://ai4manufacturing.github.io/forge-web/"
+    summary:
+      - "We introduce FORGE, a fine-grained multimodal benchmark for manufacturing that combines real-world 2D images and 3D point clouds with domain-specific semantic annotations."
+      - "Evaluating 18 state-of-the-art MLLMs across workpiece verification, surface inspection, and assembly verification reveals that domain knowledge, rather than visual grounding alone, is the key bottleneck."
+    key_insight: "In manufacturing MLLMs, domain-specific knowledge is often a more critical bottleneck than raw visual grounding."
+    why_it_matters: "It provides a realistic evaluation and adaptation pathway for multimodal models in industrial environments."
+    trajectory_relation: "This work extends my interest in graph-augmented intelligence and structured evaluation into high-value manufacturing scenarios."
+    tags: ["Manufacturing", "MLLM", "Benchmark"]
+
   - id: "vision-graphs-survey"
     title: "When Vision Meets Graphs: A Survey on Graph Reasoning and Learning"
     authors: "Xinjian Zhao, Wei Pang, Zhixuan Yu, Xiangru Jian, Xiaozhuang Song, Yaoyao Xu, Zhongkai Xue, Dingshuo Chen, Shu Wu, Philip Torr, Tianshu Yu"
@@ -213,7 +234,7 @@ trajectory:
     description: "Core question: how can models learn and understand graph structure, and how can graph structure in turn improve general-purpose models and intelligence?"
   branches:
     - title: "Towards Graph Foundation Models"
-      period: "2025-2026"
+      period: "2023-2026"
       focus: "Capability diagnostics and model-side evidence for graph foundation models."
       nodes:
         - paper_id: "adversarial-curriculum"
@@ -229,7 +250,7 @@ trajectory:
           label: "Vision Models for Graph Structure (NeurIPS 2025)"
           one_line: "Tests where structural reasoning can emerge in non-graph-native backbones."
     - title: "Graph-Augmented Intelligence"
-      period: "2024-2025"
+      period: "2024-2026"
       focus: "Using graph structure to diagnose and improve general intelligence."
       nodes:
         - paper_id: "graphomni"
@@ -249,8 +270,11 @@ trajectory:
           label: "Negative Mining for Protein LMs (ECML-PKDD 2024)"
           one_line: "Uses structure-aware negatives to improve scientific representation quality."
         - anchor: "work-aot-star"
-          label: "AOT* (Preprint 2025)"
+          label: "AOT* (ACL Findings 2026)"
           one_line: "LLM-empowered AND-OR tree search for efficient synthesis planning."
+        - paper_id: "forge-manufacturing"
+          label: "FORGE (Preprint 2026)"
+          one_line: "Benchmarks multimodal models in realistic manufacturing scenarios."
 
 cross_paper_insights:
   - title: "Reliable progress needs capability decomposition."

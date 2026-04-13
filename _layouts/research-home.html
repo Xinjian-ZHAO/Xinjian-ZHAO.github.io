@@ -120,16 +120,21 @@ layout: compress
                 <div class="additional-work-main">
                   <a href="{{ work.url }}" target="_blank" rel="noopener noreferrer">{{ work.title }}</a>
                   <span class="additional-venue">
-                    {{ work.venue }}
                     {% if work.venue_abbr %}
-                    <strong><em>({{ work.venue_abbr }})</em></strong>
+                    <strong>{{ work.venue_abbr }}</strong>
+                    <span class="venue-sep">·</span>
                     {% endif %}
                     {% if work.year %}
-                    {{ work.year }}
+                    <span>{{ work.year }}</span>
+                    {% endif %}
+                    {% if work.venue %}
+                    {% if work.year or work.venue_abbr %}
+                    <span class="venue-sep">·</span>
+                    {% endif %}
+                    <span>{{ work.venue }}</span>
                     {% endif %}
                   </span>
                 </div>
-                <span class="additional-arrow" aria-hidden="true">&nearr;</span>
                 {% if work.authors %}
                 {% assign formatted_work_authors = work.authors | replace: '*', '<span class="equal-marker" aria-label="equal contribution">*</span>' | replace: 'Xinjian Zhao', '<strong>Xinjian Zhao</strong>' %}
                 <p class="additional-authors">{{ formatted_work_authors }}</p>
