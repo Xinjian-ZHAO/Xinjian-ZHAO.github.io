@@ -73,7 +73,8 @@ papers:
   - id: "vision-graphs-survey"
     title: "When Vision Meets Graphs: A Survey on Graph Reasoning and Learning"
     authors: "Xinjian Zhao, Wei Pang, Zhixuan Yu, Xiangru Jian, Xiaozhuang Song, Yaoyao Xu, Zhongkai Xue, Dingshuo Chen, Shu Wu, Philip Torr, Tianshu Yu"
-    venue_full: "The 35th International Joint Conference on Artificial Intelligence (IJCAI) Survey Track"
+    venue_full: "The 35th International Joint Conference on Artificial Intelligence Survey Track"
+    venue_abbr: "IJCAI"
     year: 2026
     accent: "#3b5bdb"
     teaser_label: "Synthesis Layer"
