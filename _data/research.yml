@@ -49,6 +49,26 @@ research_themes:
     application: "Protein modeling, recommendation systems, and industrial optimization."
 
 papers:
+  - id: "molemb"
+    title: "MolEmb: Multimodal Large Language Models Can Be Strong Molecular Embedding Models"
+    authors: "Xinjian Zhao, Xiangru Jian, Yaoyao Xu, Xiaozhuang Song, Wei Pang, Lei Bai, Tianshu Yu"
+    venue_full: "FM4LS@ICML"
+    venue_display: "FM4LS@ICML 2026"
+    year: 2026
+    accent: "#2f6f73"
+    teaser_label: "Molecular Embeddings"
+    teaser_caption: "MLLMs as context-aware molecular embedding backbones"
+    links:
+      - label: "PDF"
+        url: "https://github.com/Xinjian-ZHAO/Xinjian-ZHAO.github.io/blob/master/files/MolEmb%202026.pdf"
+    summary:
+      - "MolEmb asks whether multimodal large language models can become the embedding layer for molecular intelligence, rather than only serving as generative scientific assistants."
+      - "By conditioning molecular representations on images, SMILES, and natural-language scientific intent, it moves molecular embedding from fixed-vector encoding toward context-aware retrieval and decision support."
+    key_insight: "MLLMs can be repositioned as context-aware molecular embedding backbones, not only as generative scientific assistants."
+    why_it_matters: "It points toward retrieval-centered molecular foundation models for drug discovery and reaction planning."
+    trajectory_relation: "This work connects my graph representation learning thread with multimodal AI4Science systems."
+    tags: ["Molecular ML", "MLLM", "Embedding"]
+
   - id: "forge-manufacturing"
     title: "FORGE: Fine-grained Multimodal Evaluation for Manufacturing Scenarios"
     authors: "Xiangru Jian, Hao Xu, Wei Pang, Xinjian Zhao, Chengyu Tao, Qixin Zhang, Xikun Zhang, Chao Zhang, Guanzhi Deng, Alex Xue, Juan Du, Tianshu Yu, Garth Tarr, Linqi Song, Qiuzhuang Sun, Dacheng Tao"
@@ -63,9 +83,9 @@ papers:
       - label: "Website"
         url: "https://ai4manufacturing.github.io/forge-web/"
     summary:
-      - "We introduce FORGE, a fine-grained multimodal benchmark for manufacturing that combines real-world 2D images and 3D point clouds with domain-specific semantic annotations."
-      - "Evaluating 18 state-of-the-art MLLMs across workpiece verification, surface inspection, and assembly verification reveals that domain knowledge, rather than visual grounding alone, is the key bottleneck."
-    key_insight: "In manufacturing MLLMs, domain-specific knowledge is often a more critical bottleneck than raw visual grounding."
+      - "FORGE treats manufacturing as a hard testbed for deploying multimodal intelligence in the physical world, where small visual differences can imply costly process failures."
+      - "Across workpiece verification, surface inspection, and assembly verification, it shows that current MLLMs often recognize objects but fail to bind visual evidence to manufacturing rules, tolerances, and domain constraints."
+    key_insight: "Manufacturing MLLMs should be evaluated by process-level judgment, not object recognition alone."
     why_it_matters: "It provides a realistic evaluation and adaptation pathway for multimodal models in industrial environments."
     trajectory_relation: "This work extends my interest in graph-augmented intelligence and structured evaluation into high-value manufacturing scenarios."
     tags: ["Manufacturing", "MLLM", "Benchmark"]
@@ -83,9 +103,9 @@ papers:
       - label: "Paper"
         url: "https://www.techrxiv.org/doi/full/10.36227/techrxiv.177004261.15861585/v1"
     summary:
-      - "This survey provides a first systematic consolidation of the emerging 'When Vision Meets Graphs' area, where graph depictions are treated as first-class inputs."
-      - "Using the RPI lens and a three-thread taxonomy, it organizes fragmented literature and outlines concrete future directions toward graph foundation models."
-    key_insight: "Treating visualized graphs as computational objects, not just illustrations, opens a coherent new research agenda."
+      - "This survey frames Vision Meets Graphs as a new interface between visual intelligence and structural learning, where graph depictions become direct computational inputs rather than auxiliary figures."
+      - "It reorganizes scattered progress in graph reasoning, graph learning, and scientific graph understanding into a taxonomy that clarifies how visual perception, symbolic topology, and cross-modal reasoning can be fused."
+    key_insight: "This is a first systematic formulation of the Vision Meets Graphs paradigm, recasting graph depictions as first-class inputs for structural reasoning."
     why_it_matters: "It clarifies a forward research agenda and identifies where new benchmarks and models are most needed."
     trajectory_relation: "This is a synthesis node that integrates observations from multiple branches of my prior work."
     tags: ["Survey", "Vision", "Graph ML"]
@@ -103,9 +123,9 @@ papers:
       - label: "Paper"
         url: "https://arxiv.org/pdf/2510.24788"
     summary:
-      - "For the first time, we conduct a controlled comparison between pure vision backbones and GNNs for graph structural understanding, and introduce GraphAbstract to isolate topology reasoning."
-      - "Pure vision models achieve comparable overall performance and outperform GNNs on holistic structure tasks with stronger cross-scale generalization."
-    key_insight: "For global topology abstraction, a global-first visual inductive bias can be stronger than local message passing."
+      - "This work challenges the assumption that graph structure must be understood through graph-native message passing by testing whether structural intelligence can emerge from pixels."
+      - "We show that pure vision models can compete with GNNs on graph-level benchmarks, and GraphAbstract further reveals their advantage on global structural perception and scale-invariant reasoning."
+    key_insight: "Several GNN expressiveness bottlenecks are visually simple, suggesting that global visual perception can complement local message passing."
     why_it_matters: "It opens a practical route to leverage mature vision architectures for graph reasoning tasks."
     trajectory_relation: "This paper extends the GraphOmni diagnosis into model-side evidence about where structural reasoning emerges."
     tags: ["Vision Models", "Structural Reasoning", "NeurIPS"]
@@ -123,9 +143,9 @@ papers:
       - label: "Paper"
         url: "https://arxiv.org/abs/2504.12764"
     summary:
-      - "We introduce GraphOmni, a modular benchmark that factorizes graph-theoretic reasoning by graph type, serialization format, and prompting strategy."
-      - "Large-scale evaluation reveals strong interactions among these factors and substantial capability gaps that are hidden by single-score comparisons."
-    key_insight: "Graph reasoning is conditional on representation and prompting choices, so evaluation must be factorized rather than leaderboard-style."
+      - "GraphOmni turns graph theory into a stress test for general reasoning agents: tasks are structurally complex, scalable in difficulty, and exactly verifiable."
+      - "By decomposing LLM graph reasoning across task type, graph structure, input representation, and prompting strategy, it exposes failure modes that disappear under a single aggregate score."
+    key_insight: "Graph-theoretic tasks offer a scalable and exactly verifiable lens for diagnosing long-range reasoning in LLMs."
     why_it_matters: "It provides a more reliable basis for comparing model families and choosing where algorithmic effort should go."
     trajectory_relation: "This work establishes the evaluation spine for my later studies on structure understanding and model bias."
     tags: ["LLM", "Graph Reasoning", "Benchmark"]
@@ -143,9 +163,9 @@ papers:
       - label: "Paper"
         url: "https://arxiv.org/abs/2402.16402"
     summary:
-      - "We propose Distributional Edge Layouts (DEL), modeling graph topology as a distribution by globally sampling edge layouts with Langevin dynamics under Boltzmann energy."
-      - "As a model-agnostic preprocessing module, DEL consistently improves diverse GNN backbones and reaches strong state-of-the-art performance on multiple datasets."
-    key_insight: "Modeling topology as a distribution, rather than a fixed graph, is a practical path to robustness and extra expressivity."
+      - "DEL starts from a stronger view of graph learning: a graph should not be represented only as a fixed adjacency object, but as a system whose structural identity is revealed through its responses."
+      - "By placing graphs in a physical world and sampling steady-state edge layouts under energy constraints, DEL produces distributional signatures that separate hard graph pairs and strengthen GNN/Graph Transformer backbones."
+    key_insight: "If GNNs act as graph representation compressors, DEL enriches the signal by modeling a graph's physical-world response distribution."
     why_it_matters: "Many real data pipelines induce imperfect graphs; distributional layouts make methods less brittle in those settings."
     trajectory_relation: "This is a core branch in my trajectory on robust graph representation under imperfect structure."
     tags: ["Graph Representation", "Robustness", "KDD"]
@@ -163,9 +183,9 @@ papers:
       - label: "Paper"
         url: "https://openreview.net/pdf?id=HjpD5kpfa3"
     summary:
-      - "We re-examine spectral augmentation in contrastive graph self-supervised learning via broad empirical studies and theoretical analysis of InfoNCE bounds."
-      - "Simple edge perturbations (edge dropping for node-level, edge adding for graph-level) often match or outperform spectral methods with much lower computational cost."
-    key_insight: "In graph SSL, choosing invariances well matters more than increasingly complex spectral engineering."
+      - "This work pushes graph SSL away from augmentation folklore by asking whether spectral augmentation helps because of spectral information, or simply because it imposes useful invariance pressure."
+      - "For widely used shallow GNN encoders, we show that InfoNCE behavior is often dominated by perturbation strength rather than spectral characteristics, explaining why simple edge perturbations can match or outperform heavier spectral operations."
+    key_insight: "For shallow GNN encoders, perturbation strength can dominate spectral properties, shifting graph SSL design from spectral engineering to invariance design."
     why_it_matters: "It improves SSL stability and reduces trial-and-error in representation learning pipelines."
     trajectory_relation: "This contributes mechanistic understanding in my branch on efficient, principled representation learning."
     tags: ["Graph SSL", "Spectral Methods", "TMLR"]
@@ -178,14 +198,14 @@ papers:
     year: 2024
     accent: "#a61e4d"
     teaser_label: "AI4Science Transfer"
-    teaser_caption: "Hard negative design for protein modeling"
+    teaser_caption: "Negative alignment for protein modeling"
     links:
       - label: "Paper"
         url: "https://arxiv.org/abs/2405.17902"
     summary:
-      - "We introduce negative sample mining for protein language models by constructing hard negatives from protein pairs across distinct categories."
-      - "The approach improves downstream performance and shows better alignment with biological mechanisms such as protein-protein interaction."
-    key_insight: "Domain-aware hard negatives can steer protein LMs away from shortcut co-evolution cues and toward biologically meaningful structure."
+      - "Protein language models can over-rely on co-evolution knowledge, causing representations to preserve misleading evolutionary correlations when transferred to downstream protein tasks."
+      - "We mine negative protein pairs from disparate categories and reduce their residue-level alignment in cross-attention space, steering PLMs away from co-evolution shortcuts and toward task-relevant discrimination."
+    key_insight: "Negative mining acts as an alignment-level intervention that reduces spurious co-evolution coupling in protein language models."
     why_it_matters: "It demonstrates how graph-inspired learning principles can transfer to high-impact scientific problems."
     trajectory_relation: "This is a cross-domain branch showing how my graph learning principles scale into AI4Science."
     tags: ["AI4Science", "Protein LM", "ECML-PKDD"]
@@ -203,9 +223,9 @@ papers:
       - label: "Paper"
         url: "https://arxiv.org/pdf/2402.16346"
     summary:
-      - "We propose a graph pooling mechanism that injects persistent homology directly into coarsening, motivated by the alignment between PH filtration and cutoff-style pooling."
-      - "The method is plug-and-play across pooling families and yields consistent, substantial gains on standard benchmarks."
-    key_insight: "Topological priors are most effective when embedded in pooling itself, rather than appended as auxiliary features."
+      - "This work treats graph pooling as a structural abstraction problem rather than a node-pruning heuristic: coarsening should decide which topology deserves to survive."
+      - "By injecting persistent homology into the pooling process itself, it aligns PH filtration with cutoff-style pooling so global topological evidence influences what structures are preserved."
+    key_insight: "Persistent homology is most useful when it guides pooling decisions before global topology is compressed away."
     why_it_matters: "It advances pooling from heuristic compression toward structure-preserving abstraction."
     trajectory_relation: "This work anchors my trajectory on injecting geometric/topological priors into representation pipelines."
     tags: ["Topology", "Graph Pooling", "NeurIPS"]
@@ -222,9 +242,9 @@ papers:
       - label: "Paper"
         url: "https://arxiv.org/abs/2402.10468"
     summary:
-      - "We propose ACGCL, combining pair-wise augmentation with controllable similarity and subgraph contrastive learning for graph-level representation learning."
-      - "An adversarial curriculum progressively increases sample difficulty and focuses optimization on harder examples, outperforming strong baselines on six benchmarks."
-    key_insight: "Graph contrastive learning becomes more reliable when similarity and sample difficulty are explicitly controlled during training."
+      - "ACGCL treats graph contrastive learning as controlled optimization over sample difficulty, rather than a recipe of random augmentations and fixed positives/negatives."
+      - "It uses pair-wise augmentation to generate similarity-controlled mirror subgraphs, then applies adversarial curriculum training so optimization gradually moves toward harder and more informative samples."
+    key_insight: "Graph contrastive learning becomes more reliable when view similarity and sample difficulty are explicitly controlled."
     why_it_matters: "It offers a practical recipe for making graph contrastive methods less fragile."
     trajectory_relation: "This paper marks an early stage of my long-term branch on robustness-aware representation learning."
     tags: ["Contrastive Learning", "Robustness", "Preprint"]
@@ -264,12 +284,15 @@ trajectory:
       period: "2024-2026"
       focus: "Injecting structure priors into scientific and real-world applications, including AI4Science and recommender systems."
       nodes:
+        - paper_id: "molemb"
+          label: "MolEmb (FM4LS@ICML 2026)"
+          one_line: "Frames MLLMs as context-aware molecular embedding backbones."
         - paper_id: "persistent-homology-pooling"
           label: "Persistent Homology Pooling (NeurIPS 2024)"
           one_line: "Injects topological signals to preserve global structure."
         - paper_id: "protein-negative-mining"
           label: "Negative Mining for Protein LMs (ECML-PKDD 2024)"
-          one_line: "Uses structure-aware negatives to improve scientific representation quality."
+          one_line: "Uses negative alignment to reduce co-evolution-driven shortcut correlations."
         - anchor: "work-aot-star"
           label: "AOT* (ACL Findings 2026)"
           one_line: "LLM-empowered AND-OR tree search for efficient synthesis planning."

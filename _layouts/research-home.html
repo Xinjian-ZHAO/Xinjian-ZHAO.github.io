@@ -88,7 +88,7 @@ layout: compress
                   <h3>{{ paper.title }}</h3>
                   {% assign formatted_authors = paper.authors | replace: '*', '<span class="equal-marker" aria-label="equal contribution">*</span>' | replace: 'Xinjian Zhao', '<strong>Xinjian Zhao</strong>' %}
                   <p class="paper-authors">{{ formatted_authors }}</p>
-                  <p class="paper-venue">{{ paper.venue_full }}{% if paper.venue_abbr %} <strong><em>({{ paper.venue_abbr }})</em></strong>{% endif %}, {{ paper.year }}</p>
+                  <p class="paper-venue">{% if paper.venue_display %}{{ paper.venue_display }}{% else %}{{ paper.venue_full }}{% if paper.venue_abbr %} <strong><em>({{ paper.venue_abbr }})</em></strong>{% endif %}, {{ paper.year }}{% endif %}</p>
                   <div class="paper-links">
                     {% for item in paper.links %}
                     <a href="{{ item.url }}" target="_blank" rel="noopener noreferrer">{{ item.label }}</a>
