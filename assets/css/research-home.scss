@@ -273,7 +273,7 @@ button:focus-visible {
   width: 1em;
   height: 1em;
   place-items: center;
-  vertical-align: -0.12em;
+  vertical-align: -0.08em;
   line-height: 1;
   overflow: hidden;
 }
@@ -287,7 +287,12 @@ button:focus-visible {
 }
 
 .institution-logo-wide .institution-logo-fallback {
-  width: 1.08em;
+  width: 1em;
+  justify-self: start;
+}
+
+.institution-logo-cityu .institution-logo-fallback {
+  width: 1em;
   justify-self: start;
 }
 
@@ -296,7 +301,7 @@ button:focus-visible {
 }
 
 .institution-logo-fallback {
-  display: grid;
+  display: none;
   width: 100%;
   height: 100%;
   place-items: center;
@@ -320,7 +325,7 @@ button:focus-visible {
 .institution-logo-wide img {
   object-fit: contain;
   object-position: center;
-  background: var(--surface);
+  background: transparent;
   filter: brightness(0) saturate(100%) invert(41%) sepia(12%) saturate(1150%) hue-rotate(231deg) brightness(97%) contrast(86%);
 }
 
@@ -331,6 +336,10 @@ button:focus-visible {
 
 .institution-logo.is-unavailable img {
   display: none;
+}
+
+.institution-logo.is-unavailable .institution-logo-fallback {
+  display: grid;
 }
 
 .papers-stack {

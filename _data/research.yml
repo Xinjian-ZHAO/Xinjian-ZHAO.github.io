@@ -49,7 +49,7 @@ hero_links:
 about:
   bio:
     - "I am a third-year PhD student in Computer Science at The Chinese University of Hong Kong, Shenzhen, and I am fortunate to be advised by <a href=\"https://mypage.cuhk.edu.cn/academics/yutianshu/\" target=\"_blank\" rel=\"noopener noreferrer\">Prof. Tianshu Yu</a>. During my PhD, I also spent time as a visiting student at the Institute of Automation, Chinese Academy of Sciences, hosted by <a href=\"https://ia.cas.cn/rcdw/yjy/202404/t20240422_7129885.html\" target=\"_blank\" rel=\"noopener noreferrer\">Prof. Shu Wu</a>, and as a research intern at Shanghai Artificial Intelligence Laboratory."
-    - "Before my PhD, I completed an M.S. in Data Science at City University of Hong Kong under the supervision of <a href=\"https://rguo12.github.io/\" target=\"_blank\" rel=\"noopener noreferrer\">Dr. Ruocheng Guo</a> and a B.S. in Computer Science at Shandong University under the supervision of <a href=\"https://xuemengsong.github.io/\" target=\"_blank\" rel=\"noopener noreferrer\">Prof. Xuemeng Song</a>."
+    - "Before my PhD, I completed an M.S. in Data Science at City University of Hong Kong under the supervision of <a href=\"https://rguo12.github.io/\" target=\"_blank\" rel=\"noopener noreferrer\">Prof. Ruocheng Guo</a> and a B.S. in Computer Science at Shandong University under the supervision of <a href=\"https://xuemengsong.github.io/\" target=\"_blank\" rel=\"noopener noreferrer\">Prof. Xuemeng Song</a>."
     - "I am interested in graph learning, graph-augmented intelligence, and impactful applications in science and industry."
 
 research_themes:
@@ -94,7 +94,8 @@ papers:
   - id: "forge-manufacturing"
     title: "FORGE: Fine-grained Multimodal Evaluation for Manufacturing Scenarios"
     authors: "Xiangru Jian, Hao Xu, Wei Pang, Xinjian Zhao, Chengyu Tao, Qixin Zhang, Xikun Zhang, Chao Zhang, Guanzhi Deng, Alex Xue, Juan Du, Tianshu Yu, Garth Tarr, Linqi Song, Qiuzhuang Sun, Dacheng Tao"
-    venue_full: "Preprint"
+    venue_full: "Findings of the Association for Computational Linguistics: EMNLP 2026"
+    venue_display: "Findings of EMNLP 2026"
     year: 2026
     accent: "#8f5b2e"
     teaser_label: "Manufacturing MLLMs"
@@ -119,8 +120,8 @@ papers:
     venue_abbr: "IJCAI"
     year: 2026
     accent: "#3b5bdb"
-    teaser_label: "Synthesis Layer"
-    teaser_caption: "Unifying trends across vision and graph learning"
+    teaser_label: "Position"
+    teaser_caption: "Visual intelligence for graph reasoning and learning"
     links:
       - label: "Paper"
         url: "https://www.techrxiv.org/doi/full/10.36227/techrxiv.177004261.15861585/v1"
@@ -139,7 +140,7 @@ papers:
     venue_abbr: "NeurIPS"
     year: 2025
     accent: "#495057"
-    teaser_label: "Structure via Pixels"
+    teaser_label: "Structure via Visual Intelligence"
     teaser_caption: "How far vision models can reason about graph structure"
     links:
       - label: "Paper"
@@ -159,7 +160,7 @@ papers:
     venue_abbr: "ICLR"
     year: 2026
     accent: "#0b7285"
-    teaser_label: "Benchmark Taxonomy"
+    teaser_label: "Graph Reasoning Diagnostics"
     teaser_caption: "Graph-theoretic capabilities of LLM systems"
     links:
       - label: "Paper"
@@ -219,7 +220,7 @@ papers:
     venue_abbr: "ECML-PKDD"
     year: 2024
     accent: "#a61e4d"
-    teaser_label: "AI4Science Transfer"
+    teaser_label: "Protein Language Models"
     teaser_caption: "Negative alignment for protein modeling"
     links:
       - label: "Paper"
@@ -258,7 +259,7 @@ papers:
     venue_full: "Preprint"
     year: 2024
     accent: "#1864ab"
-    teaser_label: "Curriculum Robustness"
+    teaser_label: "Graph Contrastive Learning"
     teaser_caption: "Adversarial scheduling for graph contrastive learning"
     links:
       - label: "Paper"
@@ -300,14 +301,14 @@ trajectory:
           label: "GraphOmni (ICLR 2026)"
           one_line: "Decomposes graph reasoning into inspectable sub-skills."
         - paper_id: "vision-graphs-survey"
-          label: "When Vision Meets Graphs (Survey 2026)"
-          one_line: "Synthesizes capability gaps and future agenda."
+          label: "When Vision Meets Graphs (IJCAI 2026 · Position)"
+          one_line: "Positions visual intelligence as an interface for graph reasoning and learning."
     - title: "Structure Priors in Scientific and Real-World Applications"
       period: "2024-2026"
       focus: "Injecting structure priors into scientific and real-world applications, including AI4Science and recommender systems."
       nodes:
         - paper_id: "molemb"
-          label: "MolEmb (FM4LS@ICML 2026)"
+          label: "MolEmb · MLLMs as Molecular Embedding Models"
           one_line: "Frames MLLMs as context-aware molecular embedding backbones."
         - paper_id: "persistent-homology-pooling"
           label: "Persistent Homology Pooling (NeurIPS 2024)"
@@ -319,7 +320,7 @@ trajectory:
           label: "AOT* (ACL Findings 2026)"
           one_line: "LLM-empowered AND-OR tree search for efficient synthesis planning."
         - paper_id: "forge-manufacturing"
-          label: "FORGE (Preprint 2026)"
+          label: "FORGE (EMNLP Findings 2026)"
           one_line: "Benchmarks multimodal models in realistic manufacturing scenarios."
 
 cross_paper_insights:
