@@ -168,24 +168,48 @@ layout: compress
 
           <article class="trajectory-tree" data-trajectory-tree>
             <header class="trajectory-root">
+              <h2 id="trajectory-title">{{ research.trajectory.trunk.title }}</h2>
+              <p>{{ research.trajectory.trunk.description }}</p>
               <span class="trajectory-root-sprout" aria-hidden="true">
                 <span></span><span></span>
               </span>
-              <h2 id="trajectory-title">{{ research.trajectory.trunk.title }}</h2>
-              <p>{{ research.trajectory.trunk.description }}</p>
             </header>
 
             {% assign branches = research.trajectory.branches %}
             {% assign branch_count = branches | size %}
             {% if branch_count > 0 %}
-            <svg class="trajectory-crown" viewBox="0 0 1000 126" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-              <path class="tree-stroke tree-stroke-trunk" style="--draw-delay: 0ms" pathLength="1" vector-effect="non-scaling-stroke" d="M500 0 C489 15, 510 29, 500 43" />
+            <svg class="trajectory-crown" viewBox="0 0 1000 140" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+              <path class="tree-stroke tree-stroke-wash" style="--draw-delay: 0ms" pathLength="1" vector-effect="non-scaling-stroke" d="M500 0 C488 17, 512 31, 500 48" />
+              <path class="tree-stroke tree-stroke-trunk" style="--draw-delay: 0ms" pathLength="1" vector-effect="non-scaling-stroke" d="M500 0 C488 17, 512 31, 500 48" />
               {% assign branch_step = 1000 | divided_by: branch_count %}
               {% assign branch_half = branch_step | divided_by: 2 %}
               {% for branch in branches %}
                 {% assign branch_x = branch_step | times: forloop.index0 | plus: branch_half %}
+                {% assign branch_near = branch_x | plus: 4500 | divided_by: 10 %}
+                {% assign branch_far = branch_x | times: 3 | plus: 500 | divided_by: 4 %}
+                {% if forloop.first %}
+                  {% assign control_one = branch_near %}
+                  {% assign control_one_y = 65 %}
+                  {% assign control_two = branch_far %}
+                  {% assign control_two_y = 78 %}
+                {% elsif forloop.last %}
+                  {% assign control_one = branch_near %}
+                  {% assign control_one_y = 75 %}
+                  {% assign control_two = branch_far %}
+                  {% assign control_two_y = 66 %}
+                {% else %}
+                  {% assign control_one = branch_x | minus: 11 %}
+                  {% assign control_one_y = 68 %}
+                  {% assign control_two = branch_x | plus: 13 %}
+                  {% assign control_two_y = 99 %}
+                {% endif %}
                 {% assign draw_delay = forloop.index0 | times: 100 | plus: 130 %}
-                <path class="tree-stroke tree-stroke-branch tree-stroke-branch-{{ forloop.index }}" style="--draw-delay: {{ draw_delay }}ms" pathLength="1" vector-effect="non-scaling-stroke" d="M500 40 C500 68, {{ branch_x }} 67, {{ branch_x }} 126" />
+                <path class="tree-stroke tree-stroke-wash tree-stroke-branch-wash tree-stroke-branch-wash-{{ forloop.index }}" style="--draw-delay: {{ draw_delay }}ms" pathLength="1" vector-effect="non-scaling-stroke" d="M500 46 C{{ control_one }} {{ control_one_y }}, {{ control_two }} {{ control_two_y }}, {{ branch_x }} 132" />
+                <path class="tree-stroke tree-stroke-branch tree-stroke-branch-{{ forloop.index }}" style="--draw-delay: {{ draw_delay }}ms" pathLength="1" vector-effect="non-scaling-stroke" d="M500 46 C{{ control_one }} {{ control_one_y }}, {{ control_two }} {{ control_two_y }}, {{ branch_x }} 132" />
+                <g class="tree-leaf-pair tree-leaf-pair-{{ forloop.index }}" style="--bud-delay: {{ draw_delay | plus: 420 }}ms" transform="translate({{ branch_x }} 126)">
+                  <path d="M0 6 C-5 -2,-15 -4,-18 1 C-16 7,-8 10,0 6Z" />
+                  <path d="M0 6 C5 -3,15 -4,18 2 C15 8,8 10,0 6Z" />
+                </g>
               {% endfor %}
             </svg>
 
