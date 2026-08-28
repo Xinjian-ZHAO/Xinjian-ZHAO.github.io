@@ -76,6 +76,7 @@ papers:
     authors: "Xinjian Zhao, Xiangru Jian, Yaoyao Xu, Xiaozhuang Song, Wei Pang, Lei Bai, Tianshu Yu"
     venue_full: "FM4LS@ICML"
     venue_display: "FM4LS@ICML 2026"
+    venue_emphasis: "ICML"
     year: 2026
     accent: "#2f6f73"
     teaser_label: "Molecular Embeddings"
@@ -96,6 +97,7 @@ papers:
     authors: "Xiangru Jian, Hao Xu, Wei Pang, Xinjian Zhao, Chengyu Tao, Qixin Zhang, Xikun Zhang, Chao Zhang, Guanzhi Deng, Alex Xue, Juan Du, Tianshu Yu, Garth Tarr, Linqi Song, Qiuzhuang Sun, Dacheng Tao"
     venue_full: "Findings of the Association for Computational Linguistics: EMNLP 2026"
     venue_display: "Findings of EMNLP 2026"
+    venue_emphasis: "EMNLP"
     year: 2026
     accent: "#8f5b2e"
     teaser_label: "Manufacturing MLLMs"
