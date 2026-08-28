@@ -8,9 +8,10 @@ layout: compress
 {% assign shlab = research.institutions.shlab %}
 {% assign cityu = research.institutions.cityu %}
 {% assign sdu = research.institutions.sdu %}
+{% assign asset_version = site.github.build_revision | default: '20260828-2' %}
 {% capture cuhksz_inline %}<span class="institution-inline">{{ cuhksz.name }}&nbsp;<span class="institution-logo" title="{{ cuhksz.short }} logo" aria-hidden="true"><span class="institution-logo-fallback">C</span><img src="{{ cuhksz.logo | relative_url }}" alt="" width="22" height="22" decoding="async"></span></span>{% endcapture %}
 {% capture casia_inline %}<span class="institution-inline">{{ casia.name }}&nbsp;<span class="institution-logo" title="{{ casia.short }} logo" aria-hidden="true"><span class="institution-logo-fallback">I</span><img src="{{ casia.logo | relative_url }}" alt="" width="22" height="22" decoding="async"></span></span>{% endcapture %}
-{% capture shlab_inline %}<span class="institution-inline">{{ shlab.name }}&nbsp;<span class="institution-logo institution-logo-wide" title="{{ shlab.short }} logo" aria-hidden="true"><span class="institution-logo-fallback">S</span><img src="{{ shlab.logo | relative_url }}" alt="" width="44" height="22" decoding="async"></span></span>{% endcapture %}
+{% capture shlab_inline %}<span class="institution-inline">{{ shlab.name }}&nbsp;<span class="institution-logo institution-logo-wide" title="{{ shlab.short }} logo" aria-hidden="true"><span class="institution-logo-fallback">S</span><img src="{{ shlab.logo | relative_url }}" alt="" width="50" height="20" decoding="async"></span></span>{% endcapture %}
 {% capture cityu_inline %}<span class="institution-inline">{{ cityu.name }}&nbsp;<span class="institution-logo institution-logo-cityu" title="{{ cityu.short }} logo" aria-hidden="true"><span class="institution-logo-fallback">C</span><img src="{{ cityu.logo }}" alt="" width="36" height="22" decoding="async"></span></span>{% endcapture %}
 {% capture sdu_inline %}<span class="institution-inline">{{ sdu.name }}&nbsp;<span class="institution-logo institution-logo-sdu" title="{{ sdu.short }} logo" aria-hidden="true"><span class="institution-logo-fallback">S</span><img src="{{ sdu.logo | relative_url }}" alt="" width="22" height="22" decoding="async"></span></span>{% endcapture %}
 {% assign bio_primary = research.about.bio[0] | replace: cuhksz.name, cuhksz_inline | replace: casia.name, casia_inline | replace: shlab.name, shlab_inline %}
@@ -25,7 +26,7 @@ layout: compress
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="{{ '/assets/css/research-home.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/research-home.css' | relative_url }}?v={{ asset_version }}">
   </head>
   <body>
     <header class="site-nav" id="top">
@@ -284,6 +285,6 @@ layout: compress
     <script>
       document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, "") + " js";
     </script>
-    <script src="{{ '/assets/js/research-home.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/research-home.js' | relative_url }}?v={{ asset_version }}"></script>
   </body>
 </html>
