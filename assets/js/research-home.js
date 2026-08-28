@@ -26,12 +26,18 @@
           if (entry.isIntersecting) {
             var id = entry.target.getAttribute("id");
             navLinks.forEach(function (link) {
-              link.classList.toggle("is-active", link.getAttribute("href") === "#" + id);
+              var isActive = link.getAttribute("href") === "#" + id;
+              link.classList.toggle("is-active", isActive);
+              if (isActive) {
+                link.setAttribute("aria-current", "location");
+              } else {
+                link.removeAttribute("aria-current");
+              }
             });
           }
         });
       },
-      { rootMargin: "-40% 0px -45% 0px", threshold: 0.1 }
+      { rootMargin: "-40% 0px -45% 0px", threshold: 0 }
     );
 
     sections.forEach(function (section) {
@@ -65,6 +71,53 @@
     revealTargets.forEach(function (el) {
       el.classList.add("is-visible");
     });
+  }
+
+  var institutionLogoImages = document.querySelectorAll(".institution-logo img");
+  institutionLogoImages.forEach(function (image) {
+    var mark = image.parentElement;
+    var useFallback = function () {
+      if (mark) {
+        mark.classList.add("is-unavailable");
+      }
+    };
+
+    image.addEventListener("error", useFallback);
+    if (image.complete && image.naturalWidth === 0) {
+      useFallback();
+    }
+  });
+
+  var trajectoryTree = document.querySelector("[data-trajectory-tree]");
+  if (trajectoryTree) {
+    var reducedMotion = window.matchMedia &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var drawTrajectory = function () {
+      trajectoryTree.classList.add("is-drawn");
+    };
+
+    trajectoryTree.addEventListener("focusin", drawTrajectory);
+
+    if (!("IntersectionObserver" in window) || reducedMotion) {
+      drawTrajectory();
+    } else {
+      trajectoryTree.classList.add("is-animatable");
+      var trajectoryObserver = new IntersectionObserver(
+        function (entries, observer) {
+          var isVisible = entries.some(function (entry) {
+            return entry.isIntersecting;
+          });
+
+          if (isVisible) {
+            drawTrajectory();
+            observer.disconnect();
+          }
+        },
+        { rootMargin: "0px 0px -12% 0px", threshold: 0.01 }
+      );
+
+      trajectoryObserver.observe(trajectoryTree);
+    }
   }
 
 })();

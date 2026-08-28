@@ -12,6 +12,28 @@ profile:
     - "Across benchmarks, learning algorithms, and AI4Science applications, I aim to turn empirical performance gains into reusable research principles."
   location: "Shenzhen, China"
 
+institutions:
+  cuhksz:
+    name: "The Chinese University of Hong Kong, Shenzhen"
+    short: "CUHK-SZ"
+    logo: "/assets/images/institutions/cuhksz.png"
+  casia:
+    name: "Institute of Automation, Chinese Academy of Sciences"
+    short: "CASIA"
+    logo: "/assets/images/institutions/casia.webp"
+  shlab:
+    name: "Shanghai Artificial Intelligence Laboratory"
+    short: "SHLAB"
+    logo: "/assets/images/institutions/shlab.png"
+  cityu:
+    name: "City University of Hong Kong"
+    short: "CityUHK"
+    logo: "https://template.cityu.edu.hk/template/v2/logo/CityU/CityU_Vertical_Logo_CMYK.svg"
+  sdu:
+    name: "Shandong University"
+    short: "SDU"
+    logo: "/assets/images/institutions/sdu.png"
+
 hero_links:
   - label: "CV"
     url: "/cv/"
