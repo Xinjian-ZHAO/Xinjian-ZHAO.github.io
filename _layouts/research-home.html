@@ -16,7 +16,6 @@ layout: compress
     <link rel="stylesheet" href="{{ '/assets/css/research-home.css' | relative_url }}">
   </head>
   <body>
-    <a class="skip-link" href="#main-content">Skip to content</a>
     <header class="site-nav" id="top">
       <div class="container nav-inner">
         <a class="brand" href="#top">{{ research.profile.name }}</a>
@@ -24,29 +23,22 @@ layout: compress
           Menu
         </button>
         <nav class="primary-nav" id="primary-nav" aria-label="Main Navigation">
-          <a href="#about">About</a>
-          <a href="#papers">Publications</a>
-          <a href="#research-map">Research</a>
-          <a href="#mentorship">Mentoring</a>
+          <a href="#papers">Selected Papers</a>
+          <a href="#research-map">Trajectory</a>
+          <a href="#mentorship">Mentorship</a>
           <a href="#contact">Contact</a>
         </nav>
       </div>
     </header>
 
-    <main class="research-site" id="main-content">
-      <section class="hero section" id="about">
+    <main class="research-site">
+      <section class="hero section" id="hero">
         <div class="container hero-grid">
-          <div class="hero-heading">
-            <p class="hero-kicker">{{ research.profile.current_role }}</p>
+          <div class="hero-content reveal">
             <h1>{{ research.profile.name }}</h1>
-            <p class="hero-affiliation">{{ research.profile.affiliation }} <span aria-hidden="true">·</span> {{ research.profile.location }}</p>
-          </div>
-          <aside class="hero-photo">
-            <img src="{{ research.profile.photo | relative_url }}" alt="{{ research.profile.name }} profile photo">
-          </aside>
-          <div class="hero-content">
-            <p class="hero-intro">{{ research.profile.one_liner }}</p>
-            <nav class="hero-links" aria-label="Profile links">
+            <p class="hero-affiliation">{{ research.profile.affiliation }}</p>
+            <p class="hero-intro hero-intro-main">{{ research.about.bio[0] }} {{ research.about.bio[1] }} {{ research.about.bio[2] }}</p>
+            <div class="hero-links">
               {% for link in research.hero_links %}
               {% assign link_url = link.url %}
               {% unless link_url contains '://' or link_url contains 'mailto:' or link_url contains '#' %}
@@ -54,40 +46,49 @@ layout: compress
               {% endunless %}
               <a href="{{ link_url }}" {% if link.url contains 'http' %}target="_blank" rel="noopener noreferrer"{% endif %}>{{ link.label }}</a>
               {% endfor %}
-            </nav>
-            <div class="hero-bio">
-              {% for paragraph in research.about.bio %}
-              <p>{{ paragraph }}</p>
-              {% endfor %}
             </div>
           </div>
+          <aside class="hero-photo reveal">
+            <img src="{{ research.profile.photo | relative_url }}" alt="{{ research.profile.name }} profile photo">
+          </aside>
         </div>
       </section>
 
       <section class="section" id="papers">
         <div class="container section-content">
-          <header class="section-header">
-            <div>
-              <p class="section-index" aria-hidden="true">01</p>
-              <h2>Selected Publications</h2>
-            </div>
-            <p class="section-note"><span class="equal-marker" aria-hidden="true">*</span><span class="sr-only">Asterisk</span> denotes equal contribution.</p>
-          </header>
+          <div class="section-header reveal">
+            <p class="eyebrow section-title">Selected Papers</p>
+            <p class="section-note"><span class="equal-marker" aria-hidden="true">*</span> denotes equal contribution.</p>
+          </div>
 
           <div class="papers-stack">
             {% for paper in research.papers %}
-            <article class="paper-card{% if paper.image %} has-image{% endif %}" id="paper-{{ paper.id }}">
+            <article class="paper-card" id="paper-{{ paper.id }}" data-paper-index="{{ forloop.index0 }}" data-paper-total="{{ forloop.length }}">
               <div class="paper-meta">
-                <p class="paper-year">{{ paper.year }}</p>
-                {% if paper.venue_abbr %}<p class="paper-abbr">{{ paper.venue_abbr }}</p>{% endif %}
+                <div class="paper-teaser" style="--accent: {{ paper.accent }};">
+                  {% if paper.image %}
+                  <img src="{{ paper.image | relative_url }}" alt="Teaser image for {{ paper.title }}" {% if forloop.index <= 2 %}loading="eager" fetchpriority="high"{% else %}loading="lazy"{% endif %}>
+                  {% else %}
+                  <div class="teaser-fallback">
+                    <p>{{ paper.teaser_label }}</p>
+                    <span>{{ paper.teaser_caption }}</span>
+                  </div>
+                  {% endif %}
+                </div>
+                <ul class="paper-tags">
+                  {% for tag in paper.tags %}
+                  <li>{{ tag }}</li>
+                  {% endfor %}
+                </ul>
               </div>
 
               <div class="paper-content">
                 <header class="paper-header">
+                  <p class="paper-index">{{ forloop.index }} / {{ forloop.length }}</p>
                   <h3>{{ paper.title }}</h3>
-                  {% assign formatted_authors = paper.authors | replace: '*', '<span class="equal-marker" aria-hidden="true">*</span><span class="sr-only"> equal contribution</span>' | replace: 'Xinjian Zhao', '<strong>Xinjian Zhao</strong>' %}
+                  {% assign formatted_authors = paper.authors | replace: '*', '<span class="equal-marker" aria-label="equal contribution">*</span>' | replace: 'Xinjian Zhao', '<strong>Xinjian Zhao</strong>' %}
                   <p class="paper-authors">{{ formatted_authors }}</p>
-                  <p class="paper-venue">{{ paper.venue_full }}</p>
+                  <p class="paper-venue">{% if paper.venue_display %}{{ paper.venue_display }}{% else %}{{ paper.venue_full }}{% if paper.venue_abbr %} <strong><em>({{ paper.venue_abbr }})</em></strong>{% endif %}, {{ paper.year }}{% endif %}</p>
                   <div class="paper-links">
                     {% for item in paper.links %}
                     <a href="{{ item.url }}" target="_blank" rel="noopener noreferrer">{{ item.label }}</a>
@@ -95,158 +96,125 @@ layout: compress
                   </div>
                 </header>
 
-                {% if forloop.index > 5 %}
-                <details class="paper-details">
-                  <summary>Research summary</summary>
-                {% endif %}
-
                 <div class="paper-summary">
                   {% assign summary_text = paper.summary | join: " " %}
                   <p>{{ summary_text }}</p>
                 </div>
 
-                <p class="paper-insight">{{ paper.key_insight }}</p>
-
-                <ul class="paper-tags" aria-label="Research topics">
-                  {% for tag in paper.tags %}
-                  <li>{{ tag }}</li>
-                  {% endfor %}
-                </ul>
-
-                {% if forloop.index > 5 %}
-                </details>
-                {% endif %}
+                <div class="insight-grid">
+                  <article>
+                    <h4>Key Insight</h4>
+                    <p>{{ paper.key_insight }}</p>
+                  </article>
+                </div>
               </div>
-
-              {% if paper.image %}
-              <figure class="paper-teaser">
-                <img src="{{ paper.image | relative_url }}" alt="Teaser image for {{ paper.title }}" {% if forloop.index <= 2 %}loading="eager" fetchpriority="high"{% else %}loading="lazy"{% endif %}>
-              </figure>
-              {% endif %}
             </article>
             {% endfor %}
           </div>
 
-          <div class="additional-works">
-            <div class="additional-works-heading">
-              <h3>Other Publications</h3>
-            </div>
+          <div class="additional-works reveal">
+            <h3>Other Works</h3>
             <ul>
               {% for work in research.additional_works %}
               <li id="{{ work.id }}">
-                <p class="additional-year">{{ work.year }}</p>
                 <div class="additional-work-main">
                   <a href="{{ work.url }}" target="_blank" rel="noopener noreferrer">{{ work.title }}</a>
-                  {% if work.authors %}
-                  {% assign formatted_work_authors = work.authors | replace: '*', '<span class="equal-marker" aria-hidden="true">*</span><span class="sr-only"> equal contribution</span>' | replace: 'Xinjian Zhao', '<strong>Xinjian Zhao</strong>' %}
-                  <p class="additional-authors">{{ formatted_work_authors }}</p>
-                  {% endif %}
-                  <p class="additional-venue">
+                  <span class="additional-venue">
                     {% if work.venue_abbr %}
                     <strong>{{ work.venue_abbr }}</strong>
+                    <span class="venue-sep">·</span>
+                    {% endif %}
+                    {% if work.year %}
+                    <span>{{ work.year }}</span>
                     {% endif %}
                     {% if work.venue %}
-                    {% if work.venue_abbr %}
+                    {% if work.year or work.venue_abbr %}
                     <span class="venue-sep">·</span>
                     {% endif %}
                     <span>{{ work.venue }}</span>
                     {% endif %}
-                  </p>
+                  </span>
                 </div>
+                {% if work.authors %}
+                {% assign formatted_work_authors = work.authors | replace: '*', '<span class="equal-marker" aria-label="equal contribution">*</span>' | replace: 'Xinjian Zhao', '<strong>Xinjian Zhao</strong>' %}
+                <p class="additional-authors">{{ formatted_work_authors }}</p>
+                {% endif %}
               </li>
               {% endfor %}
             </ul>
           </div>
-        </div>
-      </section>
 
-      <section class="section section-soft" id="research-map">
-        <div class="container section-content">
-          <header class="section-header">
-            <div>
-              <p class="section-index" aria-hidden="true">02</p>
-              <h2>Research Threads</h2>
+          <div class="map-stack" id="research-map">
+            <div class="section-header reveal compact-header">
+              <p class="eyebrow section-title">Trajectory</p>
             </div>
-          </header>
-
-          <div class="trajectory-intro">
-            <h3>{{ research.trajectory.trunk.title }}</h3>
-            <p>{{ research.trajectory.trunk.description }}</p>
-          </div>
-
-          <div class="branch-tree">
-            {% for branch in research.trajectory.branches %}
-            <article class="branch-node">
-              <p class="branch-period">{{ branch.period }}</p>
-              <h3>{{ branch.title }}</h3>
-              <p class="branch-focus">{{ branch.focus }}</p>
-              <ul class="branch-links">
-                {% for node in branch.nodes %}
-                <li>
-                  {% if node.anchor %}
-                  <a href="#{{ node.anchor }}">{{ node.label }}</a>
-                  {% else %}
-                  <a href="#paper-{{ node.paper_id }}">{{ node.label }}</a>
-                  {% endif %}
-                </li>
-                {% endfor %}
-              </ul>
+            <article class="map-compact reveal">
+              <div class="trajectory-layout">
+                <div class="trunk-node">
+                  <p class="trunk-label">{{ research.trajectory.trunk.title }}</p>
+                  <p class="map-trunk">{{ research.trajectory.trunk.description }}</p>
+                </div>
+                <div class="branch-tree">
+                  {% for branch in research.trajectory.branches %}
+                  <article class="branch-node">
+                  <p class="branch-title">{{ branch.title }} <span>{{ branch.period }}</span></p>
+                  <p class="branch-focus">{{ branch.focus }}</p>
+                  <p class="branch-links">
+                    {% for node in branch.nodes %}
+                    {% if node.anchor %}
+                    <a href="#{{ node.anchor }}">{{ node.label }}</a>{% unless forloop.last %} · {% endunless %}
+                    {% else %}
+                    <a href="#paper-{{ node.paper_id }}">{{ node.label }}</a>{% unless forloop.last %} · {% endunless %}
+                    {% endif %}
+                    {% endfor %}
+                  </p>
+                </article>
+                  {% endfor %}
+                </div>
+              </div>
             </article>
-            {% endfor %}
           </div>
         </div>
       </section>
 
       <section class="section" id="mentorship">
         <div class="container section-content">
-          <header class="section-header">
-            <div>
-              <p class="section-index" aria-hidden="true">03</p>
-              <h2>Mentoring</h2>
-            </div>
-            <p class="section-note">{{ research.mentorship.note }}</p>
-          </header>
+          <div class="section-header reveal compact-header">
+            <p class="eyebrow section-title">Mentorship</p>
+          </div>
+          <p class="mentorship-note reveal">{{ research.mentorship.note }}</p>
+          <p class="mentorship-meta reveal">{{ research.mentorship.students | size }} students mentored</p>
           <div class="mentorship-list">
             {% for student in research.mentorship.students %}
-            <article class="mentorship-item">
-              <header>
-                <h3><a href="{{ student.url }}" target="_blank" rel="noopener noreferrer">{{ student.name }}</a></h3>
-                <p>{{ student.period }}</p>
-              </header>
-              <div class="mentorship-details">
-                <p>{{ student.profile }}</p>
-                {% if student.highlights %}
-                <p><span>Highlights</span> {{ student.highlights }}</p>
-                {% endif %}
-                {% if student.next %}
-                <p><span>Next position</span> {{ student.next }}</p>
-                {% endif %}
-              </div>
+            <article class="mentorship-item reveal">
+              <p><a href="{{ student.url }}" target="_blank" rel="noopener noreferrer">{{ student.name }}</a> <span>{{ student.period }}</span></p>
+              <p>{{ student.profile }}</p>
+              {% if student.highlights %}
+              <p><strong>Achievement:</strong> {{ student.highlights }}</p>
+              {% endif %}
+              {% if student.next %}
+              <p><strong>Next Position:</strong> {{ student.next }}</p>
+              {% endif %}
             </article>
             {% endfor %}
           </div>
         </div>
       </section>
 
-      <section class="section contact-section" id="contact">
+      <section class="section alt" id="contact">
         <div class="container section-content">
-          <header class="section-header">
-            <div>
-              <p class="section-index" aria-hidden="true">04</p>
-              <h2>Contact</h2>
-            </div>
-          </header>
-          <div class="contact-body">
-            <p class="contact-note">{{ research.contact.note }}</p>
-            <nav class="contact-links" aria-label="Contact and profile links">
-              {% for link in research.contact.links %}
-              {% assign contact_url = link.url %}
-              {% unless contact_url contains '://' or contact_url contains 'mailto:' %}
-                {% assign contact_url = contact_url | relative_url %}
-              {% endunless %}
-              <a href="{{ contact_url }}" {% if link.url contains 'http' %}target="_blank" rel="noopener noreferrer"{% endif %}>{{ link.label }}</a>
-              {% endfor %}
-            </nav>
+          <div class="section-header reveal compact-header">
+            <p class="eyebrow">Contact</p>
+          </div>
+          <p class="contact-note reveal">{{ research.contact.note }}</p>
+          <div class="contact-links reveal">
+            {% for link in research.contact.links %}
+            {% assign contact_url = link.url %}
+            {% unless contact_url contains '://' or contact_url contains 'mailto:' %}
+              {% assign contact_url = contact_url | relative_url %}
+            {% endunless %}
+            <a href="{{ contact_url }}" {% if link.url contains 'http' %}target="_blank" rel="noopener noreferrer"{% endif %}>{{ link.label }}</a>
+            {% endfor %}
           </div>
         </div>
       </section>
@@ -259,6 +227,9 @@ layout: compress
       </div>
     </footer>
 
+    <script>
+      document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, "") + " js";
+    </script>
     <script src="{{ '/assets/js/research-home.js' | relative_url }}"></script>
   </body>
 </html>
