@@ -75,7 +75,7 @@ papers:
     title: "MolEmb: Multimodal Large Language Models Can Be Strong Molecular Embedding Models"
     authors: "Xinjian Zhao, Xiangru Jian, Yaoyao Xu, Xiaozhuang Song, Wei Pang, Lei Bai, Tianshu Yu"
     venue_full: "FM4LS@ICML"
-    venue_display: "FM4LS@ICML 2026"
+    venue_display: "Working Paper · FM4LS@ICML 2026"
     venue_emphasis: "ICML"
     year: 2026
     accent: "#2f6f73"
