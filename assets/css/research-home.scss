@@ -858,7 +858,7 @@ button:focus-visible {
   position: relative;
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  grid-template-rows: auto 88px auto;
+  grid-template-rows: auto 64px auto;
   align-self: center;
   min-width: 0;
 }
@@ -870,46 +870,16 @@ button:focus-visible {
   overflow: visible;
   left: -28px;
   width: calc(100% + 56px);
-  height: 88px;
+  height: 64px;
   fill: none;
   stroke: var(--tree-branch);
-  stroke-width: 1.5;
+  stroke-width: 1.3;
   stroke-linecap: round;
   stroke-linejoin: round;
   pointer-events: none;
 }
 
 .trajectory-loop-path {
-  vector-effect: non-scaling-stroke;
-  stroke-width: 1.8;
-}
-
-.trajectory-loop-path-top { stroke: url(#trajectory-to-representation); }
-.trajectory-loop-path-bottom { stroke: url(#trajectory-to-generation); }
-
-.trajectory-loop-halo {
-  fill: none;
-  stroke: var(--accent-soft);
-  stroke-width: 7;
-  opacity: 0.65;
-  vector-effect: non-scaling-stroke;
-}
-
-.trajectory-loop-stem {
-  stroke: var(--tree-twig);
-  stroke-width: 1;
-  vector-effect: non-scaling-stroke;
-}
-
-.trajectory-arrowhead {
-  fill: var(--accent-strong);
-  stroke: none;
-}
-
-.trajectory-loop-origin {
-  fill: var(--surface);
-  stroke: var(--tree-branch);
-  stroke-width: 1.3;
   vector-effect: non-scaling-stroke;
 }
 
