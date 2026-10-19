@@ -856,6 +856,7 @@ button:focus-visible {
 
 .trajectory-bridge {
   position: relative;
+  isolation: isolate;
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   grid-template-rows: auto 64px auto;
@@ -864,13 +865,13 @@ button:focus-visible {
 }
 
 .trajectory-loop-orbit {
-  position: relative;
-  grid-row: 2;
-  align-self: stretch;
+  position: absolute;
+  z-index: 0;
+  top: 0;
   overflow: visible;
   left: -28px;
   width: calc(100% + 56px);
-  height: 64px;
+  height: 100%;
   fill: none;
   stroke: var(--tree-branch);
   stroke-width: 1.3;

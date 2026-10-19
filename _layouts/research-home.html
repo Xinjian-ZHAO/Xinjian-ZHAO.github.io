@@ -8,7 +8,7 @@ layout: compress
 {% assign shlab = research.institutions.shlab %}
 {% assign cityu = research.institutions.cityu %}
 {% assign sdu = research.institutions.sdu %}
-{% assign asset_version = site.github.build_revision | default: '20261019-research-v9' %}
+{% assign asset_version = site.github.build_revision | default: '20261019-research-v10' %}
 {% capture cuhksz_inline %}<span class="institution-inline">{{ cuhksz.name }}&nbsp;<span class="institution-logo institution-logo-cuhksz" title="{{ cuhksz.short }} logo" aria-hidden="true"><span class="institution-logo-fallback">C</span><img src="{{ cuhksz.logo | relative_url }}" alt="" width="22" height="22" decoding="async"></span></span>{% endcapture %}
 {% capture casia_inline %}<span class="institution-inline">{{ casia.name }}&nbsp;<span class="institution-logo" title="{{ casia.short }} logo" aria-hidden="true"><span class="institution-logo-fallback">I</span><img src="{{ casia.logo | relative_url }}" alt="" width="22" height="22" decoding="async"></span></span>{% endcapture %}
 {% capture shlab_inline %}<span class="institution-inline">{{ shlab.name }}&nbsp;<span class="institution-logo institution-logo-wide" title="{{ shlab.short }} logo" aria-hidden="true"><span class="institution-logo-fallback">S</span><img src="{{ shlab.logo | relative_url }}" alt="" width="50" height="20" decoding="async"></span></span>{% endcapture %}
@@ -141,9 +141,11 @@ layout: compress
                 </section>
                 {% if branch_index == 1 %}
                 <div class="trajectory-bridge" aria-label="Representation–generation research loop">
-                  <svg class="trajectory-loop-orbit" viewBox="0 0 360 64" aria-hidden="true" focusable="false">
-                    <path class="trajectory-loop-path" d="M336 23H24M33 17L24 23L33 29" />
-                    <path class="trajectory-loop-path" d="M24 41H336M327 35L336 41L327 47" />
+                  <svg class="trajectory-loop-orbit" viewBox="0 0 360 420" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+                    <path class="trajectory-loop-path" d="M348 210C348 24 12 24 12 210" />
+                    <path class="trajectory-loop-path" d="M6 202L12 210L18 202" />
+                    <path class="trajectory-loop-path" d="M12 222C12 408 348 408 348 222" />
+                    <path class="trajectory-loop-path" d="M342 230L348 222L354 230" />
                   </svg>
                   {% for connection in research.trajectory.connections %}
                   <a class="trajectory-feature trajectory-loop-paper trajectory-loop-paper-{{ forloop.index }}" href="#paper-{{ connection.paper_id }}">
