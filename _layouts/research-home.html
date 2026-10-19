@@ -8,7 +8,7 @@ layout: compress
 {% assign shlab = research.institutions.shlab %}
 {% assign cityu = research.institutions.cityu %}
 {% assign sdu = research.institutions.sdu %}
-{% assign asset_version = site.github.build_revision | default: '20261019-research-v5' %}
+{% assign asset_version = site.github.build_revision | default: '20261019-research-v6' %}
 {% capture cuhksz_inline %}<span class="institution-inline">{{ cuhksz.name }}&nbsp;<span class="institution-logo institution-logo-cuhksz" title="{{ cuhksz.short }} logo" aria-hidden="true"><span class="institution-logo-fallback">C</span><img src="{{ cuhksz.logo | relative_url }}" alt="" width="22" height="22" decoding="async"></span></span>{% endcapture %}
 {% capture casia_inline %}<span class="institution-inline">{{ casia.name }}&nbsp;<span class="institution-logo" title="{{ casia.short }} logo" aria-hidden="true"><span class="institution-logo-fallback">I</span><img src="{{ casia.logo | relative_url }}" alt="" width="22" height="22" decoding="async"></span></span>{% endcapture %}
 {% capture shlab_inline %}<span class="institution-inline">{{ shlab.name }}&nbsp;<span class="institution-logo institution-logo-wide" title="{{ shlab.short }} logo" aria-hidden="true"><span class="institution-logo-fallback">S</span><img src="{{ shlab.logo | relative_url }}" alt="" width="50" height="20" decoding="async"></span></span>{% endcapture %}
@@ -89,52 +89,31 @@ layout: compress
             {% assign branches = research.trajectory.branches %}
             {% assign branch_count = branches | size %}
             {% if branch_count > 0 %}
-            <svg class="trajectory-crown" viewBox="0 0 1000 140" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-              <path class="tree-stroke tree-stroke-wash" style="--draw-delay: 0ms" pathLength="1" vector-effect="non-scaling-stroke" d="M500 0 C488 17, 512 31, 500 48" />
-              <path class="tree-stroke tree-stroke-trunk" style="--draw-delay: 0ms" pathLength="1" vector-effect="non-scaling-stroke" d="M500 0 C488 17, 512 31, 500 48" />
-              {% assign branch_step = 1000 | divided_by: branch_count %}
-              {% assign branch_half = branch_step | divided_by: 2 %}
-              {% for branch in branches %}
-                {% assign branch_x = branch_step | times: forloop.index0 | plus: branch_half %}
-                {% assign branch_near = branch_x | plus: 4500 | divided_by: 10 %}
-                {% assign branch_far = branch_x | times: 3 | plus: 500 | divided_by: 4 %}
-                {% if forloop.first %}
-                  {% assign control_one = branch_near %}
-                  {% assign control_one_y = 65 %}
-                  {% assign control_two = branch_far %}
-                  {% assign control_two_y = 78 %}
-                {% elsif forloop.last %}
-                  {% assign control_one = branch_near %}
-                  {% assign control_one_y = 75 %}
-                  {% assign control_two = branch_far %}
-                  {% assign control_two_y = 66 %}
-                {% else %}
-                  {% assign control_one = branch_x | minus: 11 %}
-                  {% assign control_one_y = 68 %}
-                  {% assign control_two = branch_x | plus: 13 %}
-                  {% assign control_two_y = 99 %}
-                {% endif %}
-                {% assign draw_delay = forloop.index0 | times: 100 | plus: 130 %}
-                <path class="tree-stroke tree-stroke-wash tree-stroke-branch-wash tree-stroke-branch-wash-{{ forloop.index }}" style="--draw-delay: {{ draw_delay }}ms" pathLength="1" vector-effect="non-scaling-stroke" d="M500 46 C{{ control_one }} {{ control_one_y }}, {{ control_two }} {{ control_two_y }}, {{ branch_x }} 132" />
-                <path class="tree-stroke tree-stroke-branch tree-stroke-branch-{{ forloop.index }}" style="--draw-delay: {{ draw_delay }}ms" pathLength="1" vector-effect="non-scaling-stroke" d="M500 46 C{{ control_one }} {{ control_one_y }}, {{ control_two }} {{ control_two_y }}, {{ branch_x }} 132" />
-                {% comment %}A small sprig sits on the cubic branch at t = 0.6.{% endcomment %}
-                {% assign sprig_x_one = control_one | times: 288 %}
-                {% assign sprig_x_two = control_two | times: 432 %}
-                {% assign sprig_x = branch_x | times: 216 | plus: sprig_x_one | plus: sprig_x_two | plus: 32000 | divided_by: 1000.0 %}
-                {% assign sprig_y_one = control_one_y | times: 288 %}
-                {% assign sprig_y_two = control_two_y | times: 432 %}
-                {% assign sprig_y = sprig_y_one | plus: sprig_y_two | plus: 31456 | divided_by: 1000.0 %}
-                <g class="tree-sprig" transform="translate({{ sprig_x }} {{ sprig_y }}){% if forloop.first %} scale(-1 1){% endif %}" aria-hidden="true">
-                  <path class="tree-sprig-stem" d="M0 0 Q13 -9 23 -28" />
-                  <path d="M10 -9 C-2 -10,-5 -22,0 -27 C10 -25,15 -18,10 -9Z" />
-                  <path d="M17 -18 C18 -31,30 -35,36 -32 C35 -22,27 -16,17 -18Z" />
+            <div class="trajectory-connected-map">
+              <svg class="trajectory-loop-orbit" viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+                <defs>
+                  <marker id="trajectory-loop-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                    <path d="M1 1L8 5L1 9" />
+                  </marker>
+                </defs>
+                <path class="tree-stroke trajectory-loop-path" pathLength="1" style="--draw-delay: 0ms" d="M952 500C1000 500 1000 70 780 70H220C0 70 0 500 48 500" marker-end="url(#trajectory-loop-arrow)" />
+                <path class="tree-stroke trajectory-loop-path" pathLength="1" style="--draw-delay: 180ms" d="M48 500C0 500 0 930 220 930H780C1000 930 1000 500 952 500" marker-end="url(#trajectory-loop-arrow)" />
+                <g class="tree-sprig" transform="translate(240 70)">
+                  <path d="M0 0C-12 -2 -18 -14 -13 -20C-2 -17 4 -10 0 0Z" />
+                  <path d="M0 0C7 -13 17 -14 22 -9C17 0 10 3 0 0Z" />
                 </g>
-                <g class="tree-leaf-pair tree-leaf-pair-{{ forloop.index }}" style="--bud-delay: {{ draw_delay | plus: 420 }}ms" transform="translate({{ branch_x }} 126)">
-                  <path d="M0 6 C-5 -2,-15 -4,-18 1 C-16 7,-8 10,0 6Z" />
-                  <path d="M0 6 C5 -3,15 -4,18 2 C15 8,8 10,0 6Z" />
+                <g class="tree-sprig" transform="translate(760 930) rotate(180)">
+                  <path d="M0 0C-12 -2 -18 -14 -13 -20C-2 -17 4 -10 0 0Z" />
+                  <path d="M0 0C7 -13 17 -14 22 -9C17 0 10 3 0 0Z" />
                 </g>
-              {% endfor %}
-            </svg>
+              </svg>
+              {% assign connection = research.trajectory.connections[0] %}
+              <a class="trajectory-feature trajectory-loop-paper trajectory-loop-paper-1" href="#paper-{{ connection.paper_id }}">
+                <span class="trajectory-feature-direction">{{ connection.title }}</span>
+                <strong>{{ connection.label }}</strong>
+                <span class="trajectory-feature-description">{{ connection.description }}</span>
+                <span class="trajectory-feature-arrow" aria-hidden="true">↗</span>
+              </a>
 
             <div class="trajectory-branches" style="--branch-count: {{ branch_count }}">
 
@@ -187,35 +166,16 @@ layout: compress
                 </section>
               {% endfor %}
             </div>
+
+              {% assign connection = research.trajectory.connections[1] %}
+              <a class="trajectory-feature trajectory-loop-paper trajectory-loop-paper-2" href="#paper-{{ connection.paper_id }}">
+                <span class="trajectory-feature-direction">{{ connection.title }}</span>
+                <strong>{{ connection.label }}</strong>
+                <span class="trajectory-feature-description">{{ connection.description }}</span>
+                <span class="trajectory-feature-arrow" aria-hidden="true">↗</span>
+              </a>
+            </div>
             {% endif %}
-            <section class="trajectory-loop" aria-labelledby="trajectory-loop-title">
-              <header class="trajectory-loop-head">
-                <p class="trajectory-period">03 / CONNECTING THE TWO</p>
-                <h3 id="trajectory-loop-title">{{ research.trajectory.loop_title }}</h3>
-              </header>
-              <div class="trajectory-loop-diagram">
-                <svg class="trajectory-loop-orbit" viewBox="0 0 960 320" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-                  <defs>
-                    <marker id="trajectory-loop-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-                      <path d="M1 1L8 5L1 9" />
-                    </marker>
-                  </defs>
-                  <path class="trajectory-loop-path" d="M864 144C864 24 96 24 96 144" marker-end="url(#trajectory-loop-arrow)" />
-                  <path class="trajectory-loop-path" d="M96 176C96 296 864 296 864 176" marker-end="url(#trajectory-loop-arrow)" />
-                </svg>
-                <span class="trajectory-loop-endpoint trajectory-loop-endpoint-representation">Representation</span>
-                <span class="trajectory-loop-endpoint trajectory-loop-endpoint-generation">Generation</span>
-                {% for connection in research.trajectory.connections %}
-                <a class="trajectory-feature trajectory-loop-paper trajectory-loop-paper-{{ forloop.index }}" href="#paper-{{ connection.paper_id }}">
-                  <span class="trajectory-feature-direction">{{ connection.title }}</span>
-                  <strong>{{ connection.label }}</strong>
-                  <span class="trajectory-feature-description">{{ connection.description }}</span>
-                  <span class="trajectory-feature-arrow" aria-hidden="true">↗</span>
-                </a>
-                {% endfor %}
-              </div>
-              <p class="trajectory-loop-caption">Complementary research directions linking representation and generation.</p>
-            </section>
           </article>
         </div>
       </section>
@@ -230,13 +190,8 @@ layout: compress
           </div>
 
           <div class="papers-stack" id="publication-list">
-            {% assign all_papers = research.papers | concat: research.additional_works %}
-            {% for paper in all_papers %}
-            {% assign paper_anchor = paper.id | prepend: 'paper-' %}
-            {% assign id_prefix = paper.id | slice: 0, 5 %}
-            {% if id_prefix == 'work-' %}{% assign paper_anchor = paper.id %}{% endif %}
-            <article class="paper-card" id="{{ paper_anchor }}">
-              {% if forloop.index0 == research.papers.size %}<span id="publication-more" class="paper-anchor" aria-hidden="true"></span>{% endif %}
+            {% for paper in research.papers %}
+            <article class="paper-card" id="paper-{{ paper.id }}">
               {% if paper.legacy_anchor %}<span id="{{ paper.legacy_anchor }}" class="paper-anchor" aria-hidden="true"></span>{% endif %}
               <div class="paper-meta">
                 <div class="paper-teaser">
@@ -281,6 +236,24 @@ layout: compress
             {% endfor %}
           </div>
 
+          <div class="additional-works" id="publication-more">
+            <h3>Other Works</h3>
+            <ul>
+              {% for work in research.additional_works %}
+              {% assign work_number = research.papers.size | plus: forloop.index %}
+              <li id="{{ work.id }}">
+                <span class="additional-work-number" aria-label="Publication {{ work_number }}">{% if work_number < 10 %}0{% endif %}{{ work_number }}</span>
+                <div class="additional-work-main">
+                  <a class="additional-work-title" href="{{ work.url }}" target="_blank" rel="noopener noreferrer">{{ work.title }}</a>
+                  {% assign formatted_work_authors = work.authors | replace: '*', '<span class="equal-marker" aria-label="equal contribution">*</span>' | replace: 'Xinjian Zhao', '<strong>Xinjian Zhao</strong>' %}
+                  <p class="paper-authors">{{ formatted_work_authors }}</p>
+                  <p class="paper-venue">{{ work.venue }}{% if work.venue_abbr %} <strong><em>({{ work.venue_abbr }})</em></strong>{% endif %}, {{ work.year }}</p>
+                  {% if work.contribution %}<p class="paper-contribution">{{ work.contribution }}</p>{% endif %}
+                </div>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
 
         </div>
       </section>

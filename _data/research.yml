@@ -314,7 +314,6 @@ trajectory:
         - anchor: "work-aot-star"
           label: "AOT*"
           one_line: "LLM-guided tree search for synthesis planning."
-  loop_title: "The Representation–Generation Loop"
   connections:
     - title: "Generation → Representation"
       paper_id: "molemb"
