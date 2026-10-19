@@ -514,6 +514,14 @@ button:focus-visible {
   font-weight: 800;
 }
 
+.paper-authors strong,
+.additional-authors strong {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  text-decoration-skip-ink: auto;
+}
+
 .paper-venue strong {
   font-weight: 700;
 }
@@ -621,53 +629,39 @@ button:focus-visible {
 
 .trajectory-section {
   position: relative;
-  overflow: hidden;
   background: var(--surface);
   border-block: 1px solid var(--line);
 }
 
 .trajectory-tree {
   --tree-bark: #695779;
-  --tree-branch: #887495;
-  --tree-twig: rgba(105, 87, 121, 0.36);
+  --tree-branch: #9a85ab;
+  --tree-twig: #ded4e5;
   --tree-leaf: #eee7f2;
-  --tree-wash: rgba(128, 106, 147, 0.1);
+  --tree-wash: rgba(128, 106, 147, 0.08);
   position: relative;
-  padding: clamp(10px, 2vw, 22px) 0 0;
+  max-width: 960px;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .trajectory-root {
-  max-width: 760px;
+  max-width: 720px;
   margin: 0 auto;
   text-align: center;
 }
 
 .trajectory-root h2 {
-  position: relative;
-  display: inline-block;
-  font-size: clamp(1.5rem, 3vw, 2.25rem);
-  color: var(--accent-strong);
-  letter-spacing: -0.025em;
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  color: var(--name-ink);
+  letter-spacing: -0.035em;
   text-wrap: balance;
 }
 
-.trajectory-root h2::after {
-  content: "";
-  position: absolute;
-  left: 7%;
-  right: 3%;
-  bottom: -8px;
-  height: 7px;
-  border-top: 2px solid rgba(105, 87, 121, 0.34);
-  border-radius: 50%;
-  transform: rotate(-0.7deg);
-}
-
 .trajectory-root > p {
-  max-width: 68ch;
-  margin: 18px auto 0;
+  margin: 12px auto 0;
   color: var(--ink-muted);
-  font-size: 1rem;
+  font-size: 0.96rem;
   text-wrap: pretty;
 }
 
@@ -675,8 +669,8 @@ button:focus-visible {
   position: relative;
   display: block;
   width: 34px;
-  height: 29px;
-  margin: 17px auto -1px;
+  height: 26px;
+  margin: 18px auto -1px;
 }
 
 .trajectory-root-sprout::before {
@@ -684,11 +678,9 @@ button:focus-visible {
   position: absolute;
   left: 16px;
   bottom: 0;
-  width: 2px;
+  width: 1.5px;
   height: 20px;
-  border-radius: 50%;
   background: var(--tree-bark);
-  transform: rotate(-4deg);
 }
 
 .trajectory-root-sprout span {
@@ -696,7 +688,7 @@ button:focus-visible {
   top: 3px;
   width: 14px;
   height: 9px;
-  border: 1.4px solid var(--tree-branch);
+  border: 1px solid var(--tree-branch);
   background: var(--tree-leaf);
 }
 
@@ -715,307 +707,259 @@ button:focus-visible {
 .trajectory-crown {
   display: block;
   width: 100%;
-  height: clamp(76px, 8vw, 100px);
+  height: 78px;
   overflow: visible;
   pointer-events: none;
 }
 
-.trajectory-spine {
-  display: none;
-  pointer-events: none;
-}
+.trajectory-spine { display: none; }
 
 .tree-stroke {
   fill: none;
   stroke: var(--tree-branch);
-  stroke-width: 1.65;
+  stroke-width: 1.5;
   stroke-linecap: round;
   stroke-linejoin: round;
-  opacity: 0.76;
-  transition: opacity 0.22s ease, stroke-width 0.22s ease;
 }
 
 .tree-stroke-wash {
   stroke: var(--tree-wash);
-  stroke-width: 5.5;
-  opacity: 1;
+  stroke-width: 6;
 }
 
 .tree-stroke-trunk {
   stroke: var(--tree-bark);
-  stroke-width: 2.75;
-  opacity: 0.9;
+  stroke-width: 2;
 }
 
 .tree-leaf-pair {
   fill: var(--tree-leaf);
   stroke: var(--tree-branch);
-  stroke-width: 1.1;
-  opacity: 0.88;
-  transition: opacity 0.22s ease;
+  stroke-width: 1;
 }
 
-.tree-leaf-pair path {
-  vector-effect: non-scaling-stroke;
+.tree-leaf-pair path { vector-effect: non-scaling-stroke; }
+
+.tree-sprig {
+  fill: var(--tree-leaf);
+  stroke: var(--tree-branch);
+  stroke-width: 1;
+}
+
+.tree-sprig path { vector-effect: non-scaling-stroke; }
+.tree-sprig .tree-sprig-stem { fill: none; }
+
+.trajectory-tree.is-animatable .tree-sprig,
+.trajectory-tree.is-animatable .tree-leaf-pair {
+  opacity: 0;
+  transition: opacity 500ms ease 350ms;
+}
+
+.trajectory-tree.is-drawn .tree-sprig,
+.trajectory-tree.is-drawn .tree-leaf-pair {
+  opacity: 1;
 }
 
 .trajectory-branches {
   position: relative;
   display: grid;
   grid-template-columns: repeat(var(--branch-count), minmax(0, 1fr));
-  gap: 0;
 }
 
 .trajectory-branch {
-  position: relative;
+  display: grid;
+  grid-template-rows: 146px auto 1fr;
+  align-content: start;
+  gap: 20px;
   min-width: 0;
-  padding: 0 clamp(10px, 1.7vw, 20px);
+  padding: 0 28px;
 }
 
 .trajectory-branch-head {
-  position: relative;
-  min-height: 150px;
-  padding: 7px 2px 17px;
-  border-bottom: 1px solid var(--line);
-}
-
-.trajectory-branch-head::before {
-  content: "";
-  position: absolute;
-  top: -7px;
-  left: calc(50% - 5px);
-  width: 11px;
-  height: 8px;
-  border: 1.4px solid var(--tree-branch);
-  border-radius: 90% 12% 88% 15%;
-  background: var(--tree-leaf);
-  transform: rotate(-24deg);
-}
-
-.trajectory-branch-head::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -1px;
-  width: 42%;
-  border-top: 2px solid var(--tree-twig);
-  transform: rotate(-0.8deg);
+  text-align: center;
+  padding-top: 10px;
 }
 
 .trajectory-period {
-  color: var(--tree-bark);
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
+  color: var(--accent-strong);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
 }
 
+.trajectory-branch-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  margin-top: 8px;
+}
+
+.trajectory-icon {
+  width: 36px;
+  height: 36px;
+  flex: 0 0 36px;
+  fill: var(--surface);
+  stroke: var(--accent-strong);
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.trajectory-icon .trajectory-icon-leaf { fill: var(--tree-leaf); }
+
 .trajectory-branch h3 {
-  margin-top: 5px;
-  color: var(--ink);
-  font-size: 1.12rem;
-  line-height: 1.35;
-  text-wrap: balance;
+  margin: 0;
+  font-size: clamp(1.25rem, 2.1vw, 1.55rem);
+  letter-spacing: -0.025em;
+  color: var(--name-ink);
 }
 
 .trajectory-branch-head > p:last-child {
-  margin-top: 8px;
-  color: var(--ink-muted);
+  max-width: 36ch;
+  margin: 10px auto 0;
   font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--ink-muted);
+  text-wrap: pretty;
+}
+
+.trajectory-feature {
+  position: relative;
+  display: grid;
+  align-content: start;
+  gap: 7px;
+  min-height: 156px;
+  padding: 20px 38px 20px 22px;
+  border: 1px solid transparent;
+  border-radius: 4px 18px 4px 18px;
+  background: var(--surface-2);
+  text-decoration: none;
+  transition: border-color 180ms ease, background 180ms ease;
+}
+
+.trajectory-feature::before {
+  content: "";
+  position: absolute;
+  top: 21px;
+  bottom: 21px;
+  left: 0;
+  width: 2px;
+  background: var(--tree-branch);
+}
+
+.trajectory-feature-direction {
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--accent-strong);
+}
+
+.trajectory-feature strong {
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--name-ink);
+}
+
+.trajectory-feature-description {
+  color: var(--ink-muted);
+  font-size: 0.9rem;
   line-height: 1.5;
+}
+
+.trajectory-feature-arrow {
+  position: absolute;
+  top: 20px;
+  right: 17px;
+  color: var(--accent-strong);
+  transition: transform 180ms ease;
+}
+
+.trajectory-feature:hover,
+.trajectory-feature:focus-visible {
+  background: #f4eff8;
+  border-color: var(--tree-twig);
+}
+
+.trajectory-feature:hover .trajectory-feature-arrow {
+  transform: translate(2px, -2px);
 }
 
 .trajectory-node-list {
   position: relative;
-  margin: 18px 0 0 8px;
-  padding: 0 0 0 20px;
   list-style: none;
+  margin: 0 0 0 22px;
+  padding: 0 0 0 23px;
 }
 
 .trajectory-node-list::before {
   content: "";
   position: absolute;
   left: 0;
-  top: -5px;
-  bottom: 5px;
-  width: 1.5px;
-  border-radius: 50%;
-  background: linear-gradient(to bottom, transparent, var(--tree-twig) 5%, var(--tree-twig) 92%, transparent);
-  transform: rotate(0.3deg);
-  transform-origin: top;
+  top: -20px;
+  bottom: 30px;
+  width: 1px;
+  background: var(--tree-twig);
 }
 
 .trajectory-node {
   position: relative;
-  padding: 0 0 17px;
+  padding-bottom: 20px;
 }
+
+.trajectory-node:last-child { padding-bottom: 0; }
 
 .trajectory-node::before {
   content: "";
   position: absolute;
-  left: -26px;
-  top: 0.42em;
-  width: 11px;
-  height: 8px;
-  border: 1.3px solid var(--tree-branch);
-  border-radius: 90% 12% 88% 15%;
+  left: -28px;
+  top: 7px;
+  width: 10px;
+  height: 7px;
+  border: 1px solid var(--tree-branch);
+  border-radius: 90% 15% 85% 18%;
   background: var(--tree-leaf);
-  transform: rotate(-34deg);
-  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.trajectory-node:nth-child(even)::before {
-  border-radius: 12% 90% 15% 88%;
-  transform: rotate(28deg);
+  transform: rotate(-25deg);
 }
 
 .trajectory-node::after {
   content: "";
   position: absolute;
+  top: 10px;
   left: -17px;
-  top: 0.72em;
-  width: 12px;
+  width: 11px;
   border-top: 1px solid var(--tree-twig);
-  transform: rotate(-4deg);
-  transform-origin: left center;
 }
 
 .trajectory-node a {
   display: block;
+  padding: 3px 5px;
+  margin: -3px -5px;
   color: var(--ink);
   text-decoration: none;
-  padding: 2px 4px 3px;
-  margin: -2px -4px -3px;
-  border-radius: 4px;
+  border-radius: 3px;
 }
 
 .trajectory-node-title {
   display: block;
-  font-size: 0.91rem;
+  font-size: 0.94rem;
   font-weight: 600;
-  line-height: 1.42;
-  overflow-wrap: anywhere;
-  text-wrap: pretty;
-  transition: color 0.2s ease, transform 0.2s ease;
+  line-height: 1.45;
 }
 
 .trajectory-node-description {
   display: block;
-  margin-top: 4px;
+  margin-top: 3px;
   color: var(--ink-muted);
-  font-size: 0.86rem;
+  font-size: 0.85rem;
   line-height: 1.5;
-}
-
-.research-loop {
-  display: grid;
-  grid-template-columns: 1fr 84px 1fr;
-  align-items: center;
-  gap: 12px 28px;
-  max-width: 880px;
-  margin: 32px auto 0;
-  padding: 26px 32px 18px;
-  background: var(--surface-2);
-  border-radius: 8px;
-}
-
-.research-loop-direction {
-  display: grid;
-  gap: 5px;
-  text-decoration: none;
-  font-size: 0.9rem;
-  color: var(--ink-muted);
-}
-
-.research-loop-label {
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--accent-strong);
-}
-
-.research-loop-direction strong {
-  font-size: 1.12rem;
-  color: var(--ink);
-}
-
-.research-loop-direction:hover strong { color: var(--accent-strong); }
-.research-loop-direction strong span { color: var(--accent); font-weight: 400; }
-
-.research-loop-arrows {
-  width: 100%;
-  fill: none;
-  stroke: var(--accent);
-  stroke-width: 1.5;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-.research-loop-note {
-  grid-column: 1 / -1;
-  color: var(--ink-muted);
-  text-align: center;
-  font-size: 0.76rem;
-  margin-top: 6px;
-}
-
-.trajectory-node:hover::before,
-.trajectory-node:focus-within::before {
-  background: var(--accent-soft);
-  transform: rotate(-27deg) scale(1.08);
-  box-shadow: 0 0 0 3px rgba(128, 106, 147, 0.08);
-}
-
-.trajectory-node:nth-child(even):hover::before,
-.trajectory-node:nth-child(even):focus-within::before {
-  transform: rotate(21deg) scale(1.08);
 }
 
 .trajectory-node a:hover .trajectory-node-title,
 .trajectory-node a:focus-visible .trajectory-node-title {
   color: var(--accent-strong);
-  transform: translateX(2px);
   text-decoration: underline;
-  text-decoration-thickness: 1px;
   text-underline-offset: 3px;
-}
-
-.trajectory-tree:has(.trajectory-branch:hover) .tree-stroke-branch,
-.trajectory-tree:has(.trajectory-branch:focus-within) .tree-stroke-branch {
-  opacity: 0.2;
-}
-
-.trajectory-tree:has(.trajectory-branch:hover) .tree-stroke-branch-wash,
-.trajectory-tree:has(.trajectory-branch:focus-within) .tree-stroke-branch-wash {
-  opacity: 0.28;
-}
-
-.trajectory-tree:has(.trajectory-branch:hover) .tree-leaf-pair,
-.trajectory-tree:has(.trajectory-branch:focus-within) .tree-leaf-pair {
-  opacity: 0.34;
-}
-
-.trajectory-tree:has(.trajectory-branch-1:hover) .tree-stroke-branch-1,
-.trajectory-tree:has(.trajectory-branch-1:focus-within) .tree-stroke-branch-1,
-.trajectory-tree:has(.trajectory-branch-2:hover) .tree-stroke-branch-2,
-.trajectory-tree:has(.trajectory-branch-2:focus-within) .tree-stroke-branch-2,
-.trajectory-tree:has(.trajectory-branch-3:hover) .tree-stroke-branch-3,
-.trajectory-tree:has(.trajectory-branch-3:focus-within) .tree-stroke-branch-3 {
-  opacity: 0.88;
-  stroke-width: 2.35;
-}
-
-.trajectory-tree:has(.trajectory-branch-1:hover) .tree-stroke-branch-wash-1,
-.trajectory-tree:has(.trajectory-branch-1:focus-within) .tree-stroke-branch-wash-1,
-.trajectory-tree:has(.trajectory-branch-2:hover) .tree-stroke-branch-wash-2,
-.trajectory-tree:has(.trajectory-branch-2:focus-within) .tree-stroke-branch-wash-2,
-.trajectory-tree:has(.trajectory-branch-3:hover) .tree-stroke-branch-wash-3,
-.trajectory-tree:has(.trajectory-branch-3:focus-within) .tree-stroke-branch-wash-3,
-.trajectory-tree:has(.trajectory-branch-1:hover) .tree-leaf-pair-1,
-.trajectory-tree:has(.trajectory-branch-1:focus-within) .tree-leaf-pair-1,
-.trajectory-tree:has(.trajectory-branch-2:hover) .tree-leaf-pair-2,
-.trajectory-tree:has(.trajectory-branch-2:focus-within) .tree-leaf-pair-2,
-.trajectory-tree:has(.trajectory-branch-3:hover) .tree-leaf-pair-3,
-.trajectory-tree:has(.trajectory-branch-3:focus-within) .tree-leaf-pair-3 {
-  opacity: 1;
 }
 
 .trajectory-tree.is-animatable .tree-stroke {
@@ -1023,52 +967,62 @@ button:focus-visible {
   stroke-dashoffset: 1;
 }
 
-.trajectory-tree.is-animatable .tree-leaf-pair {
-  opacity: 0;
-  transition: opacity 320ms ease var(--bud-delay);
-}
-
-.trajectory-tree.is-animatable .trajectory-branch-head,
-.trajectory-tree.is-animatable .trajectory-node {
-  opacity: 0;
-  transform: translateY(7px);
-}
-
-.trajectory-tree.is-animatable:focus-within .trajectory-branch-head,
-.trajectory-tree.is-animatable:focus-within .trajectory-node {
-  animation: none;
-  opacity: 1;
-  transform: none;
-}
-
-.trajectory-tree.is-animatable:focus-within .tree-leaf-pair,
-.trajectory-tree.is-animatable.is-drawn .tree-leaf-pair {
-  opacity: 0.88;
-}
-
 .trajectory-tree.is-animatable.is-drawn .tree-stroke {
-  animation: tree-draw 720ms cubic-bezier(0.2, 0.7, 0.2, 1) var(--draw-delay) forwards;
-}
-
-.trajectory-tree.is-animatable.is-drawn .trajectory-branch-head {
-  animation: tree-rise 420ms ease-out var(--branch-delay) forwards;
-}
-
-.trajectory-tree.is-animatable.is-drawn .trajectory-node {
-  animation: tree-rise 360ms ease-out var(--node-delay) forwards;
+  animation: tree-draw 650ms ease var(--draw-delay) forwards;
 }
 
 @keyframes tree-draw {
-  to {
-    stroke-dashoffset: 0;
+  to { stroke-dashoffset: 0; }
+}
+
+@supports (grid-template-rows: subgrid) {
+  .trajectory-branches { grid-template-rows: auto auto auto; }
+  .trajectory-branch {
+    grid-row: span 3;
+    grid-template-rows: subgrid;
   }
 }
 
-@keyframes tree-rise {
-  to {
-    opacity: 1;
-    transform: none;
+@media (max-width: 800px) {
+  .trajectory-root { text-align: left; margin: 0; }
+  .trajectory-root-sprout { margin-left: 0; }
+  .trajectory-crown { display: none; }
+  .trajectory-branches {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto;
+    gap: 36px;
+    margin-top: 20px;
+    padding-left: 25px;
   }
+  .trajectory-spine {
+    display: block;
+    position: absolute;
+    left: 5px;
+    top: -20px;
+    width: 22px;
+    height: calc(100% + 20px);
+    pointer-events: none;
+  }
+  .trajectory-branch {
+    position: relative;
+    grid-row: auto;
+    grid-template-rows: auto auto auto;
+    padding: 0 0 0 14px;
+    gap: 18px;
+  }
+  .trajectory-branch-head { text-align: left; padding-top: 0; }
+  .trajectory-branch-title { justify-content: flex-start; }
+  .trajectory-branch-head::before {
+    content: "";
+    position: absolute;
+    left: -10px;
+    top: 9px;
+    width: 17px;
+    border-top: 1px solid var(--tree-twig);
+  }
+  .trajectory-branch-head > p:last-child { max-width: none; margin-left: 0; }
+  .trajectory-feature { min-height: 0; padding: 18px 35px 18px 18px; }
+  .trajectory-node-list { margin-left: 18px; }
 }
 
 .paper-card[id],
@@ -1183,153 +1137,6 @@ button:focus-visible {
   transform: translateY(0);
 }
 
-@media (min-width: 1081px) {
-  .trajectory-branch-head {
-    min-height: 145px;
-    padding: 8px 10px 25px;
-    border-bottom: 0;
-    text-align: center;
-  }
-
-  .trajectory-branch-head::before {
-    display: none;
-  }
-
-  .trajectory-branch-head::after {
-    left: 50%;
-    bottom: 2px;
-    width: 68px;
-    height: 9px;
-    border: 0;
-    border-top: 1.5px solid var(--tree-twig);
-    border-radius: 50%;
-    transform: translateX(-50%) rotate(-1deg);
-  }
-
-  .trajectory-branch:nth-child(2) .trajectory-branch-head::after {
-    transform: translateX(-50%) rotate(1deg);
-  }
-
-  .trajectory-branch h3 {
-    display: flex;
-    min-height: 1.5em;
-    font-size: 1.5rem;
-    align-items: flex-end;
-    justify-content: center;
-  }
-
-  .trajectory-branch-head > p:last-child {
-    max-width: 32ch;
-    margin: 9px auto 0;
-  }
-
-  .trajectory-node-list {
-    width: min(100%, 300px);
-    margin: 21px auto 0;
-    padding-left: 23px;
-  }
-
-  .trajectory-node:nth-child(even) {
-    margin-left: 7px;
-  }
-
-  .trajectory-node:nth-child(even)::before {
-    left: -33px;
-  }
-
-  .trajectory-node:nth-child(even)::after {
-    left: -24px;
-    width: 19px;
-  }
-
-  @supports (grid-template-rows: subgrid) {
-    .trajectory-branches {
-      grid-template-rows: auto auto;
-    }
-
-    .trajectory-branch {
-      display: grid;
-      grid-row: span 2;
-      grid-template-rows: subgrid;
-    }
-
-    .trajectory-branch-head {
-      min-height: 0;
-    }
-  }
-}
-
-@media (max-width: 1080px) {
-  .trajectory-crown {
-    display: none;
-  }
-
-  .trajectory-root {
-    max-width: 820px;
-    margin: 0;
-    text-align: left;
-  }
-
-  .trajectory-root > p {
-    margin-left: 0;
-  }
-
-  .trajectory-root-sprout {
-    margin-left: 0;
-  }
-
-  .trajectory-branches {
-    max-width: 820px;
-    grid-template-columns: minmax(0, 1fr);
-    gap: 30px;
-    margin-top: 28px;
-    padding-left: 42px;
-  }
-
-  .trajectory-spine {
-    display: block;
-    position: absolute;
-    z-index: 0;
-    left: 5px;
-    top: -28px;
-    width: 22px;
-    height: calc(100% + 28px);
-    overflow: visible;
-  }
-
-  .trajectory-branch {
-    position: relative;
-    z-index: 1;
-    padding: 0;
-  }
-
-  .trajectory-branch::before {
-    content: "";
-    position: absolute;
-    left: -30px;
-    top: 18px;
-    width: 26px;
-    border-top: 1.5px solid var(--tree-twig);
-    opacity: 0.76;
-    transform: rotate(-3deg);
-    transform-origin: left center;
-  }
-
-  .trajectory-branch-head {
-    min-height: 0;
-    padding-top: 0;
-  }
-
-  .trajectory-branch-head::before {
-    top: 13px;
-    left: -7px;
-    transform: rotate(18deg);
-  }
-
-  .trajectory-node-list {
-    margin-top: 14px;
-  }
-}
 
 @media (max-width: 1120px) {
   .paper-card {
@@ -1454,24 +1261,6 @@ button:focus-visible {
     width: 116px;
   }
 
-  .trajectory-branches {
-    padding-left: 35px;
-  }
-
-  .research-loop {
-    grid-template-columns: minmax(0, 1fr);
-    padding: 22px;
-    gap: 16px;
-  }
-
-  .research-loop-arrows {
-    width: 56px;
-    height: 34px;
-    justify-self: center;
-    transform: rotate(90deg);
-  }
-
-  .research-loop-note { text-align: left; }
 
 }
 
@@ -1479,6 +1268,15 @@ button:focus-visible {
   html {
     scroll-behavior: auto;
   }
+
+  .trajectory-tree.is-animatable .tree-sprig,
+  .trajectory-tree.is-animatable .tree-leaf-pair {
+    opacity: 1;
+    transition: none;
+  }
+
+  .trajectory-feature,
+  .trajectory-feature-arrow { transition: none; }
 
   .js .reveal {
     opacity: 1;

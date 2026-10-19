@@ -105,26 +105,6 @@ papers:
     trajectory_relation: "This work connects my graph representation learning thread with multimodal AI4Science systems."
     tags: ["Molecular ML", "MLLM", "Embedding"]
 
-  - id: "forge-manufacturing"
-    title: "FORGE: Fine-grained Multimodal Evaluation for Manufacturing Scenarios"
-    authors: "Xiangru Jian, Hao Xu, Wei Pang, Xinjian Zhao, Chengyu Tao, Qixin Zhang, Xikun Zhang, Chao Zhang, Guanzhi Deng, Alex Xue, Juan Du, Tianshu Yu, Garth Tarr, Linqi Song, Qiuzhuang Sun, Dacheng Tao"
-    venue_full: "Findings of the Association for Computational Linguistics: EMNLP 2026"
-    venue_display: "Findings of EMNLP 2026"
-    venue_emphasis: "EMNLP"
-    year: 2026
-    accent: "#8f5b2e"
-    teaser_label: "Manufacturing MLLMs"
-    teaser_caption: "Fine-grained multimodal evaluation in industrial scenarios"
-    links:
-      - label: "Paper"
-        url: "https://arxiv.org/abs/2604.07413"
-      - label: "Website"
-        url: "https://ai4manufacturing.github.io/forge-web/"
-    contribution: "FORGE evaluates 18 multimodal models on manufacturing tasks using real images, 3D point clouds, and fine-grained annotations. It identifies missing domain knowledge as the main bottleneck and shows that domain-specific training can improve performance."
-    why_it_matters: "It provides a realistic evaluation and adaptation pathway for multimodal models in industrial environments."
-    trajectory_relation: "This work extends my interest in graph-augmented intelligence and structured evaluation into high-value manufacturing scenarios."
-    tags: ["Manufacturing", "MLLM", "Benchmark"]
-
   - id: "vision-graphs-survey"
     title: "When Vision Meets Graphs: A Survey on Graph Reasoning and Learning"
     authors: "Xinjian Zhao, Wei Pang, Zhixuan Yu, Xiangru Jian, Xiaozhuang Song, Yaoyao Xu, Zhongkai Xue, Dingshuo Chen, Shu Wu, Philip Torr, Tianshu Yu"
@@ -141,21 +121,6 @@ papers:
     why_it_matters: "It clarifies a forward research agenda and identifies where new benchmarks and models are most needed."
     trajectory_relation: "This is a synthesis node that integrates observations from multiple branches of my prior work."
     tags: ["Survey", "Vision", "Graph ML"]
-
-  - id: "embedding-survey"
-    legacy_anchor: "work-embedding-survey"
-    title: "Embedding in Recommender Systems: A Survey"
-    authors: "Maolin Wang*, Xinjian Zhao*, Wanyu Wang*, Sheng Zhang, Jiansheng Li, Bowen Yu, Binhao Wang, Shucheng Zhou, Dawei Yin, Qing Li, Ruocheng Guo, Xiangyu Zhao"
-    venue_full: "ACM Transactions on Information Systems"
-    venue_abbr: "TOIS"
-    year: 2026
-    accent: "#806a93"
-    teaser_label: "Representation in Recommendation"
-    links:
-      - label: "Paper"
-        url: "https://arxiv.org/pdf/2310.18608.pdf"
-    contribution: "We survey embedding methods for recommender systems, organizing representation techniques and their roles in recommendation pipelines."
-    tags: ["Representation Learning", "Recommendation", "Survey"]
 
   - id: "vision-power"
     title: "The Underappreciated Power of Vision Models for Graph Structural Understanding"
@@ -174,23 +139,6 @@ papers:
     trajectory_relation: "This paper extends the GraphOmni diagnosis into model-side evidence about where structural reasoning emerges."
     tags: ["Vision Models", "Structural Reasoning", "NeurIPS"]
 
-  - id: "graphomni"
-    title: "GraphOmni: A Comprehensive and Extensible Benchmark Framework for Large Language Models on Graph-theoretic Tasks"
-    authors: "Hao Xu*, Xiangru Jian*, Xinjian Zhao*, Wei Pang*, Chao Zhang, Suyuchen Wang, Qixin Zhang, Zhengyuan Dong, Joao Monteiro, Bang Liu, Qiuzhuang Sun, Tianshu Yu"
-    venue_full: "International Conference on Learning Representations"
-    venue_abbr: "ICLR"
-    year: 2026
-    accent: "#0b7285"
-    teaser_label: "Graph Reasoning Diagnostics"
-    teaser_caption: "Graph-theoretic capabilities of LLM systems"
-    links:
-      - label: "Paper"
-        url: "https://openreview.net/forum?id=dc8Kf2g0KC"
-    contribution: "GraphOmni evaluates LLM graph reasoning across graph types, input representations, and prompting strategies. It reveals configuration-dependent failures and introduces an adaptive selector to find effective settings with limited exploration."
-    why_it_matters: "It provides a more reliable basis for comparing model families and choosing where algorithmic effort should go."
-    trajectory_relation: "This work establishes the evaluation spine for my later studies on structure understanding and model bias."
-    tags: ["LLM", "Graph Reasoning", "Benchmark"]
-
   - id: "distributional-layouts"
     title: "Graph Learning with Distributional Edge Layouts"
     authors: "Xinjian Zhao, Chaolong Ying, Yaoyao Xu, Tianshu Yu"
@@ -207,6 +155,54 @@ papers:
     why_it_matters: "Many real data pipelines induce imperfect graphs; distributional layouts make methods less brittle in those settings."
     trajectory_relation: "This is a core branch in my trajectory on robust graph representation under imperfect structure."
     tags: ["Graph Representation", "Robustness", "KDD"]
+
+  - id: "adversarial-curriculum"
+    title: "Adversarial Curriculum Graph Contrastive Learning with Pair-wise Augmentation"
+    authors: "Xinjian Zhao, Liang Zhang, Yang Liu, Ruocheng Guo, Xiangyu Zhao"
+    venue_full: "Preprint"
+    year: 2024
+    accent: "#1864ab"
+    teaser_label: "Graph Contrastive Learning"
+    teaser_caption: "Adversarial scheduling for graph contrastive learning"
+    links:
+      - label: "Paper"
+        url: "https://arxiv.org/abs/2402.10468"
+    contribution: "ACGCL generates graph pairs with controllable similarity and progressively increases training difficulty through an adversarial curriculum. Jointly controlling augmentation and sample difficulty improves graph contrastive learning."
+    why_it_matters: "It offers a practical recipe for making graph contrastive methods less fragile."
+    trajectory_relation: "This paper marks an early stage of my long-term branch on robustness-aware representation learning."
+    tags: ["Contrastive Learning", "Robustness", "Preprint"]
+
+  - id: "embedding-survey"
+    legacy_anchor: "work-embedding-survey"
+    title: "Embedding in Recommender Systems: A Survey"
+    authors: "Maolin Wang*, Xinjian Zhao*, Wanyu Wang*, Sheng Zhang, Jiansheng Li, Bowen Yu, Binhao Wang, Shucheng Zhou, Dawei Yin, Qing Li, Ruocheng Guo, Xiangyu Zhao"
+    venue_full: "ACM Transactions on Information Systems"
+    venue_abbr: "TOIS"
+    year: 2026
+    accent: "#806a93"
+    teaser_label: "Representation in Recommendation"
+    links:
+      - label: "Paper"
+        url: "https://arxiv.org/pdf/2310.18608.pdf"
+    contribution: "We survey embedding methods for recommender systems, organizing representation techniques and their roles in recommendation pipelines."
+    tags: ["Representation Learning", "Recommendation", "Survey"]
+
+  - id: "graphomni"
+    title: "GraphOmni: A Comprehensive and Extensible Benchmark Framework for Large Language Models on Graph-theoretic Tasks"
+    authors: "Hao Xu*, Xiangru Jian*, Xinjian Zhao*, Wei Pang*, Chao Zhang, Suyuchen Wang, Qixin Zhang, Zhengyuan Dong, Joao Monteiro, Bang Liu, Qiuzhuang Sun, Tianshu Yu"
+    venue_full: "International Conference on Learning Representations"
+    venue_abbr: "ICLR"
+    year: 2026
+    accent: "#0b7285"
+    teaser_label: "Graph Reasoning Diagnostics"
+    teaser_caption: "Graph-theoretic capabilities of LLM systems"
+    links:
+      - label: "Paper"
+        url: "https://openreview.net/forum?id=dc8Kf2g0KC"
+    contribution: "GraphOmni evaluates LLM graph reasoning across graph types, input representations, and prompting strategies. It reveals configuration-dependent failures and introduces an adaptive selector to find effective settings with limited exploration."
+    why_it_matters: "It provides a more reliable basis for comparing model families and choosing where algorithmic effort should go."
+    trajectory_relation: "This work establishes the evaluation spine for my later studies on structure understanding and model bias."
+    tags: ["LLM", "Graph Reasoning", "Benchmark"]
 
   - id: "spectral-augmentation"
     title: "Rethinking Spectral Augmentation for Contrast-based Graph Self-Supervised Learning"
@@ -242,6 +238,26 @@ papers:
     trajectory_relation: "This is a cross-domain branch showing how my graph learning principles scale into AI4Science."
     tags: ["AI4Science", "Protein LM", "ECML-PKDD"]
 
+  - id: "forge-manufacturing"
+    title: "FORGE: Fine-grained Multimodal Evaluation for Manufacturing Scenarios"
+    authors: "Xiangru Jian, Hao Xu, Wei Pang, Xinjian Zhao, Chengyu Tao, Qixin Zhang, Xikun Zhang, Chao Zhang, Guanzhi Deng, Alex Xue, Juan Du, Tianshu Yu, Garth Tarr, Linqi Song, Qiuzhuang Sun, Dacheng Tao"
+    venue_full: "Findings of the Association for Computational Linguistics: EMNLP 2026"
+    venue_display: "Findings of EMNLP 2026"
+    venue_emphasis: "EMNLP"
+    year: 2026
+    accent: "#8f5b2e"
+    teaser_label: "Manufacturing MLLMs"
+    teaser_caption: "Fine-grained multimodal evaluation in industrial scenarios"
+    links:
+      - label: "Paper"
+        url: "https://arxiv.org/abs/2604.07413"
+      - label: "Website"
+        url: "https://ai4manufacturing.github.io/forge-web/"
+    contribution: "FORGE evaluates 18 multimodal models on manufacturing tasks using real images, 3D point clouds, and fine-grained annotations. It identifies missing domain knowledge as the main bottleneck and shows that domain-specific training can improve performance."
+    why_it_matters: "It provides a realistic evaluation and adaptation pathway for multimodal models in industrial environments."
+    trajectory_relation: "This work extends my interest in graph-augmented intelligence and structured evaluation into high-value manufacturing scenarios."
+    tags: ["Manufacturing", "MLLM", "Benchmark"]
+
   - id: "persistent-homology-pooling"
     title: "Boosting Graph Pooling with Persistent Homology"
     authors: "Chaolong Ying, Xinjian Zhao, Tianshu Yu"
@@ -259,28 +275,14 @@ papers:
     trajectory_relation: "This work anchors my trajectory on injecting geometric/topological priors into representation pipelines."
     tags: ["Topology", "Graph Pooling", "NeurIPS"]
 
-  - id: "adversarial-curriculum"
-    title: "Adversarial Curriculum Graph Contrastive Learning with Pair-wise Augmentation"
-    authors: "Xinjian Zhao, Liang Zhang, Yang Liu, Ruocheng Guo, Xiangyu Zhao"
-    venue_full: "Preprint"
-    year: 2024
-    accent: "#1864ab"
-    teaser_label: "Graph Contrastive Learning"
-    teaser_caption: "Adversarial scheduling for graph contrastive learning"
-    links:
-      - label: "Paper"
-        url: "https://arxiv.org/abs/2402.10468"
-    contribution: "ACGCL generates graph pairs with controllable similarity and progressively increases training difficulty through an adversarial curriculum. Jointly controlling augmentation and sample difficulty improves graph contrastive learning."
-    why_it_matters: "It offers a practical recipe for making graph contrastive methods less fragile."
-    trajectory_relation: "This paper marks an early stage of my long-term branch on robustness-aware representation learning."
-    tags: ["Contrastive Learning", "Robustness", "Preprint"]
-
 trajectory:
   trunk:
     title: "Representation ↔ Generation"
-    description: "Generation for representation; representation for generation and reasoning."
+    description: "Learning methods for scientific discovery and real-world problems."
   branches:
     - title: "Learning"
+      icon: "structure"
+      featured_paper: "molemb"
       period: "01 / REPRESENTATION"
       focus: "How can models learn useful representations of complex structures?"
       nodes:
@@ -290,19 +292,15 @@ trajectory:
         - paper_id: "vision-power"
           label: "Vision Models / GraphAbstract"
           one_line: "Understanding graph structure through visual perception."
-        - paper_id: "molemb"
-          label: "MolEmb"
-          one_line: "Generative models as context-aware molecular embedding models."
         - paper_id: "spectral-augmentation"
           label: "Spectral Augmentation Revisited"
           one_line: "Understanding what makes contrastive representations effective."
     - title: "Generation & Reasoning"
+      icon: "generation"
+      featured_paper: "latent-jepa"
       period: "02 / GENERATIVE LEARNING"
       focus: "How can representations and learning methods improve generation and reasoning?"
       nodes:
-        - paper_id: "latent-jepa"
-          label: "Latent JEPA"
-          one_line: "Predicting future representations to support latent reasoning."
         - paper_id: "graphomni"
           label: "GraphOmni"
           one_line: "A benchmark for diagnosing graph reasoning capabilities."
@@ -313,11 +311,11 @@ trajectory:
           label: "AOT*"
           one_line: "LLM-guided tree search for synthesis planning."
   connections:
-    - title: "Generation for Representation"
+    - title: "Generation → Representation"
       paper_id: "molemb"
       label: "MolEmb"
       description: "Adapting generative models into representation learners."
-    - title: "Representation for Generation"
+    - title: "Representation → Generation"
       paper_id: "latent-jepa"
       label: "Latent JEPA"
       description: "Learning predictive representations for reasoning and generation."
