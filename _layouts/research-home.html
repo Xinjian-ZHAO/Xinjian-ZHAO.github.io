@@ -8,7 +8,7 @@ layout: compress
 {% assign shlab = research.institutions.shlab %}
 {% assign cityu = research.institutions.cityu %}
 {% assign sdu = research.institutions.sdu %}
-{% assign asset_version = site.github.build_revision | default: '20261019-research-v3' %}
+{% assign asset_version = site.github.build_revision | default: '20261019-research-v5' %}
 {% capture cuhksz_inline %}<span class="institution-inline">{{ cuhksz.name }}&nbsp;<span class="institution-logo institution-logo-cuhksz" title="{{ cuhksz.short }} logo" aria-hidden="true"><span class="institution-logo-fallback">C</span><img src="{{ cuhksz.logo | relative_url }}" alt="" width="22" height="22" decoding="async"></span></span>{% endcapture %}
 {% capture casia_inline %}<span class="institution-inline">{{ casia.name }}&nbsp;<span class="institution-logo" title="{{ casia.short }} logo" aria-hidden="true"><span class="institution-logo-fallback">I</span><img src="{{ casia.logo | relative_url }}" alt="" width="22" height="22" decoding="async"></span></span>{% endcapture %}
 {% capture shlab_inline %}<span class="institution-inline">{{ shlab.name }}&nbsp;<span class="institution-logo institution-logo-wide" title="{{ shlab.short }} logo" aria-hidden="true"><span class="institution-logo-fallback">S</span><img src="{{ shlab.logo | relative_url }}" alt="" width="50" height="20" decoding="async"></span></span>{% endcapture %}
@@ -137,16 +137,13 @@ layout: compress
             </svg>
 
             <div class="trajectory-branches" style="--branch-count: {{ branch_count }}">
-              <svg class="trajectory-spine" viewBox="0 0 20 100" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-                <path class="tree-stroke" style="--draw-delay: 80ms" pathLength="1" vector-effect="non-scaling-stroke" d="M10 0 C4 24, 15 70, 9 100" />
-              </svg>
 
               {% for branch in branches %}
                 {% assign branch_index = forloop.index %}
                 {% assign branch_delay = forloop.index0 | times: 120 | plus: 430 %}
                 <section class="trajectory-branch trajectory-branch-{{ branch_index }}" aria-labelledby="trajectory-branch-{{ branch_index }}" style="--branch-delay: {{ branch_delay }}ms">
                   <header class="trajectory-branch-head">
-                    <p class="trajectory-period">{{ branch.period }}</p>
+                    <p class="trajectory-period">{{ branch.period | escape }}</p>
                     <div class="trajectory-branch-title">
                       <svg class="trajectory-icon" viewBox="0 0 40 40" aria-hidden="true" focusable="false">
                         {% if branch.icon == 'structure' %}
@@ -165,16 +162,6 @@ layout: compress
                     </div>
                     <p>{{ branch.focus }}</p>
                   </header>
-
-                  {% assign featured = research.trajectory.connections | where: 'paper_id', branch.featured_paper | first %}
-                  {% if featured %}
-                  <a class="trajectory-feature" href="#paper-{{ featured.paper_id }}">
-                    <span class="trajectory-feature-direction">{{ featured.title }}</span>
-                    <strong>{{ featured.label }}</strong>
-                    <span class="trajectory-feature-description">{{ featured.description }}</span>
-                    <span class="trajectory-feature-arrow" aria-hidden="true">↗</span>
-                  </a>
-                  {% endif %}
 
                   <ul class="trajectory-node-list">
                     {% for node in branch.nodes %}
@@ -201,6 +188,34 @@ layout: compress
               {% endfor %}
             </div>
             {% endif %}
+            <section class="trajectory-loop" aria-labelledby="trajectory-loop-title">
+              <header class="trajectory-loop-head">
+                <p class="trajectory-period">03 / CONNECTING THE TWO</p>
+                <h3 id="trajectory-loop-title">{{ research.trajectory.loop_title }}</h3>
+              </header>
+              <div class="trajectory-loop-diagram">
+                <svg class="trajectory-loop-orbit" viewBox="0 0 960 320" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+                  <defs>
+                    <marker id="trajectory-loop-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                      <path d="M1 1L8 5L1 9" />
+                    </marker>
+                  </defs>
+                  <path class="trajectory-loop-path" d="M864 144C864 24 96 24 96 144" marker-end="url(#trajectory-loop-arrow)" />
+                  <path class="trajectory-loop-path" d="M96 176C96 296 864 296 864 176" marker-end="url(#trajectory-loop-arrow)" />
+                </svg>
+                <span class="trajectory-loop-endpoint trajectory-loop-endpoint-representation">Representation</span>
+                <span class="trajectory-loop-endpoint trajectory-loop-endpoint-generation">Generation</span>
+                {% for connection in research.trajectory.connections %}
+                <a class="trajectory-feature trajectory-loop-paper trajectory-loop-paper-{{ forloop.index }}" href="#paper-{{ connection.paper_id }}">
+                  <span class="trajectory-feature-direction">{{ connection.title }}</span>
+                  <strong>{{ connection.label }}</strong>
+                  <span class="trajectory-feature-description">{{ connection.description }}</span>
+                  <span class="trajectory-feature-arrow" aria-hidden="true">↗</span>
+                </a>
+                {% endfor %}
+              </div>
+              <p class="trajectory-loop-caption">Complementary research directions linking representation and generation.</p>
+            </section>
           </article>
         </div>
       </section>
@@ -215,11 +230,17 @@ layout: compress
           </div>
 
           <div class="papers-stack" id="publication-list">
-            {% for paper in research.papers %}
-            <article class="paper-card" id="paper-{{ paper.id }}">
+            {% assign all_papers = research.papers | concat: research.additional_works %}
+            {% for paper in all_papers %}
+            {% assign paper_anchor = paper.id | prepend: 'paper-' %}
+            {% assign id_prefix = paper.id | slice: 0, 5 %}
+            {% if id_prefix == 'work-' %}{% assign paper_anchor = paper.id %}{% endif %}
+            <article class="paper-card" id="{{ paper_anchor }}">
+              {% if forloop.index0 == research.papers.size %}<span id="publication-more" class="paper-anchor" aria-hidden="true"></span>{% endif %}
               {% if paper.legacy_anchor %}<span id="{{ paper.legacy_anchor }}" class="paper-anchor" aria-hidden="true"></span>{% endif %}
               <div class="paper-meta">
-                <div class="paper-teaser" style="--accent: {{ paper.accent }};">
+                <div class="paper-teaser">
+                  <span class="paper-number" aria-label="Publication {{ forloop.index }}">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span>
                   {% if paper.image %}
                   <img src="{{ paper.image | relative_url }}" alt="Teaser image for {{ paper.title }}" {% if forloop.index <= 2 %}loading="eager" fetchpriority="high"{% else %}loading="lazy"{% endif %}>
                   {% else %}
@@ -240,13 +261,17 @@ layout: compress
                   <h3>{{ paper.title }}</h3>
                   {% assign formatted_authors = paper.authors | replace: '*', '<span class="equal-marker" aria-label="equal contribution">*</span>' | replace: 'Xinjian Zhao', '<strong>Xinjian Zhao</strong>' %}
                   <p class="paper-authors">{{ formatted_authors }}</p>
-                  <p class="paper-venue">{% if paper.venue_display %}{% if paper.venue_emphasis %}{% capture emphasized_venue %}<strong><em>{{ paper.venue_emphasis }}</em></strong>{% endcapture %}{{ paper.venue_display | replace: paper.venue_emphasis, emphasized_venue }}{% else %}{{ paper.venue_display }}{% endif %}{% else %}{{ paper.venue_full }}{% if paper.venue_abbr %} <strong><em>({{ paper.venue_abbr }})</em></strong>{% endif %}, {{ paper.year }}{% endif %}</p>
+                  <p class="paper-venue">{% if paper.venue_display %}{% if paper.venue_emphasis %}{% capture emphasized_venue %}<strong><em>{{ paper.venue_emphasis }}</em></strong>{% endcapture %}{{ paper.venue_display | replace: paper.venue_emphasis, emphasized_venue }}{% else %}{{ paper.venue_display }}{% endif %}{% else %}{{ paper.venue_full | default: paper.venue }}{% if paper.venue_abbr %} <strong><em>({{ paper.venue_abbr }})</em></strong>{% endif %}, {{ paper.year }}{% endif %}</p>
                   <div class="paper-links">
+                    {% if paper.links %}
                     {% for item in paper.links %}
                     {% assign paper_url = item.url %}
                     {% unless paper_url contains '://' %}{% assign paper_url = paper_url | relative_url %}{% endunless %}
                     <a href="{{ paper_url }}" target="_blank" rel="noopener noreferrer">{{ item.label }}</a>
                     {% endfor %}
+                    {% else %}
+                    <a href="{{ paper.url }}" target="_blank" rel="noopener noreferrer">Paper</a>
+                    {% endif %}
                   </div>
                 </header>
 
@@ -256,40 +281,6 @@ layout: compress
             {% endfor %}
           </div>
 
-          <div class="additional-works" id="publication-more">
-            <h3>Further Publications &amp; Collaborations</h3>
-            <ul>
-              {% for work in research.additional_works %}
-              <li id="{{ work.id }}">
-                <div class="additional-work-main">
-                  <a href="{{ work.url }}" target="_blank" rel="noopener noreferrer">{{ work.title }}</a>
-                  <span class="additional-venue">
-                    {% if work.venue_abbr %}
-                    <strong>{{ work.venue_abbr }}</strong>
-                    <span class="venue-sep">·</span>
-                    {% endif %}
-                    {% if work.year %}
-                    <span>{{ work.year }}</span>
-                    {% endif %}
-                    {% if work.venue %}
-                    {% if work.year or work.venue_abbr %}
-                    <span class="venue-sep">·</span>
-                    {% endif %}
-                    <span>{{ work.venue }}</span>
-                    {% endif %}
-                  </span>
-                </div>
-                {% if work.authors %}
-                {% assign formatted_work_authors = work.authors | replace: '*', '<span class="equal-marker" aria-label="equal contribution">*</span>' | replace: 'Xinjian Zhao', '<strong>Xinjian Zhao</strong>' %}
-                <p class="additional-authors">{{ formatted_work_authors }}</p>
-                {% endif %}
-                {% if work.contribution %}
-                <p class="paper-contribution">{{ work.contribution }}</p>
-                {% endif %}
-              </li>
-              {% endfor %}
-            </ul>
-          </div>
 
         </div>
       </section>

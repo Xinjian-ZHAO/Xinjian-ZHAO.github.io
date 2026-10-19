@@ -280,10 +280,9 @@ trajectory:
     title: "Representation ↔ Generation"
     description: "Learning methods for scientific discovery and real-world problems."
   branches:
-    - title: "Learning"
+    - title: "Representation"
       icon: "structure"
-      featured_paper: "molemb"
-      period: "01 / REPRESENTATION"
+      period: "01 / REPRESENTATION LEARNING"
       focus: "How can models learn useful representations of complex structures?"
       nodes:
         - paper_id: "distributional-layouts"
@@ -295,12 +294,17 @@ trajectory:
         - paper_id: "spectral-augmentation"
           label: "Spectral Augmentation Revisited"
           one_line: "Understanding what makes contrastive representations effective."
-    - title: "Generation & Reasoning"
+        - paper_id: "protein-negative-mining"
+          label: "Protein Language Models"
+          one_line: "Improving protein representations through negative sample mining."
+    - title: "Generation"
       icon: "generation"
-      featured_paper: "latent-jepa"
-      period: "02 / GENERATIVE LEARNING"
+      period: "02 / GENERATION & REASONING"
       focus: "How can representations and learning methods improve generation and reasoning?"
       nodes:
+        - anchor: "work-loopmol"
+          label: "LoopMol · Closed-Loop Molecular Design"
+          one_line: "Using LLM surrogates and oracle feedback to guide molecular generation."
         - paper_id: "graphomni"
           label: "GraphOmni"
           one_line: "A benchmark for diagnosing graph reasoning capabilities."
@@ -310,6 +314,7 @@ trajectory:
         - anchor: "work-aot-star"
           label: "AOT*"
           one_line: "LLM-guided tree search for synthesis planning."
+  loop_title: "The Representation–Generation Loop"
   connections:
     - title: "Generation → Representation"
       paper_id: "molemb"
@@ -331,7 +336,18 @@ cross_paper_insights:
     detail: "AI4Science applications show that structure-aware strategies can improve data efficiency and scientific validity in new domains."
 
 additional_works:
+  - id: "work-loopmol"
+    teaser_label: "Closed-Loop Molecular Design"
+    tags: ["Molecular Generation", "LLM Surrogates", "Optimization"]
+    title: "Closed-Loop Molecular Inverse Design with Semantic LLM Surrogates"
+    venue: "Preprint"
+    year: 2026
+    url: "https://arxiv.org/abs/2608.22967"
+    authors: "Yaoyao Xu, Xinjian Zhao, Xiaozhuang Song, Lei Bai, Tianshu Yu"
+    contribution: "LoopMol uses an LLM surrogate to select reference molecules and optional textual guidance from optimization histories and oracle feedback. This closes the generation–evaluation loop and improves the yield of molecules matching target properties."
   - id: "work-coverage-control"
+    teaser_label: "Controllable Retrosynthesis"
+    tags: ["Molecular Generation", "Instruction Following"]
     title: "Coverage Before Control: Route-Instruction Grounding and Steering for Controllable Retrosynthesis"
     venue: "Preprint"
     year: 2026
@@ -339,6 +355,8 @@ additional_works:
     authors: "Xuemin Chen, Xiaozhuang Song, Xinjian Zhao, Yaoyao Xu, Tianshu Yu"
     contribution: "RIGS grounds instructions in alternative precursor sets, then steers a frozen retrosynthesis model with lightweight adapters to follow those preferences."
   - id: "work-retrogef"
+    teaser_label: "Graph Edit Generation"
+    tags: ["Graph Generation", "Retrosynthesis"]
     title: "RetroGEF: Dynamic Graph Edit Flow for Single-Step Retrosynthesis"
     venue: "Preprint"
     year: 2026
@@ -346,6 +364,8 @@ additional_works:
     authors: "Xiaozhuang Song, Xuemin Chen, Xinjian Zhao, Yaoyao Xu, Tianshu Yu"
     contribution: "RetroGEF jointly generates atom additions and bond edits in a dynamic graph flow, learning retrosynthesis without a fixed graph size or prescribed edit order."
   - id: "work-chemopd"
+    teaser_label: "Chemical Reasoning"
+    tags: ["Distillation", "Reasoning", "AI4Science"]
     title: "ChemOPD: Multi-Teacher On-Policy Distillation for Multi-Task Chemical Reasoning"
     venue: "Preprint"
     year: 2026
@@ -353,6 +373,8 @@ additional_works:
     authors: "Yaoyao Xu, Xinjian Zhao, Xiaozhuang Song, Xuemin Chen, Tianshu Yu"
     contribution: "ChemOPD groups chemical tasks by gradient affinity and combines specialist guidance with a generalist anchor to transfer complementary capabilities into one student."
   - id: "work-trl-bench"
+    teaser_label: "Tabular Representations"
+    tags: ["Representation Learning", "Benchmark"]
     title: "TRL-Bench: Standardizing Cross-Paradigm Representation-Level Evaluation of Tabular Encoders"
     venue: "Evaluations & Datasets Track"
     venue_abbr: "NeurIPS"
@@ -361,6 +383,8 @@ additional_works:
     authors: "Wei Pang, Xiangru Jian, Hehan Li, Zhixuan Yu, Alex Xue, Jinyang Li, Zhengyuan Dong, Xinjian Zhao, Hao Xu, Chao Zhang, Reynold Cheng, M. Tamer Özsu, Tianshu Yu"
     contribution: "TRL-Bench compares row, column, and table embeddings under shared evaluation conditions, showing that encoder strengths depend on the capability and pipeline stage."
   - id: "work-ht-gnn"
+    teaser_label: "Temporal Graph Learning"
+    tags: ["Temporal Graphs", "Industrial Applications"]
     title: "HT-GNN: Hyper-Temporal Graph Neural Network for Customer Lifetime Value Prediction in Baidu Ads"
     venue: "Technical Report"
     year: 2026
@@ -368,6 +392,8 @@ additional_works:
     authors: "Xiaohui Zhao, Xinjian Zhao, Jiahui Zhang, Guoyu Liu, Houzhi Wang, Shu Wu"
     contribution: "HT-GNN combines hypergraph supervision, temporal modeling, and task-adaptive experts to predict customer lifetime value across multiple time horizons."
   - id: "work-aot-star"
+    teaser_label: "Synthesis Planning"
+    tags: ["LLM", "Tree Search", "Planning"]
     title: "AOT*: Efficient Synthesis Planning via LLM-Empowered AND-OR Tree Search"
     venue: "Findings of the Association for Computational Linguistics"
     venue_abbr: "ACL Findings"
