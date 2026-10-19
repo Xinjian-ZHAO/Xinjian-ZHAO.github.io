@@ -13,6 +13,8 @@
   --accent: #806a93;
   --accent-strong: #695579;
   --accent-soft: #eee8f3;
+  --highlight: #a52f3d;
+  --name-ink: #171717;
   --radius-lg: 10px;
   --radius-md: 7px;
   --shadow: 0 3px 12px rgba(41, 38, 45, 0.05);
@@ -149,6 +151,7 @@ button:focus-visible {
   font-size: 1.02rem;
   text-decoration: none;
   font-weight: 700;
+  color: var(--name-ink);
   white-space: nowrap;
 }
 
@@ -201,48 +204,17 @@ button:focus-visible {
 .hero-content h1 {
   font-size: clamp(2.1rem, 4vw, 3.15rem);
   letter-spacing: -0.035em;
+  font-weight: 800;
+  color: var(--name-ink);
 }
 
-.hero-affiliation {
-  color: var(--ink-muted);
-  font-size: 1rem;
-}
-
-.hero-affiliation a {
+.hero-intro a {
   text-underline-offset: 3px;
   text-decoration-color: var(--line);
 }
 
 .hero-research {
-  display: grid;
-  gap: 8px;
-  margin-block: 10px 2px;
-}
-
-.hero-background {
-  grid-column: 1 / -1;
-  padding-top: 20px;
-  border-top: 1px solid var(--line);
-  color: var(--ink-muted);
-  font-size: 0.95rem;
-}
-
-.hero-background summary {
-  cursor: pointer;
-  width: fit-content;
-  color: var(--accent-strong);
-}
-
-.hero-background summary:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 4px;
-}
-
-.hero-background > div {
-  display: grid;
-  gap: 10px;
-  margin-top: 14px;
-  max-width: 100ch;
+  margin-top: 8px;
 }
 
 .dot {
@@ -269,19 +241,22 @@ button:focus-visible {
 }
 
 .hero-job-market {
-  border-left: 2px solid var(--accent);
+  border-left: 2px solid var(--highlight);
   padding-left: 13px;
-  color: var(--accent-strong);
+  color: var(--highlight);
+  font-weight: 600;
   font-size: 1rem;
   line-height: 1.6;
 }
 
 .hero-job-market a,
 .contact-email {
-  color: var(--accent-strong);
   text-underline-offset: 3px;
   overflow-wrap: anywhere;
 }
+
+.hero-job-market a { color: var(--highlight); }
+.contact-email { color: var(--accent-strong); }
 
 .hero-links a {
   text-decoration: none;
@@ -407,7 +382,7 @@ button:focus-visible {
 
 .papers-stack {
   display: grid;
-  gap: 0;
+  gap: 14px;
 }
 
 .publication-heading {
@@ -421,13 +396,15 @@ button:focus-visible {
 
 .paper-card {
   position: relative;
-  border: 0;
-  border-top: 1px solid var(--line);
+  border: 1px solid var(--line);
+  border-radius: 8px;
   background: var(--surface);
-  padding: 23px 0;
+  padding: 16px;
   display: grid;
-  grid-template-columns: 148px minmax(0, 1fr);
-  gap: 24px;
+  grid-template-columns: 160px minmax(0, 1fr);
+  grid-template-areas: "meta content";
+  gap: 18px;
+  align-items: start;
 }
 
 .paper-anchor {
@@ -437,16 +414,18 @@ button:focus-visible {
 }
 
 .paper-meta {
+  grid-area: meta;
+  min-width: 0;
   display: grid;
   gap: 10px;
   align-content: start;
 }
 
 .paper-teaser {
-  border: 0;
-  border-left: 2px solid var(--accent-soft);
-  min-height: 0;
-  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  min-height: 84px;
+  background: var(--surface-2);
   overflow: hidden;
 }
 
@@ -458,20 +437,20 @@ button:focus-visible {
 }
 
 .teaser-fallback {
-  min-height: 0;
+  min-height: 84px;
   display: grid;
   align-content: center;
-  justify-items: start;
-  text-align: left;
-  padding: 4px 12px;
+  justify-items: center;
+  text-align: center;
+  padding: 12px;
   gap: 5px;
 }
 
 .teaser-fallback p {
   font-family: "Source Sans 3", "Noto Sans SC", "Segoe UI", sans-serif;
-  font-size: 0.84rem;
-  font-weight: 600;
-  color: var(--accent-strong);
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--ink);
   max-width: 16ch;
 }
 
@@ -486,11 +465,16 @@ button:focus-visible {
 
 .paper-tags li {
   font-size: 0.76rem;
-  color: var(--ink-muted);
-  padding: 0 6px 0 0;
+  color: var(--accent-strong);
+  background: var(--accent-soft);
+  border-radius: 4px;
+  padding: 2px 7px;
 }
 
 .paper-content {
+  grid-area: content;
+  min-width: 0;
+  overflow-wrap: anywhere;
   display: grid;
   gap: 7px;
   align-content: start;
@@ -519,7 +503,15 @@ button:focus-visible {
 }
 
 .paper-venue {
-  font-weight: 400;
+  color: var(--highlight);
+  font-weight: 500;
+}
+
+.paper-authors strong,
+.additional-authors strong,
+.mentorship-item p:first-child a {
+  color: var(--name-ink);
+  font-weight: 800;
 }
 
 .paper-venue strong {
@@ -601,19 +593,19 @@ button:focus-visible {
   flex-wrap: wrap;
   align-items: center;
   gap: 0;
-  color: var(--ink-muted);
+  color: var(--highlight);
   font-size: 0.96rem;
   line-height: 1.35;
 }
 
 .additional-venue strong {
   font-weight: 700;
-  color: var(--accent);
+  color: var(--highlight);
 }
 
 .venue-sep {
   margin: 0 7px;
-  color: var(--ink-muted);
+  color: var(--highlight);
 }
 
 .additional-authors {
@@ -1363,6 +1355,7 @@ button:focus-visible {
 
   .paper-card {
     grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "meta" "content";
   }
 
   .paper-meta {
