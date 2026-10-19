@@ -8,7 +8,7 @@ layout: compress
 {% assign shlab = research.institutions.shlab %}
 {% assign cityu = research.institutions.cityu %}
 {% assign sdu = research.institutions.sdu %}
-{% assign asset_version = site.github.build_revision | default: '20261019-research-v10' %}
+{% assign asset_version = site.github.build_revision | default: '20261019-research-v11' %}
 {% capture cuhksz_inline %}<span class="institution-inline">{{ cuhksz.name }}&nbsp;<span class="institution-logo institution-logo-cuhksz" title="{{ cuhksz.short }} logo" aria-hidden="true"><span class="institution-logo-fallback">C</span><img src="{{ cuhksz.logo | relative_url }}" alt="" width="22" height="22" decoding="async"></span></span>{% endcapture %}
 {% capture casia_inline %}<span class="institution-inline">{{ casia.name }}&nbsp;<span class="institution-logo" title="{{ casia.short }} logo" aria-hidden="true"><span class="institution-logo-fallback">I</span><img src="{{ casia.logo | relative_url }}" alt="" width="22" height="22" decoding="async"></span></span>{% endcapture %}
 {% capture shlab_inline %}<span class="institution-inline">{{ shlab.name }}&nbsp;<span class="institution-logo institution-logo-wide" title="{{ shlab.short }} logo" aria-hidden="true"><span class="institution-logo-fallback">S</span><img src="{{ shlab.logo | relative_url }}" alt="" width="50" height="20" decoding="async"></span></span>{% endcapture %}
@@ -142,17 +142,17 @@ layout: compress
                 {% if branch_index == 1 %}
                 <div class="trajectory-bridge" aria-label="Representation–generation research loop">
                   <svg class="trajectory-loop-orbit" viewBox="0 0 360 420" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-                    <path class="trajectory-loop-path" d="M348 210C348 24 12 24 12 210" />
-                    <path class="trajectory-loop-path" d="M6 202L12 210L18 202" />
-                    <path class="trajectory-loop-path" d="M12 222C12 408 348 408 348 222" />
-                    <path class="trajectory-loop-path" d="M342 230L348 222L354 230" />
+                    {% comment %}Left = representation, right = generation. MolEmb points left; Latent JEPA points right.{% endcomment %}
+                    <path class="trajectory-loop-path" data-flow="generation-to-representation" d="M348 202C308 202 332 46 180 46C28 46 52 202 12 202" />
+                    <path class="trajectory-loop-path" d="M19 196L12 202L19 208" />
+                    <path class="trajectory-loop-path" data-flow="representation-to-generation" d="M12 222C52 222 28 374 180 374C332 374 308 222 348 222" />
+                    <path class="trajectory-loop-path" d="M341 216L348 222L341 228" />
                   </svg>
                   {% for connection in research.trajectory.connections %}
-                  <a class="trajectory-feature trajectory-loop-paper trajectory-loop-paper-{{ forloop.index }}" href="#paper-{{ connection.paper_id }}">
-                    <span class="trajectory-feature-direction">{{ connection.title }}</span>
+                  <a class="trajectory-feature trajectory-loop-paper trajectory-loop-paper-{{ forloop.index }}" href="#paper-{{ connection.paper_id }}" aria-label="{{ connection.label }}: {{ connection.title }}">
+                    <span class="trajectory-feature-direction">{{ connection.diagram_label | default: connection.title }}</span>
                     <strong>{{ connection.label }}</strong>
                     <span class="trajectory-feature-description">{{ connection.description }}</span>
-                    <span class="trajectory-feature-arrow" aria-hidden="true">↗</span>
                   </a>
                   {% endfor %}
                 </div>

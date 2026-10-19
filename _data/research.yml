@@ -316,6 +316,7 @@ trajectory:
           one_line: "LLM-guided tree search for synthesis planning."
   connections:
     - title: "Generation → Representation"
+      diagram_label: "Representation ← Generation"
       paper_id: "molemb"
       label: "MolEmb"
       description: "Adapting generative models into representation learners."
