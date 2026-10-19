@@ -1,4 +1,5 @@
 (function () {
+
   var menuToggle = document.querySelector(".menu-toggle");
   var nav = document.querySelector(".primary-nav");
   var navLinks = document.querySelectorAll(".primary-nav a");

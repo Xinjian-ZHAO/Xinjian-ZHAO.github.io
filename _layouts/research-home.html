@@ -8,7 +8,7 @@ layout: compress
 {% assign shlab = research.institutions.shlab %}
 {% assign cityu = research.institutions.cityu %}
 {% assign sdu = research.institutions.sdu %}
-{% assign asset_version = site.github.build_revision | default: '20260828-2' %}
+{% assign asset_version = site.github.build_revision | default: '20261019-research' %}
 {% capture cuhksz_inline %}<span class="institution-inline">{{ cuhksz.name }}&nbsp;<span class="institution-logo institution-logo-cuhksz" title="{{ cuhksz.short }} logo" aria-hidden="true"><span class="institution-logo-fallback">C</span><img src="{{ cuhksz.logo | relative_url }}" alt="" width="22" height="22" decoding="async"></span></span>{% endcapture %}
 {% capture casia_inline %}<span class="institution-inline">{{ casia.name }}&nbsp;<span class="institution-logo" title="{{ casia.short }} logo" aria-hidden="true"><span class="institution-logo-fallback">I</span><img src="{{ casia.logo | relative_url }}" alt="" width="22" height="22" decoding="async"></span></span>{% endcapture %}
 {% capture shlab_inline %}<span class="institution-inline">{{ shlab.name }}&nbsp;<span class="institution-logo institution-logo-wide" title="{{ shlab.short }} logo" aria-hidden="true"><span class="institution-logo-fallback">S</span><img src="{{ shlab.logo | relative_url }}" alt="" width="50" height="20" decoding="async"></span></span>{% endcapture %}
@@ -36,8 +36,8 @@ layout: compress
           Menu
         </button>
         <nav class="primary-nav" id="primary-nav" aria-label="Main Navigation">
-          <a href="#papers">Selected Papers</a>
-          <a href="#research-map">Trajectory</a>
+          <a href="#research-map">Research</a>
+          <a href="#papers">Publications</a>
           <a href="#mentorship">Mentorship</a>
           <a href="#contact">Contact</a>
         </nav>
@@ -49,8 +49,14 @@ layout: compress
         <div class="container hero-grid">
           <div class="hero-content reveal">
             <h1>{{ research.profile.name }}</h1>
-            <p class="hero-affiliation">{{ cuhksz_inline }}</p>
-            <p class="hero-intro hero-intro-main">{{ bio_primary }} {{ bio_education }} {{ research.about.bio[2] }}</p>
+            <p class="hero-affiliation">{{ research.profile.current_role }}<br>{{ cuhksz_inline }} · Advised by <a href="{{ research.profile.advisor_url }}" target="_blank" rel="noopener noreferrer">{{ research.profile.advisor_name }}</a></p>
+            <div class="hero-research">
+              <p class="eyebrow">Research Interests</p>
+              <p class="hero-intro hero-intro-main">{{ research.profile.one_liner }} {% for paragraph in research.profile.intro %}{{ paragraph }} {% endfor %}</p>
+            </div>
+            {% if research.profile.job_market %}
+            <p class="hero-job-market">{{ research.profile.job_market }} <a href="mailto:{{ research.profile.email }}">{{ research.profile.email }}</a></p>
+            {% endif %}
             <div class="hero-links">
               {% for link in research.hero_links %}
               {% assign link_url = link.url %}
@@ -64,19 +70,27 @@ layout: compress
           <aside class="hero-photo reveal">
             <img src="{{ research.profile.photo | relative_url }}" alt="{{ research.profile.name }} profile photo">
           </aside>
+          <details class="hero-background">
+            <summary>Background &amp; academic journey</summary>
+            <div><p>{{ bio_primary }}</p><p>{{ bio_education }}</p></div>
+          </details>
         </div>
       </section>
 
+      {% capture publications %}
       <section class="section" id="papers">
         <div class="container section-content">
-          <div class="section-header reveal">
-            <p class="eyebrow section-title">Selected Papers</p>
-            <p class="section-note"><span class="equal-marker" aria-hidden="true">*</span> denotes equal contribution.</p>
+          <div class="publication-heading">
+            <div class="section-header">
+              <h2 class="eyebrow section-title">Publications</h2>
+              <p class="section-note"><span class="equal-marker" aria-hidden="true">*</span> denotes equal contribution.</p>
+            </div>
           </div>
 
-          <div class="papers-stack">
+          <div class="papers-stack" id="publication-list">
             {% for paper in research.papers %}
-            <article class="paper-card" id="paper-{{ paper.id }}" data-paper-index="{{ forloop.index0 }}" data-paper-total="{{ forloop.length }}">
+            <article class="paper-card" id="paper-{{ paper.id }}">
+              {% if paper.legacy_anchor %}<span id="{{ paper.legacy_anchor }}" class="paper-anchor" aria-hidden="true"></span>{% endif %}
               <div class="paper-meta">
                 <div class="paper-teaser" style="--accent: {{ paper.accent }};">
                   {% if paper.image %}
@@ -84,7 +98,6 @@ layout: compress
                   {% else %}
                   <div class="teaser-fallback">
                     <p>{{ paper.teaser_label }}</p>
-                    <span>{{ paper.teaser_caption }}</span>
                   </div>
                   {% endif %}
                 </div>
@@ -97,36 +110,27 @@ layout: compress
 
               <div class="paper-content">
                 <header class="paper-header">
-                  <p class="paper-index">{{ forloop.index }} / {{ forloop.length }}</p>
                   <h3>{{ paper.title }}</h3>
                   {% assign formatted_authors = paper.authors | replace: '*', '<span class="equal-marker" aria-label="equal contribution">*</span>' | replace: 'Xinjian Zhao', '<strong>Xinjian Zhao</strong>' %}
                   <p class="paper-authors">{{ formatted_authors }}</p>
                   <p class="paper-venue">{% if paper.venue_display %}{% if paper.venue_emphasis %}{% capture emphasized_venue %}<strong><em>{{ paper.venue_emphasis }}</em></strong>{% endcapture %}{{ paper.venue_display | replace: paper.venue_emphasis, emphasized_venue }}{% else %}{{ paper.venue_display }}{% endif %}{% else %}{{ paper.venue_full }}{% if paper.venue_abbr %} <strong><em>({{ paper.venue_abbr }})</em></strong>{% endif %}, {{ paper.year }}{% endif %}</p>
                   <div class="paper-links">
                     {% for item in paper.links %}
-                    <a href="{{ item.url }}" target="_blank" rel="noopener noreferrer">{{ item.label }}</a>
+                    {% assign paper_url = item.url %}
+                    {% unless paper_url contains '://' %}{% assign paper_url = paper_url | relative_url %}{% endunless %}
+                    <a href="{{ paper_url }}" target="_blank" rel="noopener noreferrer">{{ item.label }}</a>
                     {% endfor %}
                   </div>
                 </header>
 
-                <div class="paper-summary">
-                  {% assign summary_text = paper.summary | join: " " %}
-                  <p>{{ summary_text }}</p>
-                </div>
-
-                <div class="insight-grid">
-                  <article>
-                    <h4>Key Insight</h4>
-                    <p>{{ paper.key_insight }}</p>
-                  </article>
-                </div>
+                <p class="paper-contribution">{{ paper.contribution }}</p>
               </div>
             </article>
             {% endfor %}
           </div>
 
-          <div class="additional-works reveal">
-            <h3>Other Works</h3>
+          <div class="additional-works" id="publication-more">
+            <h3>Further Publications &amp; Collaborations</h3>
             <ul>
               {% for work in research.additional_works %}
               <li id="{{ work.id }}">
@@ -152,6 +156,9 @@ layout: compress
                 {% assign formatted_work_authors = work.authors | replace: '*', '<span class="equal-marker" aria-label="equal contribution">*</span>' | replace: 'Xinjian Zhao', '<strong>Xinjian Zhao</strong>' %}
                 <p class="additional-authors">{{ formatted_work_authors }}</p>
                 {% endif %}
+                {% if work.contribution %}
+                <p class="paper-contribution">{{ work.contribution }}</p>
+                {% endif %}
               </li>
               {% endfor %}
             </ul>
@@ -159,11 +166,12 @@ layout: compress
 
         </div>
       </section>
+      {% endcapture %}
 
       <section class="section trajectory-section" id="research-map" aria-labelledby="trajectory-title">
         <div class="container section-content">
           <div class="section-header reveal compact-header">
-            <p class="eyebrow section-title">Research Trajectory</p>
+            <p class="eyebrow section-title">Research Directions</p>
           </div>
 
           <article class="trajectory-tree" data-trajectory-tree>
@@ -241,6 +249,7 @@ layout: compress
                         {% if node_target %}
                         <a href="#{{ node_target | escape }}">
                           <span class="trajectory-node-title">{{ node.label }}</span>
+                          <span class="trajectory-node-description">{{ node.one_line }}</span>
                         </a>
                         {% else %}
                         <span class="trajectory-node-title">{{ node.label }}</span>
@@ -252,9 +261,26 @@ layout: compress
               {% endfor %}
             </div>
             {% endif %}
+            <div class="research-loop" aria-label="Two complementary research directions">
+              {% for connection in research.trajectory.connections %}
+              {% unless forloop.first %}
+              <svg class="research-loop-arrows" viewBox="0 0 100 60" aria-hidden="true" focusable="false">
+                <path d="M8 23 Q50 -5 92 23 M82 12 L92 23 L78 25 M92 37 Q50 65 8 37 M18 48 L8 37 L22 35" />
+              </svg>
+              {% endunless %}
+              <a class="research-loop-direction" href="#paper-{{ connection.paper_id }}">
+                <span class="research-loop-label">{{ connection.title }}</span>
+                <strong>{{ connection.label }} <span aria-hidden="true">↗</span></strong>
+                <span>{{ connection.description }}</span>
+              </a>
+              {% endfor %}
+              <p class="research-loop-note">Complementary research directions at the interface of representation and generation.</p>
+            </div>
           </article>
         </div>
       </section>
+
+      {{ publications }}
 
       <section class="section" id="mentorship">
         <div class="container section-content">
@@ -286,6 +312,9 @@ layout: compress
             <p class="eyebrow">Contact</p>
           </div>
           <p class="contact-note reveal">{{ research.contact.note }}</p>
+          {% if research.contact.email %}
+          <p><a class="contact-email" href="mailto:{{ research.contact.email }}">{{ research.contact.email }}</a></p>
+          {% endif %}
           <div class="contact-links reveal">
             {% for link in research.contact.links %}
             {% assign contact_url = link.url %}

@@ -1,16 +1,17 @@
 profile:
   name: "Xinjian Zhao (赵鑫鉴)"
-  current_role: "PhD Candidate in Computer Science"
+  current_role: "Fourth-year PhD student in Computer Science"
   affiliation: "The Chinese University of Hong Kong, Shenzhen"
   advisor: "Advised by Prof. Tianshu Yu"
   advisor_name: "Prof. Tianshu Yu"
   advisor_url: "https://mypage.cuhk.edu.cn/academics/yutianshu/"
   photo: "/images/profile.png"
-  one_liner: "I study graph machine learning and AI methods that improve structural reasoning in scientific and real-world systems."
+  one_liner: "My research interests span representation learning, generative modeling, and reasoning, with a particular focus on how representation and generation can strengthen each other."
   intro:
-    - "My work focuses on how models represent graph structure, adapt under data shift, and transfer across modalities."
-    - "Across benchmarks, learning algorithms, and AI4Science applications, I aim to turn empirical performance gains into reusable research principles."
+    - "I aim to develop learning methods that advance scientific discovery and address real-world problems."
   location: "Shenzhen, China"
+  email: "xinjianzhao1@link.cuhk.edu.cn"
+  job_market: "I am seeking postdoctoral opportunities. Please feel free to reach out."
 
 institutions:
   cuhksz:
@@ -40,7 +41,7 @@ hero_links:
   - label: "Google Scholar"
     url: "https://scholar.google.com/citations?user=iKuIMsgAAAAJ&hl=en"
   - label: "Email"
-    url: "#contact"
+    url: "mailto:xinjianzhao1@link.cuhk.edu.cn"
   - label: "GitHub"
     url: "https://github.com/Xinjian-ZHAO"
   - label: "Research Papers"
@@ -48,9 +49,8 @@ hero_links:
 
 about:
   bio:
-    - "I am a third-year PhD student in Computer Science at The Chinese University of Hong Kong, Shenzhen, and I am fortunate to be advised by <a href=\"https://mypage.cuhk.edu.cn/academics/yutianshu/\" target=\"_blank\" rel=\"noopener noreferrer\">Prof. Tianshu Yu</a>. During my PhD, I also spent time as a visiting student at the Institute of Automation, Chinese Academy of Sciences, hosted by <a href=\"https://people.ucas.ac.cn/~shuwu\" target=\"_blank\" rel=\"noopener noreferrer\">Prof. Shu Wu</a>, and as a research intern at Shanghai Artificial Intelligence Laboratory."
+    - "I am a fourth-year PhD student in Computer Science at The Chinese University of Hong Kong, Shenzhen, and I am fortunate to be advised by <a href=\"https://mypage.cuhk.edu.cn/academics/yutianshu/\" target=\"_blank\" rel=\"noopener noreferrer\">Prof. Tianshu Yu</a>. During my PhD, I also spent time as a visiting student at the Institute of Automation, Chinese Academy of Sciences, hosted by <a href=\"https://people.ucas.ac.cn/~shuwu\" target=\"_blank\" rel=\"noopener noreferrer\">Prof. Shu Wu</a>, and as a research intern at Shanghai Artificial Intelligence Laboratory."
     - "Before my PhD, I completed an M.S. in Data Science at City University of Hong Kong under the supervision of <a href=\"https://rguo12.github.io/\" target=\"_blank\" rel=\"noopener noreferrer\">Prof. Ruocheng Guo</a> and a B.S. in Computer Science at Shandong University under the supervision of <a href=\"https://xuemengsong.github.io/\" target=\"_blank\" rel=\"noopener noreferrer\">Prof. Xuemeng Song</a>."
-    - "I am interested in graph learning, graph-augmented intelligence, and impactful applications in science and industry."
 
 research_themes:
   - title: "Vision-Native Structural Understanding"
@@ -71,6 +71,20 @@ research_themes:
     application: "Protein modeling, recommendation systems, and industrial optimization."
 
 papers:
+  - id: "latent-jepa"
+    title: "Latent JEPA: Abstract Future Prediction for Latent Reasoning in Chemistry"
+    authors: "Xinjian Zhao, Yaoyao Xu, Xuemin Chen, Xiaozhuang Song, Tianshu Yu"
+    venue_full: "Preprint"
+    year: 2026
+    accent: "#806a93"
+    teaser_label: "Latent Chemical Reasoning"
+    teaser_caption: "Learning to anticipate molecular outcomes"
+    links:
+      - label: "Paper"
+        url: "https://arxiv.org/abs/2610.01947"
+    contribution: "Latent JEPA trains continuous reasoning states to predict representations of future reasoning and molecular outcomes. This improves chemical reasoning and makes latent thoughts more informative about molecular structure."
+    tags: ["Latent Reasoning", "JEPA", "AI4Science"]
+
   - id: "molemb"
     title: "MolEmb: Multimodal Large Language Models Can Be Strong Molecular Embedding Models"
     authors: "Xinjian Zhao, Xiangru Jian, Yaoyao Xu, Xiaozhuang Song, Wei Pang, Lei Bai, Tianshu Yu"
@@ -82,12 +96,11 @@ papers:
     teaser_label: "Molecular Embeddings"
     teaser_caption: "MLLMs as context-aware molecular embedding backbones"
     links:
-      - label: "PDF"
-        url: "https://github.com/Xinjian-ZHAO/Xinjian-ZHAO.github.io/blob/master/files/MolEmb%202026.pdf"
-    summary:
-      - "MolEmb asks whether multimodal large language models can become the embedding layer for molecular intelligence, rather than only serving as generative scientific assistants."
-      - "By conditioning molecular representations on images, SMILES, and natural-language scientific intent, it moves molecular embedding from fixed-vector encoding toward context-aware retrieval and decision support."
-    key_insight: "MLLMs can be repositioned as context-aware molecular embedding backbones, not only as generative scientific assistants."
+      - label: "Paper"
+        url: "https://arxiv.org/abs/2608.23646"
+      - label: "Workshop PDF"
+        url: "/files/MolEmb%202026.pdf"
+    contribution: "MolEmb adapts multimodal LLMs into molecular embedding models through molecule–text contrastive alignment. A shared embedding space supports property prediction and cross-modal retrieval, while MolCAR tests whether representations respond to scientific context."
     why_it_matters: "It points toward retrieval-centered molecular foundation models for drug discovery and reaction planning."
     trajectory_relation: "This work connects my graph representation learning thread with multimodal AI4Science systems."
     tags: ["Molecular ML", "MLLM", "Embedding"]
@@ -107,10 +120,7 @@ papers:
         url: "https://arxiv.org/abs/2604.07413"
       - label: "Website"
         url: "https://ai4manufacturing.github.io/forge-web/"
-    summary:
-      - "FORGE treats manufacturing as a hard testbed for deploying multimodal intelligence in the physical world, where small visual differences can imply costly process failures."
-      - "Across workpiece verification, surface inspection, and assembly verification, it shows that current MLLMs often recognize objects but fail to bind visual evidence to manufacturing rules, tolerances, and domain constraints."
-    key_insight: "Manufacturing MLLMs should be evaluated by process-level judgment, not object recognition alone."
+    contribution: "FORGE evaluates 18 multimodal models on manufacturing tasks using real images, 3D point clouds, and fine-grained annotations. It identifies missing domain knowledge as the main bottleneck and shows that domain-specific training can improve performance."
     why_it_matters: "It provides a realistic evaluation and adaptation pathway for multimodal models in industrial environments."
     trajectory_relation: "This work extends my interest in graph-augmented intelligence and structured evaluation into high-value manufacturing scenarios."
     tags: ["Manufacturing", "MLLM", "Benchmark"]
@@ -126,14 +136,26 @@ papers:
     teaser_caption: "Visual intelligence for graph reasoning and learning"
     links:
       - label: "Paper"
-        url: "https://www.techrxiv.org/doi/full/10.36227/techrxiv.177004261.15861585/v1"
-    summary:
-      - "This survey frames Vision Meets Graphs as a new interface between visual intelligence and structural learning, where graph depictions become direct computational inputs rather than auxiliary figures."
-      - "It reorganizes scattered progress in graph reasoning, graph learning, and scientific graph understanding into a taxonomy that clarifies how visual perception, symbolic topology, and cross-modal reasoning can be fused."
-    key_insight: "This is a first systematic formulation of the Vision Meets Graphs paradigm, recasting graph depictions as first-class inputs for structural reasoning."
+        url: "https://arxiv.org/abs/2609.03816"
+    contribution: "We organize vision-based graph research into graph reasoning, graph learning, and scientific applications. The paper argues for treating graph depictions as direct model inputs and identifies open challenges toward graph foundation models."
     why_it_matters: "It clarifies a forward research agenda and identifies where new benchmarks and models are most needed."
     trajectory_relation: "This is a synthesis node that integrates observations from multiple branches of my prior work."
     tags: ["Survey", "Vision", "Graph ML"]
+
+  - id: "embedding-survey"
+    legacy_anchor: "work-embedding-survey"
+    title: "Embedding in Recommender Systems: A Survey"
+    authors: "Maolin Wang*, Xinjian Zhao*, Wanyu Wang*, Sheng Zhang, Jiansheng Li, Bowen Yu, Binhao Wang, Shucheng Zhou, Dawei Yin, Qing Li, Ruocheng Guo, Xiangyu Zhao"
+    venue_full: "ACM Transactions on Information Systems"
+    venue_abbr: "TOIS"
+    year: 2026
+    accent: "#806a93"
+    teaser_label: "Representation in Recommendation"
+    links:
+      - label: "Paper"
+        url: "https://arxiv.org/pdf/2310.18608.pdf"
+    contribution: "We survey embedding methods for recommender systems, organizing representation techniques and their roles in recommendation pipelines."
+    tags: ["Representation Learning", "Recommendation", "Survey"]
 
   - id: "vision-power"
     title: "The Underappreciated Power of Vision Models for Graph Structural Understanding"
@@ -147,17 +169,14 @@ papers:
     links:
       - label: "Paper"
         url: "https://arxiv.org/pdf/2510.24788"
-    summary:
-      - "This work challenges the assumption that graph structure must be understood through graph-native message passing by testing whether structural intelligence can emerge from pixels."
-      - "We show that pure vision models can compete with GNNs on graph-level benchmarks, and GraphAbstract further reveals their advantage on global structural perception and scale-invariant reasoning."
-    key_insight: "Several GNN expressiveness bottlenecks are visually simple, suggesting that global visual perception can complement local message passing."
+    contribution: "We show that vision models can compete with GNNs on graph-level tasks using rendered graphs. GraphAbstract reveals strengths in global structural perception and scale-invariant reasoning that complement local message passing."
     why_it_matters: "It opens a practical route to leverage mature vision architectures for graph reasoning tasks."
     trajectory_relation: "This paper extends the GraphOmni diagnosis into model-side evidence about where structural reasoning emerges."
     tags: ["Vision Models", "Structural Reasoning", "NeurIPS"]
 
   - id: "graphomni"
-    title: "GraphOmni: A Comprehensive and Extendable Benchmark Framework for Large Language Models on Graph-theoretic Tasks"
-    authors: "Hao Xu*, Xiangru Jian*, Xinjian Zhao*, Wei Pang*, Chao Zhang, Suyucheng Wang, Qixin Zhang, Zhengyuan Dong, Joao Monteiro, Bang Liu, Qiuzhuang Sun, Tianshu Yu"
+    title: "GraphOmni: A Comprehensive and Extensible Benchmark Framework for Large Language Models on Graph-theoretic Tasks"
+    authors: "Hao Xu*, Xiangru Jian*, Xinjian Zhao*, Wei Pang*, Chao Zhang, Suyuchen Wang, Qixin Zhang, Zhengyuan Dong, Joao Monteiro, Bang Liu, Qiuzhuang Sun, Tianshu Yu"
     venue_full: "International Conference on Learning Representations"
     venue_abbr: "ICLR"
     year: 2026
@@ -166,11 +185,8 @@ papers:
     teaser_caption: "Graph-theoretic capabilities of LLM systems"
     links:
       - label: "Paper"
-        url: "https://arxiv.org/abs/2504.12764"
-    summary:
-      - "GraphOmni turns graph theory into a stress test for general reasoning agents: tasks are structurally complex, scalable in difficulty, and exactly verifiable."
-      - "By decomposing LLM graph reasoning across task type, graph structure, input representation, and prompting strategy, it exposes failure modes that disappear under a single aggregate score."
-    key_insight: "Graph-theoretic tasks offer a scalable and exactly verifiable lens for diagnosing long-range reasoning in LLMs."
+        url: "https://openreview.net/forum?id=dc8Kf2g0KC"
+    contribution: "GraphOmni evaluates LLM graph reasoning across graph types, input representations, and prompting strategies. It reveals configuration-dependent failures and introduces an adaptive selector to find effective settings with limited exploration."
     why_it_matters: "It provides a more reliable basis for comparing model families and choosing where algorithmic effort should go."
     trajectory_relation: "This work establishes the evaluation spine for my later studies on structure understanding and model bias."
     tags: ["LLM", "Graph Reasoning", "Benchmark"]
@@ -187,10 +203,7 @@ papers:
     links:
       - label: "Paper"
         url: "https://arxiv.org/abs/2402.16402"
-    summary:
-      - "DEL starts from a stronger view of graph learning: a graph should not be represented only as a fixed adjacency object, but as a system whose structural identity is revealed through its responses."
-      - "By placing graphs in a physical world and sampling steady-state edge layouts under energy constraints, DEL produces distributional signatures that separate hard graph pairs and strengthen GNN/Graph Transformer backbones."
-    key_insight: "If GNNs act as graph representation compressors, DEL enriches the signal by modeling a graph's physical-world response distribution."
+    contribution: "DEL represents graph structure through distributions of physically simulated edge layouts. These structural features help distinguish hard graph pairs and improve GNN and Graph Transformer representations."
     why_it_matters: "Many real data pipelines induce imperfect graphs; distributional layouts make methods less brittle in those settings."
     trajectory_relation: "This is a core branch in my trajectory on robust graph representation under imperfect structure."
     tags: ["Graph Representation", "Robustness", "KDD"]
@@ -207,10 +220,7 @@ papers:
     links:
       - label: "Paper"
         url: "https://openreview.net/pdf?id=HjpD5kpfa3"
-    summary:
-      - "This work pushes graph SSL away from augmentation folklore by asking whether spectral augmentation helps because of spectral information, or simply because it imposes useful invariance pressure."
-      - "For widely used shallow GNN encoders, we show that InfoNCE behavior is often dominated by perturbation strength rather than spectral characteristics, explaining why simple edge perturbations can match or outperform heavier spectral operations."
-    key_insight: "For shallow GNN encoders, perturbation strength can dominate spectral properties, shifting graph SSL design from spectral engineering to invariance design."
+    contribution: "We find that perturbation strength, rather than spectral characteristics, often dominates contrastive learning with shallow GNNs. This explains why simple edge perturbations can match or outperform more elaborate spectral augmentations."
     why_it_matters: "It improves SSL stability and reduces trial-and-error in representation learning pipelines."
     trajectory_relation: "This contributes mechanistic understanding in my branch on efficient, principled representation learning."
     tags: ["Graph SSL", "Spectral Methods", "TMLR"]
@@ -227,10 +237,7 @@ papers:
     links:
       - label: "Paper"
         url: "https://arxiv.org/abs/2405.17902"
-    summary:
-      - "Protein language models can over-rely on co-evolution knowledge, causing representations to preserve misleading evolutionary correlations when transferred to downstream protein tasks."
-      - "We mine negative protein pairs from disparate categories and reduce their residue-level alignment in cross-attention space, steering PLMs away from co-evolution shortcuts and toward task-relevant discrimination."
-    key_insight: "Negative mining acts as an alignment-level intervention that reduces spurious co-evolution coupling in protein language models."
+    contribution: "We improve protein language models by mining negative protein pairs and reducing their residue-level alignment. This discourages misleading co-evolution correlations and improves discrimination on downstream protein tasks."
     why_it_matters: "It demonstrates how graph-inspired learning principles can transfer to high-impact scientific problems."
     trajectory_relation: "This is a cross-domain branch showing how my graph learning principles scale into AI4Science."
     tags: ["AI4Science", "Protein LM", "ECML-PKDD"]
@@ -247,10 +254,7 @@ papers:
     links:
       - label: "Paper"
         url: "https://arxiv.org/pdf/2402.16346"
-    summary:
-      - "This work treats graph pooling as a structural abstraction problem rather than a node-pruning heuristic: coarsening should decide which topology deserves to survive."
-      - "By injecting persistent homology into the pooling process itself, it aligns PH filtration with cutoff-style pooling so global topological evidence influences what structures are preserved."
-    key_insight: "Persistent homology is most useful when it guides pooling decisions before global topology is compressed away."
+    contribution: "We incorporate persistent homology into graph pooling so that topological information guides which structure survives coarsening. This helps preserve global structure in learned graph representations."
     why_it_matters: "It advances pooling from heuristic compression toward structure-preserving abstraction."
     trajectory_relation: "This work anchors my trajectory on injecting geometric/topological priors into representation pipelines."
     tags: ["Topology", "Graph Pooling", "NeurIPS"]
@@ -266,64 +270,64 @@ papers:
     links:
       - label: "Paper"
         url: "https://arxiv.org/abs/2402.10468"
-    summary:
-      - "ACGCL treats graph contrastive learning as controlled optimization over sample difficulty, rather than a recipe of random augmentations and fixed positives/negatives."
-      - "It uses pair-wise augmentation to generate similarity-controlled mirror subgraphs, then applies adversarial curriculum training so optimization gradually moves toward harder and more informative samples."
-    key_insight: "Graph contrastive learning becomes more reliable when view similarity and sample difficulty are explicitly controlled."
+    contribution: "ACGCL generates graph pairs with controllable similarity and progressively increases training difficulty through an adversarial curriculum. Jointly controlling augmentation and sample difficulty improves graph contrastive learning."
     why_it_matters: "It offers a practical recipe for making graph contrastive methods less fragile."
     trajectory_relation: "This paper marks an early stage of my long-term branch on robustness-aware representation learning."
     tags: ["Contrastive Learning", "Robustness", "Preprint"]
 
 trajectory:
   trunk:
-    title: "Core Research Trunk: Structure-Aware Intelligence"
-    description: "Core question: how can models learn and understand graph structure, and how can graph structure in turn improve general-purpose models and intelligence?"
+    title: "Representation ↔ Generation"
+    description: "Connected research directions, from learning methods to scientific discovery."
   branches:
-    - title: "Towards Graph Foundation Models"
-      period: "2023-2026"
-      focus: "Capability diagnostics and model-side evidence for graph foundation models."
+    - title: "Learning"
+      period: "01 / REPRESENTATION"
+      focus: "How can models learn useful representations of complex structures?"
       nodes:
-        - paper_id: "adversarial-curriculum"
-          label: "Adversarial Curriculum GCL (Preprint 2024)"
-          one_line: "Introduces training curricula for robust contrastive learning."
-        - paper_id: "spectral-augmentation"
-          label: "Spectral Augmentation Revisited (TMLR 2025)"
-          one_line: "Clarifies augmentation principles for stable SSL."
         - paper_id: "distributional-layouts"
-          label: "Distributional Edge Layouts (KDD 2025)"
-          one_line: "Models topology as distributions for uncertainty-aware learning."
+          label: "DEL"
+          one_line: "Structural representations from physical response distributions."
         - paper_id: "vision-power"
-          label: "Vision Models for Graph Structure (NeurIPS 2025)"
-          one_line: "Tests where structural reasoning can emerge in non-graph-native backbones."
-    - title: "Graph-Augmented Intelligence"
-      period: "2024-2026"
-      focus: "Using graph structure to diagnose and improve general intelligence."
+          label: "Vision Models / GraphAbstract"
+          one_line: "Understanding graph structure through visual perception."
+        - paper_id: "molemb"
+          label: "MolEmb"
+          one_line: "Generative models as context-aware molecular embedding models."
+    - title: "Generation"
+      period: "02 / PREDICTION & GENERATION"
+      focus: "How can learned representations support prediction and generation?"
+      nodes:
+        - paper_id: "latent-jepa"
+          label: "Latent JEPA"
+          one_line: "Predicting future representations to support latent reasoning."
+        - anchor: "work-retrogef"
+          label: "RetroGEF"
+          one_line: "Dynamic graph edit flow for retrosynthesis."
+        - anchor: "work-coverage-control"
+          label: "Coverage Before Control"
+          one_line: "Instruction-guided generation of precursor candidates."
+    - title: "Reasoning"
+      period: "03 / EVALUATION & METHODS"
+      focus: "How can we evaluate and improve reasoning over structured problems?"
       nodes:
         - paper_id: "graphomni"
-          label: "GraphOmni (ICLR 2026)"
-          one_line: "Decomposes graph reasoning into inspectable sub-skills."
-        - paper_id: "vision-graphs-survey"
-          label: "When Vision Meets Graphs (IJCAI 2026 · Position)"
-          one_line: "Positions visual intelligence as an interface for graph reasoning and learning."
-    - title: "Structure Priors in Scientific and Real-World Applications"
-      period: "2024-2026"
-      focus: "Injecting structure priors into scientific and real-world applications, including AI4Science and recommender systems."
-      nodes:
-        - paper_id: "molemb"
-          label: "MolEmb · MLLMs as Molecular Embedding Models"
-          one_line: "Frames MLLMs as context-aware molecular embedding backbones."
-        - paper_id: "persistent-homology-pooling"
-          label: "Persistent Homology Pooling (NeurIPS 2024)"
-          one_line: "Injects topological signals to preserve global structure."
-        - paper_id: "protein-negative-mining"
-          label: "Negative Mining for Protein LMs (ECML-PKDD 2024)"
-          one_line: "Uses negative alignment to reduce co-evolution-driven shortcut correlations."
+          label: "GraphOmni"
+          one_line: "A benchmark for diagnosing graph reasoning capabilities."
+        - anchor: "work-chemopd"
+          label: "ChemOPD"
+          one_line: "On-policy distillation for chemical reasoning."
         - anchor: "work-aot-star"
-          label: "AOT* (ACL Findings 2026)"
-          one_line: "LLM-empowered AND-OR tree search for efficient synthesis planning."
-        - paper_id: "forge-manufacturing"
-          label: "FORGE (EMNLP Findings 2026)"
-          one_line: "Benchmarks multimodal models in realistic manufacturing scenarios."
+          label: "AOT*"
+          one_line: "LLM-guided tree search for synthesis planning."
+  connections:
+    - title: "Generation for Representation"
+      paper_id: "molemb"
+      label: "MolEmb"
+      description: "Adapting generative models into representation learners."
+    - title: "Representation for Generation"
+      paper_id: "latent-jepa"
+      label: "Latent JEPA"
+      description: "Learning predictive representations for reasoning and generation."
 
 cross_paper_insights:
   - title: "Reliable progress needs capability decomposition."
@@ -336,29 +340,54 @@ cross_paper_insights:
     detail: "AI4Science applications show that structure-aware strategies can improve data efficiency and scientific validity in new domains."
 
 additional_works:
+  - id: "work-coverage-control"
+    title: "Coverage Before Control: Route-Instruction Grounding and Steering for Controllable Retrosynthesis"
+    venue: "Preprint"
+    year: 2026
+    url: "https://arxiv.org/abs/2609.39955"
+    authors: "Xuemin Chen, Xiaozhuang Song, Xinjian Zhao, Yaoyao Xu, Tianshu Yu"
+    contribution: "RIGS grounds instructions in alternative precursor sets, then steers a frozen retrosynthesis model with lightweight adapters to follow those preferences."
+  - id: "work-retrogef"
+    title: "RetroGEF: Dynamic Graph Edit Flow for Single-Step Retrosynthesis"
+    venue: "Preprint"
+    year: 2026
+    url: "https://arxiv.org/abs/2609.38484"
+    authors: "Xiaozhuang Song, Xuemin Chen, Xinjian Zhao, Yaoyao Xu, Tianshu Yu"
+    contribution: "RetroGEF jointly generates atom additions and bond edits in a dynamic graph flow, learning retrosynthesis without a fixed graph size or prescribed edit order."
+  - id: "work-chemopd"
+    title: "ChemOPD: Multi-Teacher On-Policy Distillation for Multi-Task Chemical Reasoning"
+    venue: "Preprint"
+    year: 2026
+    url: "https://arxiv.org/abs/2609.33838"
+    authors: "Yaoyao Xu, Xinjian Zhao, Xiaozhuang Song, Xuemin Chen, Tianshu Yu"
+    contribution: "ChemOPD groups chemical tasks by gradient affinity and combines specialist guidance with a generalist anchor to transfer complementary capabilities into one student."
+  - id: "work-trl-bench"
+    title: "TRL-Bench: Standardizing Cross-Paradigm Representation-Level Evaluation of Tabular Encoders"
+    venue: "Evaluations & Datasets Track"
+    venue_abbr: "NeurIPS"
+    year: 2026
+    url: "https://arxiv.org/abs/2606.09323"
+    authors: "Wei Pang, Xiangru Jian, Hehan Li, Zhixuan Yu, Alex Xue, Jinyang Li, Zhengyuan Dong, Xinjian Zhao, Hao Xu, Chao Zhang, Reynold Cheng, M. Tamer Özsu, Tianshu Yu"
+    contribution: "TRL-Bench compares row, column, and table embeddings under shared evaluation conditions, showing that encoder strengths depend on the capability and pipeline stage."
   - id: "work-ht-gnn"
     title: "HT-GNN: Hyper-Temporal Graph Neural Network for Customer Lifetime Value Prediction in Baidu Ads"
     venue: "Technical Report"
     year: 2026
     url: "https://arxiv.org/abs/2601.13013"
     authors: "Xiaohui Zhao, Xinjian Zhao, Jiahui Zhang, Guoyu Liu, Houzhi Wang, Shu Wu"
-  - id: "work-embedding-survey"
-    title: "Embedding in Recommender Systems: A Survey"
-    venue: "ACM Transactions on Information Systems"
-    venue_abbr: "TOIS"
-    year: 2026
-    url: "https://arxiv.org/pdf/2310.18608.pdf"
-    authors: "Maolin Wang*, Xinjian Zhao*, Wanyu Wang*, Sheng Zhang, Jiansheng Li, Bowen Yu, Binhao Wang, Shucheng Zhou, Dawei Yin, Qing Li, Ruocheng Guo, Xiangyu Zhao"
+    contribution: "HT-GNN combines hypergraph supervision, temporal modeling, and task-adaptive experts to predict customer lifetime value across multiple time horizons."
   - id: "work-aot-star"
     title: "AOT*: Efficient Synthesis Planning via LLM-Empowered AND-OR Tree Search"
     venue: "Findings of the Association for Computational Linguistics"
     venue_abbr: "ACL Findings"
     year: 2026
-    url: "https://arxiv.org/abs/2509.20988"
+    url: "https://aclanthology.org/2026.findings-acl.1734/"
     authors: "Xiaozhuang Song, Xuanhao Pan, Xinjian Zhao, Hangting Ye, Shufei Zhang, Jian Tang, Tianshu Yu"
+    contribution: "AOT* combines LLM-generated synthesis routes with AND-OR tree search, achieving competitive solve rates with fewer search iterations."
 
 contact:
-  note: "The fastest way to reach me is via my institutional email listed in CV."
+  note: "I welcome conversations about postdoctoral opportunities and research collaborations. Please contact me by email."
+  email: "xinjianzhao1@link.cuhk.edu.cn"
   links:
     - label: "Download CV"
       url: "/cv/"
