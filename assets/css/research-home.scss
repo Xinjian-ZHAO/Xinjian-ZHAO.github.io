@@ -601,7 +601,8 @@ a.additional-work-title:hover { color: var(--accent-strong); text-decoration: un
 .trajectory-section {
   --accent: #6b4384;
   --accent-strong: #56336c;
-  --ink-muted: #504657;
+  --ink: #000000;
+  --ink-muted: #000000;
   --line: #c8b8d4;
   position: relative;
   background: var(--surface);
@@ -697,7 +698,7 @@ a.additional-work-title:hover { color: var(--accent-strong); text-decoration: un
 .trajectory-branches {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 340px minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) 380px minmax(0, 1fr);
   column-gap: 20px;
 }
 
@@ -721,7 +722,7 @@ a.additional-work-title:hover { color: var(--accent-strong); text-decoration: un
 }
 
 .trajectory-period {
-  color: var(--accent-strong);
+  color: var(--ink);
   font-size: 0.7rem;
   font-weight: 600;
   letter-spacing: 0.1em;
@@ -790,7 +791,7 @@ a.additional-work-title:hover { color: var(--accent-strong); text-decoration: un
 .trajectory-feature-direction {
   font-size: 0.76rem;
   font-weight: 600;
-  color: var(--accent-strong);
+  color: var(--ink);
 }
 
 .trajectory-feature strong {
@@ -814,16 +815,6 @@ a.additional-work-title:hover { color: var(--accent-strong); text-decoration: un
   transition: transform 180ms ease;
 }
 
-.trajectory-feature:hover,
-.trajectory-feature:focus-visible {
-  background: #f4eff8;
-  border-color: var(--tree-twig);
-}
-
-.trajectory-feature:hover .trajectory-feature-arrow {
-  transform: translate(2px, -2px);
-}
-
 .trajectory-connected-map {
   position: relative;
   margin-top: 28px;
@@ -836,7 +827,7 @@ a.additional-work-title:hover { color: var(--accent-strong); text-decoration: un
   grid-template-columns: minmax(0, 1fr);
   grid-template-rows: auto auto;
   gap: 24px;
-  padding: 64px 0;
+  padding: 72px 0;
   min-height: 360px;
   align-self: center;
   min-width: 0;
@@ -879,8 +870,6 @@ a.additional-work-title:hover { color: var(--accent-strong); text-decoration: un
 .trajectory-loop-paper strong { line-height: 1.2; }
 .trajectory-loop-paper .trajectory-feature-direction { font-size: 0.75rem; line-height: 1.4; font-weight: 700; }
 .trajectory-loop-paper .trajectory-feature-description { font-size: 0.9rem; }
-.trajectory-loop-paper:hover,
-.trajectory-loop-paper:focus-visible { background: rgba(128, 106, 147, 0.06); border-color: transparent; }
 .trajectory-loop-paper-1 { grid-row: 1; }
 .trajectory-loop-paper-2 { grid-row: 2; }
 
@@ -930,15 +919,6 @@ a.additional-work-title:hover { color: var(--accent-strong); text-decoration: un
   border-top: 1px solid var(--tree-twig);
 }
 
-.trajectory-node a {
-  display: block;
-  padding: 3px 5px;
-  margin: -3px -5px;
-  color: var(--ink);
-  text-decoration: none;
-  border-radius: 3px;
-}
-
 .trajectory-node-title {
   display: block;
   font-size: 0.94rem;
@@ -954,11 +934,34 @@ a.additional-work-title:hover { color: var(--accent-strong); text-decoration: un
   line-height: 1.5;
 }
 
-.trajectory-node a:hover .trajectory-node-title,
-.trajectory-node a:focus-visible .trajectory-node-title {
+.trajectory-work-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 10px;
+  margin-top: 7px;
+  color: var(--ink);
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+.trajectory-work-venue { font-weight: 600; }
+
+.trajectory-work-meta a {
+  padding: 2px 0;
   color: var(--accent-strong);
+  font-weight: 600;
+  white-space: nowrap;
   text-decoration: underline;
   text-underline-offset: 3px;
+  border-radius: 2px;
+}
+
+.trajectory-work-meta a:hover { color: var(--ink); }
+
+.trajectory-loop-paper .trajectory-work-meta {
+  justify-content: center;
+  margin-top: 3px;
 }
 
 .trajectory-tree.is-animatable .tree-stroke {
@@ -977,7 +980,7 @@ a.additional-work-title:hover { color: var(--accent-strong); text-decoration: un
 @media (max-width: 1000px) {
   .trajectory-root { text-align: left; margin: 0; }
   .trajectory-root-illustration { margin-left: 0; }
-  .trajectory-bridge { width: min(380px, 100%); justify-self: center; }
+  .trajectory-bridge { width: min(380px, 100%); justify-self: center; padding-block: 88px; }
   .trajectory-branches {
     grid-template-columns: minmax(0, 1fr);
     grid-template-rows: auto;
@@ -1246,7 +1249,7 @@ a.additional-work-title:hover { color: var(--accent-strong); text-decoration: un
 }
 
 @media (max-width: 380px) {
-  .trajectory-bridge { padding-block: 80px; }
+  .trajectory-bridge { padding-block: 120px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

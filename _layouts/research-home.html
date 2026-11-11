@@ -117,22 +117,17 @@ layout: compress
 
                   <ul class="trajectory-node-list">
                     {% for node in branch.nodes %}
-                      {% assign node_target = nil %}
+                      {% assign node_paper = nil %}
                       {% if node.anchor %}
-                        {% assign node_target = node.anchor %}
+                        {% assign node_paper = research.additional_works | where: 'id', node.anchor | first %}
                       {% elsif node.paper_id %}
-                        {% assign node_target = node.paper_id | prepend: 'paper-' %}
+                        {% assign node_paper = research.papers | where: 'id', node.paper_id | first %}
                       {% endif %}
                       {% assign node_delay = forloop.index0 | times: 55 | plus: branch_delay | plus: 170 %}
                       <li class="trajectory-node" style="--node-delay: {{ node_delay }}ms">
-                        {% if node_target %}
-                        <a href="#{{ node_target | escape }}">
-                          <span class="trajectory-node-title">{{ node.label }}</span>
-                          <span class="trajectory-node-description">{{ node.one_line }}</span>
-                        </a>
-                        {% else %}
                         <span class="trajectory-node-title">{{ node.label }}</span>
-                        {% endif %}
+                        {% if node.one_line %}<span class="trajectory-node-description">{{ node.one_line }}</span>{% endif %}
+                        {% include research-work-meta.html paper=node_paper %}
                       </li>
                     {% endfor %}
                   </ul>
@@ -150,11 +145,13 @@ layout: compress
                     <path class="trajectory-loop-path" data-flow="representation-to-generation" d="M12 200A188 150 0 0 0 362.813 275A188 150 0 0 0 388 200" marker-mid="url(#trajectory-flow-arrow)" />
                   </svg>
                   {% for connection in research.trajectory.connections %}
-                  <a class="trajectory-feature trajectory-loop-paper trajectory-loop-paper-{{ forloop.index }}" href="#paper-{{ connection.paper_id }}" aria-label="{{ connection.label }}: {{ connection.title }}">
+                  {% assign connection_paper = research.papers | where: 'id', connection.paper_id | first %}
+                  <div class="trajectory-feature trajectory-loop-paper trajectory-loop-paper-{{ forloop.index }}">
                     <span class="trajectory-feature-direction">{{ connection.diagram_label | default: connection.title }}</span>
                     <strong>{{ connection.label }}</strong>
                     <span class="trajectory-feature-description">{{ connection.description }}</span>
-                  </a>
+                    {% include research-work-meta.html paper=connection_paper %}
+                  </div>
                   {% endfor %}
                 </div>
                 {% endif %}

@@ -1,0 +1,15 @@
+{% assign meta_paper = include.paper %}
+{% if meta_paper %}
+  {% assign meta_venue = meta_paper.venue_abbr | default: meta_paper.venue_full | default: meta_paper.venue %}
+  {% assign meta_link = meta_paper.links | first %}
+  {% assign meta_url = meta_link.url | default: meta_paper.url %}
+  <div class="trajectory-work-meta">
+    {% if meta_venue %}<span class="trajectory-work-venue">{{ meta_venue | escape }}{% if meta_paper.year %} {{ meta_paper.year }}{% endif %}</span>{% endif %}
+    {% if meta_url %}
+      {% assign meta_label = 'Paper' %}
+      {% if meta_url contains 'arxiv.org/' %}{% assign meta_label = 'arXiv' %}{% elsif meta_url contains 'openreview.net/' %}{% assign meta_label = 'OpenReview' %}{% endif %}
+      {% unless meta_url contains '://' %}{% assign meta_url = meta_url | relative_url %}{% endunless %}
+      <a href="{{ meta_url | escape }}" target="_blank" rel="noopener noreferrer" aria-label="{{ meta_label }} for {{ meta_paper.title | escape }} (opens in a new tab)">{{ meta_label }} <span aria-hidden="true">↗</span></a>
+    {% endif %}
+  </div>
+{% endif %}
