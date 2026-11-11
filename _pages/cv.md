@@ -8,46 +8,9 @@ redirect_from:
   - /resume.html
 ---
 
-{% include base_path %}
+{{ site.data.research.profile.current_role }} at {{ site.data.research.profile.affiliation }}.
+Expected graduation: **{{ site.data.research.profile.expected_graduation }}**.
 
-Education
-======
-* B.S. in Computer Science, Shandong University, 2021
-* M.S. in Data Science, City University of Hong Kong, 2022
+[Download English CV (PDF)]({{ '/files/Xinjian_Zhao_CV.pdf' | relative_url }})
 
-Work experience
-======
-* Fall 2022: Research Assistant
-  * The Chinese University of Hong Kong, Shenzhen
-  * Supervisor: Professor Tianshu Yu
-  
-Skills
-======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
-
-Publications
-======
-  <ul>{% for post in site.publications %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Talks
-======
-  <ul>{% for post in site.talks %}
-    {% include archive-single-talk-cv.html %}
-  {% endfor %}</ul>
-  
-Teaching
-======
-  <ul>{% for post in site.teaching %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Service and leadership
-======
-* Currently signed in to 43 different slack teams
+For research directions and publications, visit my [homepage]({{ '/' | relative_url }}).

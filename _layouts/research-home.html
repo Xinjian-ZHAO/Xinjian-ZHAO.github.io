@@ -49,7 +49,7 @@ layout: compress
         <div class="container hero-grid">
           <div class="hero-content reveal">
             <h1>{{ research.profile.name }}</h1>
-            <p class="hero-intro hero-intro-main">{{ bio_primary }} {{ bio_education }}</p>
+            <p class="hero-intro hero-intro-main">{{ bio_primary }}{% if research.profile.expected_graduation %} I expect to graduate in {{ research.profile.expected_graduation }}.{% endif %} {{ bio_education }}</p>
             <p class="hero-intro hero-intro-main hero-research">{{ research.profile.one_liner }} {% for paragraph in research.profile.intro %}{{ paragraph }} {% endfor %}</p>
             {% if research.profile.job_market %}
             <p class="hero-job-market">{{ research.profile.job_market }} <a href="mailto:{{ research.profile.email }}">{{ research.profile.email }}</a></p>
