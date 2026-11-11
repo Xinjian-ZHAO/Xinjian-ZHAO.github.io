@@ -19,8 +19,8 @@
   --radius-md: 7px;
   --shadow: 0 3px 12px rgba(41, 38, 45, 0.05);
   --container: min(1120px, calc(100% - 48px));
-  --paper-main-size: 1.08rem;
-  --paper-meta-size: 1.02rem;
+  --paper-main-size: 1.12rem;
+  --paper-meta-size: 1.06rem;
 }
 
 *,
@@ -504,7 +504,7 @@ button:focus-visible {
 .paper-authors,
 .paper-venue {
   color: var(--ink);
-  font-size: 0.94rem;
+  font-size: 1rem;
   line-height: 1.45;
 }
 
@@ -515,6 +515,7 @@ button:focus-visible {
 
 .paper-venue {
   color: var(--highlight);
+  font-size: var(--paper-meta-size);
   font-weight: 500;
 }
 
@@ -525,6 +526,7 @@ button:focus-visible {
 }
 
 .paper-authors strong {
+  font-size: var(--paper-meta-size);
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
@@ -589,8 +591,8 @@ button:focus-visible {
 }
 
 .additional-work-main { display: grid; gap: 5px; min-width: 0; overflow-wrap: anywhere; }
-.additional-work-title { font-size: 1.04rem; font-weight: 600; line-height: 1.45; text-decoration: none; }
-.additional-work-title:hover { color: var(--accent-strong); text-decoration: underline; text-underline-offset: 3px; }
+.additional-work-title { font-size: var(--paper-main-size); font-weight: 600; line-height: 1.45; text-decoration: none; }
+a.additional-work-title:hover { color: var(--accent-strong); text-decoration: underline; text-underline-offset: 3px; }
 
 .compact-header {
   gap: 4px;
@@ -634,43 +636,12 @@ button:focus-visible {
   text-wrap: pretty;
 }
 
-.trajectory-root-sprout {
-  position: relative;
+.trajectory-root-illustration {
   display: block;
-  width: 34px;
-  height: 26px;
-  margin: 18px auto -1px;
-}
-
-.trajectory-root-sprout::before {
-  content: "";
-  position: absolute;
-  left: 16px;
-  bottom: 0;
-  width: 1.5px;
-  height: 20px;
-  background: var(--tree-bark);
-}
-
-.trajectory-root-sprout span {
-  position: absolute;
-  top: 3px;
-  width: 14px;
-  height: 9px;
-  border: 1px solid var(--tree-branch);
-  background: var(--tree-leaf);
-}
-
-.trajectory-root-sprout span:first-child {
-  left: 3px;
-  border-radius: 90% 15% 85% 18%;
-  transform: rotate(19deg);
-}
-
-.trajectory-root-sprout span:last-child {
-  right: 2px;
-  border-radius: 15% 90% 18% 85%;
-  transform: rotate(-19deg);
+  width: 96px;
+  height: 64px;
+  object-fit: contain;
+  margin: 8px auto -12px;
 }
 
 .tree-stroke {
@@ -722,8 +693,8 @@ button:focus-visible {
 .trajectory-branches {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 260px minmax(0, 1fr);
-  column-gap: 28px;
+  grid-template-columns: minmax(0, 1fr) 340px minmax(0, 1fr);
+  column-gap: 20px;
 }
 
 .trajectory-branch {
@@ -733,7 +704,7 @@ button:focus-visible {
   align-content: start;
   gap: 20px;
   min-width: 0;
-  padding: 24px;
+  padding: 22px 18px;
   border: 1px solid var(--line);
   border-top: 2px solid var(--tree-branch);
   border-radius: 12px;
@@ -859,7 +830,10 @@ button:focus-visible {
   isolation: isolate;
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  grid-template-rows: auto 64px auto;
+  grid-template-rows: auto auto;
+  gap: 24px;
+  padding: 64px 0;
+  min-height: 360px;
   align-self: center;
   min-width: 0;
 }
@@ -867,14 +841,14 @@ button:focus-visible {
 .trajectory-loop-orbit {
   position: absolute;
   z-index: 0;
-  top: 0;
+  inset: 0;
   overflow: visible;
-  left: -28px;
-  width: calc(100% + 56px);
+  width: 100%;
   height: 100%;
   fill: none;
-  stroke: var(--tree-branch);
-  stroke-width: 1.3;
+  color: var(--accent);
+  stroke: currentColor;
+  stroke-width: 1.6;
   stroke-linecap: round;
   stroke-linejoin: round;
   pointer-events: none;
@@ -888,11 +862,23 @@ button:focus-visible {
   position: relative;
   z-index: 1;
   justify-self: center;
-  width: 100%;
+  width: calc(100% - 96px);
+  align-self: center;
+  gap: 5px;
+  padding: 6px 8px;
+  border-radius: 8px;
+  background: transparent;
+  text-align: center;
 }
 
+.trajectory-loop-paper::before { display: none; }
+.trajectory-loop-paper strong { line-height: 1.2; }
+.trajectory-loop-paper .trajectory-feature-direction { font-size: 0.7rem; line-height: 1.4; }
+.trajectory-loop-paper .trajectory-feature-description { font-size: 0.85rem; }
+.trajectory-loop-paper:hover,
+.trajectory-loop-paper:focus-visible { background: rgba(128, 106, 147, 0.06); border-color: transparent; }
 .trajectory-loop-paper-1 { grid-row: 1; }
-.trajectory-loop-paper-2 { grid-row: 3; }
+.trajectory-loop-paper-2 { grid-row: 2; }
 
 .trajectory-node-list {
   position: relative;
@@ -986,10 +972,8 @@ button:focus-visible {
 
 @media (max-width: 1000px) {
   .trajectory-root { text-align: left; margin: 0; }
-  .trajectory-root-sprout { margin-left: 0; }
-  .trajectory-bridge { width: min(440px, 100%); justify-self: center; }
-  .trajectory-loop-orbit { left: 0; width: 100%; }
-  .trajectory-loop-paper { width: calc(100% - 48px); }
+  .trajectory-root-illustration { margin-left: 0; }
+  .trajectory-bridge { width: min(380px, 100%); justify-self: center; }
   .trajectory-branches {
     grid-template-columns: minmax(0, 1fr);
     grid-template-rows: auto;
@@ -1255,6 +1239,10 @@ button:focus-visible {
   }
 
 
+}
+
+@media (max-width: 380px) {
+  .trajectory-bridge { padding-block: 80px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

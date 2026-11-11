@@ -1,0 +1,6 @@
+Generated using the built-in image_gen tool, 2026-11-11.
+Website export: research-sprig-v1.webp, 384 x 256, alpha preserved.
+The illustration is decorative, not a scientific diagram or institutional logo.
+
+Prompt:
+Use case: stylized-concept. Asset type: a small decorative botanical illustration for the Research Directions header of a white academic homepage. Create one isolated, elegant ink-and-watercolor sprig, two gently branching stems with three or four leaves, with a few small circular junctions subtly suggesting graph representation learning. Hand-drawn editorial botanical style, carefully controlled organic contours, pale lilac watercolor washes and plum-gray ink outlines (approximately #806a93 and #eee8f3), not blue or green. Single compact horizontally balanced composition, ample clear padding, square canvas, readable when displayed at 64 to 80 pixels. Genuinely transparent background with alpha, no paper texture outside the sprig, no shadows, no lettering, no arrows, no logos, no badge frame, no gradients, no extra objects. This illustration is decorative; it must not try to depict the scientific loop.

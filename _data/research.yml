@@ -336,6 +336,11 @@ cross_paper_insights:
     detail: "AI4Science applications show that structure-aware strategies can improve data efficiency and scientific validity in new domains."
 
 additional_works:
+  - id: "work-taper"
+    title: "TAPER: Task-Adaptive Pairwise Energy Regularization for Graph Neural Networks"
+    authors: "Zhixuan Yu, Xinjian Zhao, Tianshu Yu"
+    venue: "WAIC Academic (Shanghai)"
+    year: 2026
   - id: "work-loopmol"
     teaser_label: "Closed-Loop Molecular Design"
     tags: ["Molecular Generation", "LLM Surrogates", "Optimization"]
@@ -420,7 +425,7 @@ mentorship:
   students:
     - name: "Zhongkai Xue"
       url: "https://zhongkai-xue.com/"
-      period: "2024.12-Present"
+      period: "2024.12–2025.09"
       profile: "B.S. in Financial Engineering, CUHK-Shenzhen"
       highlights: "NeurIPS 2025; Research Intern at ByteDance"
       next: "CS PhD student at UCAS"

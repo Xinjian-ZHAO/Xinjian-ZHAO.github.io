@@ -8,7 +8,7 @@ layout: compress
 {% assign shlab = research.institutions.shlab %}
 {% assign cityu = research.institutions.cityu %}
 {% assign sdu = research.institutions.sdu %}
-{% assign asset_version = site.github.build_revision | default: '20261019-research-v11' %}
+{% assign asset_version = site.github.build_revision | default: '20261111-research-v12' %}
 {% capture cuhksz_inline %}<span class="institution-inline">{{ cuhksz.name }}&nbsp;<span class="institution-logo institution-logo-cuhksz" title="{{ cuhksz.short }} logo" aria-hidden="true"><span class="institution-logo-fallback">C</span><img src="{{ cuhksz.logo | relative_url }}" alt="" width="22" height="22" decoding="async"></span></span>{% endcapture %}
 {% capture casia_inline %}<span class="institution-inline">{{ casia.name }}&nbsp;<span class="institution-logo" title="{{ casia.short }} logo" aria-hidden="true"><span class="institution-logo-fallback">I</span><img src="{{ casia.logo | relative_url }}" alt="" width="22" height="22" decoding="async"></span></span>{% endcapture %}
 {% capture shlab_inline %}<span class="institution-inline">{{ shlab.name }}&nbsp;<span class="institution-logo institution-logo-wide" title="{{ shlab.short }} logo" aria-hidden="true"><span class="institution-logo-fallback">S</span><img src="{{ shlab.logo | relative_url }}" alt="" width="50" height="20" decoding="async"></span></span>{% endcapture %}
@@ -81,9 +81,7 @@ layout: compress
             <header class="trajectory-root">
               <h2 id="trajectory-title">{{ research.trajectory.trunk.title }}</h2>
               <p>{{ research.trajectory.trunk.description }}</p>
-              <span class="trajectory-root-sprout" aria-hidden="true">
-                <span></span><span></span>
-              </span>
+              <img class="trajectory-root-illustration" src="{{ '/assets/images/research-sprig-v1.webp' | relative_url }}" alt="" width="96" height="64" loading="lazy" decoding="async" aria-hidden="true">
             </header>
 
             {% assign branches = research.trajectory.branches %}
@@ -141,12 +139,15 @@ layout: compress
                 </section>
                 {% if branch_index == 1 %}
                 <div class="trajectory-bridge" aria-label="Representation–generation research loop">
-                  <svg class="trajectory-loop-orbit" viewBox="0 0 360 420" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-                    {% comment %}Left = representation, right = generation. MolEmb points left; Latent JEPA points right.{% endcomment %}
-                    <path class="trajectory-loop-path" data-flow="generation-to-representation" d="M348 202C308 202 332 46 180 46C28 46 52 202 12 202" />
-                    <path class="trajectory-loop-path" d="M19 196L12 202L19 208" />
-                    <path class="trajectory-loop-path" data-flow="representation-to-generation" d="M12 222C52 222 28 374 180 374C332 374 308 222 348 222" />
-                    <path class="trajectory-loop-path" d="M341 216L348 222L341 228" />
+                  <svg class="trajectory-loop-orbit" viewBox="0 0 400 400" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+                    <defs>
+                      <marker id="trajectory-flow-arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto">
+                        <path d="M2 1.5L6 5L2 8.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                      </marker>
+                    </defs>
+                    {% comment %}Two halves of ONE ellipse (rx=188, ry=150), sharing endpoints. Upper half: generation to representation; lower half: representation to generation. Arrowheads sit on exposed side arcs, outside both paper labels.{% endcomment %}
+                    <path class="trajectory-loop-path" data-flow="generation-to-representation" d="M388 200A188 150 0 0 0 37.187 125A188 150 0 0 0 12 200" marker-mid="url(#trajectory-flow-arrow)" />
+                    <path class="trajectory-loop-path" data-flow="representation-to-generation" d="M12 200A188 150 0 0 0 362.813 275A188 150 0 0 0 388 200" marker-mid="url(#trajectory-flow-arrow)" />
                   </svg>
                   {% for connection in research.trajectory.connections %}
                   <a class="trajectory-feature trajectory-loop-paper trajectory-loop-paper-{{ forloop.index }}" href="#paper-{{ connection.paper_id }}" aria-label="{{ connection.label }}: {{ connection.title }}">
@@ -229,7 +230,11 @@ layout: compress
               <li id="{{ work.id }}">
                 <span class="additional-work-number" aria-label="Publication {{ work_number }}">{% if work_number < 10 %}0{% endif %}{{ work_number }}</span>
                 <div class="additional-work-main">
+                  {% if work.url %}
                   <a class="additional-work-title" href="{{ work.url }}" target="_blank" rel="noopener noreferrer">{{ work.title }}</a>
+                  {% else %}
+                  <h4 class="additional-work-title">{{ work.title }}</h4>
+                  {% endif %}
                   {% assign formatted_work_authors = work.authors | replace: '*', '<span class="equal-marker" aria-label="equal contribution">*</span>' | replace: 'Xinjian Zhao', '<strong>Xinjian Zhao</strong>' %}
                   <p class="paper-authors">{{ formatted_work_authors }}</p>
                   <p class="paper-venue">{{ work.venue }}{% if work.venue_abbr %} <strong><em>({{ work.venue_abbr }})</em></strong>{% endif %}, {{ work.year }}</p>
