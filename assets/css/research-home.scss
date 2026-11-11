@@ -599,16 +599,20 @@ a.additional-work-title:hover { color: var(--accent-strong); text-decoration: un
 }
 
 .trajectory-section {
+  --accent: #6b4384;
+  --accent-strong: #56336c;
+  --ink-muted: #504657;
+  --line: #c8b8d4;
   position: relative;
   background: var(--surface);
   border-block: 1px solid var(--line);
 }
 
 .trajectory-tree {
-  --tree-bark: #695779;
-  --tree-branch: #9a85ab;
-  --tree-twig: #ded4e5;
-  --tree-leaf: #eee7f2;
+  --tree-bark: #5c386f;
+  --tree-branch: #79568e;
+  --tree-twig: #ab91bc;
+  --tree-leaf: #e0d0e9;
   --tree-wash: rgba(128, 106, 147, 0.08);
   position: relative;
   max-width: 1120px;
@@ -737,7 +741,7 @@ a.additional-work-title:hover { color: var(--accent-strong); text-decoration: un
   flex: 0 0 36px;
   fill: var(--surface);
   stroke: var(--accent-strong);
-  stroke-width: 1.4;
+  stroke-width: 1.8;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
@@ -848,7 +852,7 @@ a.additional-work-title:hover { color: var(--accent-strong); text-decoration: un
   fill: none;
   color: var(--accent);
   stroke: currentColor;
-  stroke-width: 1.6;
+  stroke-width: 2.2;
   stroke-linecap: round;
   stroke-linejoin: round;
   pointer-events: none;
@@ -873,8 +877,8 @@ a.additional-work-title:hover { color: var(--accent-strong); text-decoration: un
 
 .trajectory-loop-paper::before { display: none; }
 .trajectory-loop-paper strong { line-height: 1.2; }
-.trajectory-loop-paper .trajectory-feature-direction { font-size: 0.7rem; line-height: 1.4; }
-.trajectory-loop-paper .trajectory-feature-description { font-size: 0.85rem; }
+.trajectory-loop-paper .trajectory-feature-direction { font-size: 0.75rem; line-height: 1.4; font-weight: 700; }
+.trajectory-loop-paper .trajectory-feature-description { font-size: 0.9rem; }
 .trajectory-loop-paper:hover,
 .trajectory-loop-paper:focus-visible { background: rgba(128, 106, 147, 0.06); border-color: transparent; }
 .trajectory-loop-paper-1 { grid-row: 1; }
@@ -946,7 +950,7 @@ a.additional-work-title:hover { color: var(--accent-strong); text-decoration: un
   display: block;
   margin-top: 3px;
   color: var(--ink-muted);
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   line-height: 1.5;
 }
 
