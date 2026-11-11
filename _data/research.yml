@@ -75,7 +75,7 @@ papers:
   - id: "latent-jepa"
     title: "Latent JEPA: Abstract Future Prediction for Latent Reasoning in Chemistry"
     authors: "Xinjian Zhao, Yaoyao Xu, Xuemin Chen, Xiaozhuang Song, Tianshu Yu"
-    venue_full: "Under review"
+    venue_full: "Preprint"
     year: 2026
     accent: "#806a93"
     teaser_label: "Latent Chemical Reasoning"
@@ -346,7 +346,7 @@ additional_works:
     teaser_label: "Closed-Loop Molecular Design"
     tags: ["Molecular Generation", "LLM Surrogates", "Optimization"]
     title: "Closed-Loop Bayesian Molecular Inverse Design with Semantic LLM Surrogates"
-    venue: "Under review"
+    venue: "Preprint"
     year: 2026
     url: "https://arxiv.org/abs/2608.22967"
     authors: "Yaoyao Xu, Xinjian Zhao, Lei Bai, Tianshu Yu"
@@ -355,7 +355,7 @@ additional_works:
     teaser_label: "Controllable Retrosynthesis"
     tags: ["Molecular Generation", "Instruction Following"]
     title: "Coverage Before Control: Route-Instruction Grounding and Steering for Controllable Retrosynthesis"
-    venue: "Under review"
+    venue: "Preprint"
     year: 2026
     url: "https://arxiv.org/abs/2609.39955"
     authors: "Xuemin Chen, Xiaozhuang Song, Xinjian Zhao, Yaoyao Xu, Tianshu Yu"
@@ -373,7 +373,7 @@ additional_works:
     teaser_label: "Chemical Reasoning"
     tags: ["Distillation", "Reasoning", "AI4Science"]
     title: "ChemOPD: Affinity-Guided Multi-Teacher On-Policy Distillation for Chemical Reasoning"
-    venue: "Under review"
+    venue: "Preprint"
     year: 2026
     url: "https://arxiv.org/abs/2609.33838"
     authors: "Yaoyao Xu, Xinjian Zhao, Xiaozhuang Song, Xuemin Chen, Tianshu Yu"
@@ -382,7 +382,7 @@ additional_works:
     teaser_label: "Tabular Representations"
     tags: ["Representation Learning", "Benchmark"]
     title: "TRL-Bench: Standardizing Cross-Paradigm Representation-Level Evaluation of Tabular Encoders"
-    venue: "Under review"
+    venue: "Preprint"
     year: 2026
     url: "https://arxiv.org/abs/2606.09323"
     authors: "Wei Pang, Xiangru Jian, Hehan Li, Zhixuan Yu, Jingxi Xue, Jinyang Li, Zhengyuan Dong, Xinjian Zhao, Hao Xu, Chao Zhang, Reynold Cheng, M. Tamer Özsu, Tianshu Yu"
@@ -390,7 +390,7 @@ additional_works:
   - id: "work-geometric-grounding"
     title: "Geometric Grounding Implicitly Unlocks Structural Reasoning in Chemical Language Models"
     authors: "Xiaozhuang Song, Xinjian Zhao, Lei Bai, Tianshu Yu"
-    venue: "Under review"
+    venue: "Preprint"
     year: 2026
   - id: "work-ht-gnn"
     teaser_label: "Temporal Graph Learning"
