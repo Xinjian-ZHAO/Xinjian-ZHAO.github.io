@@ -342,6 +342,26 @@ additional_works:
     authors: "Zhixuan Yu, Xinjian Zhao, Tianshu Yu"
     venue: "WAIC Academic (Shanghai)"
     year: 2026
+  - id: "work-aot-star"
+    teaser_label: "Synthesis Planning"
+    tags: ["LLM", "Tree Search", "Planning"]
+    title: "AOT*: Efficient Synthesis Planning via LLM-Empowered AND-OR Tree Search"
+    venue: "Findings of the Association for Computational Linguistics"
+    venue_abbr: "ACL Findings"
+    year: 2026
+    url: "https://aclanthology.org/2026.findings-acl.1734/"
+    authors: "Xiaozhuang Song, Xuanhao Pan, Xinjian Zhao, Hangting Ye, Shufei Zhang, Jian Tang, Tianshu Yu"
+    contribution: "Combine LLM-generated synthesis routes with AND-OR tree search to reach competitive solve rates with fewer search iterations."
+  - id: "work-trl-bench"
+    teaser_label: "Tabular Representations"
+    tags: ["Representation Learning", "Benchmark"]
+    title: "TRL-Bench: Standardizing Cross-Paradigm Representation-Level Evaluation of Tabular Encoders"
+    venue: "Conference on Neural Information Processing Systems"
+    venue_abbr: "NeurIPS"
+    year: 2026
+    url: "https://arxiv.org/abs/2606.09323"
+    authors: "Wei Pang, Xiangru Jian, Hehan Li, Zhixuan Yu, Jingxi Xue, Jinyang Li, Zhengyuan Dong, Xinjian Zhao, Hao Xu, Chao Zhang, Reynold Cheng, M. Tamer Özsu, Tianshu Yu"
+    contribution: "A strong tabular encoder in one setting can be weak in another: TRL-Bench disentangles capabilities across representation granularities and pipeline stages."
   - id: "work-loopmol"
     teaser_label: "Closed-Loop Molecular Design"
     tags: ["Molecular Generation", "LLM Surrogates", "Optimization"]
@@ -351,6 +371,24 @@ additional_works:
     url: "https://arxiv.org/abs/2608.22967"
     authors: "Yaoyao Xu, Xinjian Zhao, Lei Bai, Tianshu Yu"
     contribution: "Turn molecular generation into feedback-driven search: an LLM surrogate uses optimization history to guide the next round toward better candidates."
+  - id: "work-chemopd"
+    teaser_label: "Chemical Reasoning"
+    tags: ["Distillation", "Reasoning", "AI4Science"]
+    title: "ChemOPD: Affinity-Guided Multi-Teacher On-Policy Distillation for Chemical Reasoning"
+    venue: "Preprint"
+    year: 2026
+    url: "https://arxiv.org/abs/2609.33838"
+    authors: "Yaoyao Xu, Xinjian Zhao, Xiaozhuang Song, Xuemin Chen, Tianshu Yu"
+    contribution: "Bring complementary chemical specialists into one student through task-affinity-aware, multi-teacher on-policy distillation."
+  - id: "work-ht-gnn"
+    teaser_label: "Temporal Graph Learning"
+    tags: ["Temporal Graphs", "Industrial Applications"]
+    title: "HT-GNN: Hyper-Temporal Graph Neural Network for Customer Lifetime Value Prediction in Baidu Ads"
+    venue: "Technical Report"
+    year: 2026
+    url: "https://arxiv.org/abs/2601.13013"
+    authors: "Xiaohui Zhao, Xinjian Zhao, Jiahui Zhang, Guoyu Liu, Houzhi Wang, Shu Wu"
+    contribution: "Model customer value across time, combining hypergraph structure, temporal dynamics, and task-adaptive experts for multi-horizon prediction."
   - id: "work-coverage-control"
     teaser_label: "Controllable Retrosynthesis"
     tags: ["Molecular Generation", "Instruction Following"]
@@ -369,48 +407,6 @@ additional_works:
     url: "https://arxiv.org/abs/2609.38484"
     authors: "Xiaozhuang Song, Xuemin Chen, Xinjian Zhao, Yaoyao Xu, Tianshu Yu"
     contribution: "Generate new atoms and bond edits jointly, without fixing molecular graph size or prescribing an edit sequence."
-  - id: "work-chemopd"
-    teaser_label: "Chemical Reasoning"
-    tags: ["Distillation", "Reasoning", "AI4Science"]
-    title: "ChemOPD: Affinity-Guided Multi-Teacher On-Policy Distillation for Chemical Reasoning"
-    venue: "Preprint"
-    year: 2026
-    url: "https://arxiv.org/abs/2609.33838"
-    authors: "Yaoyao Xu, Xinjian Zhao, Xiaozhuang Song, Xuemin Chen, Tianshu Yu"
-    contribution: "Bring complementary chemical specialists into one student through task-affinity-aware, multi-teacher on-policy distillation."
-  - id: "work-trl-bench"
-    teaser_label: "Tabular Representations"
-    tags: ["Representation Learning", "Benchmark"]
-    title: "TRL-Bench: Standardizing Cross-Paradigm Representation-Level Evaluation of Tabular Encoders"
-    venue: "Preprint"
-    year: 2026
-    url: "https://arxiv.org/abs/2606.09323"
-    authors: "Wei Pang, Xiangru Jian, Hehan Li, Zhixuan Yu, Jingxi Xue, Jinyang Li, Zhengyuan Dong, Xinjian Zhao, Hao Xu, Chao Zhang, Reynold Cheng, M. Tamer Özsu, Tianshu Yu"
-    contribution: "A strong tabular encoder in one setting can be weak in another: TRL-Bench disentangles capabilities across representation granularities and pipeline stages."
-  - id: "work-geometric-grounding"
-    title: "Geometric Grounding Implicitly Unlocks Structural Reasoning in Chemical Language Models"
-    authors: "Xiaozhuang Song, Xinjian Zhao, Lei Bai, Tianshu Yu"
-    venue: "Preprint"
-    year: 2026
-  - id: "work-ht-gnn"
-    teaser_label: "Temporal Graph Learning"
-    tags: ["Temporal Graphs", "Industrial Applications"]
-    title: "HT-GNN: Hyper-Temporal Graph Neural Network for Customer Lifetime Value Prediction in Baidu Ads"
-    venue: "Technical Report"
-    year: 2026
-    url: "https://arxiv.org/abs/2601.13013"
-    authors: "Xiaohui Zhao, Xinjian Zhao, Jiahui Zhang, Guoyu Liu, Houzhi Wang, Shu Wu"
-    contribution: "Model customer value across time, combining hypergraph structure, temporal dynamics, and task-adaptive experts for multi-horizon prediction."
-  - id: "work-aot-star"
-    teaser_label: "Synthesis Planning"
-    tags: ["LLM", "Tree Search", "Planning"]
-    title: "AOT*: Efficient Synthesis Planning via LLM-Empowered AND-OR Tree Search"
-    venue: "Findings of the Association for Computational Linguistics"
-    venue_abbr: "ACL Findings"
-    year: 2026
-    url: "https://aclanthology.org/2026.findings-acl.1734/"
-    authors: "Xiaozhuang Song, Xuanhao Pan, Xinjian Zhao, Hangting Ye, Shufei Zhang, Jian Tang, Tianshu Yu"
-    contribution: "Combine LLM-generated synthesis routes with AND-OR tree search to reach competitive solve rates with fewer search iterations."
 
 contact:
   note: "I welcome conversations about postdoctoral opportunities and research collaborations. Please contact me by email."
